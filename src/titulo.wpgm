@@ -1,0 +1,22 @@
+import wollok.game.*
+import entrada.*
+import personaje.*
+import comedor.*
+
+
+//import example.pepita
+
+program PepitaGame {
+    entrada.iniciarEntrada()
+	game.start()
+}
+
+/*
+lo que tengo por ahora:::
+pantalla
+collicion
+eliminar elemento
+hablar
+texto
+
+*/
