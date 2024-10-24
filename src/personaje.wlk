@@ -1,44 +1,100 @@
 
-
+import wollok.game.*
 object personaje {
   var property position = game.origin()
-  var property image = "personaje.png"
+  var property image = "idle1Der.png"
+  var property inicioDePartida = true
+  var property ubicacion = 0
+  var property estado = true
+  var property flip = true
 
     method configurarTeclas() {
 		//var property tiempo = 500
 
 		//Left
 		keyboard.a().onPressDo({ 
-			if(0 < self.position().x())
+			if(1 < self.position().x())
 				self.position(self.position().left(1))
+				flip = false
 			})
 		//right
 		keyboard.d().onPressDo({
-			if(game.width()-1 > self.position().x()) 
+			if(game.width()-2 > self.position().x()) 
 			 	self.position(self.position().right(1))
+				flip = true
 			 })
 		//down
 		keyboard.s().onPressDo({ 
-			if(0 < self.position().y())
+			if(1 < self.position().y())
 				self.position(self.position().down(1))
 			})
 		//up
 		keyboard.w().onPressDo({
-			if(game.height()-1 > self.position().y()) 
+			if(game.height()-2 > self.position().y()) 
 			 	self.position(self.position().up(1))
 			 })
 	}
-    /*method agarrar(algo) {
-      game.whenCollideDo(self, { algo => self.hablar(algo) })
-      //game.onCollideDo(pepita, { algo => algo.teEncontro(pepita)})
-    }*/
-    //method hablar(algo) = "hola" + algo.nombre()
-    //method prueba() = "hola"
-
-	//method howAreYou() = "I am Wolloktastik!"
 
   	method irA(nuevaPosicion) {
 		self.position(nuevaPosicion)
-		//personaje.irA(game.at(1, 0)) ejemplo de llamada
 	}
+	
+	method animacion() {
+	  game.onTick(250,"idleState",{=> self.cambioFlip()})
+	}
+	
+	method cambioFlip() {
+	  if(flip){
+		if(estado){
+			image = "idle2Der.png"
+			estado = !estado
+			}
+		else{
+			image = "idle1Der.png"
+			estado = !estado
+			}
+	  }
+	  else
+	  	if(estado){
+	  		image = "idle2Izq.png"
+			estado = !estado
+	  	}
+	  	else{
+			image = "idle1Izq.png"
+			estado = !estado
+	    }
+	}
+	/*
+	method idleDerecha() {
+	  if(estado){
+	  	image = "idle2Der.png"
+		estado = !estado
+	  	}
+	  else{
+		image = "idle1Der.png"
+		estado = !estado
+	    }
+	}
+		method idleIzquierda() {
+	  if(estado){
+	  	image = "idle2Izq.png"
+		estado = !estado
+	  	}
+	  else{
+		image = "idle1Izq.png"
+		estado = !estado
+	    }
+	}/*
+	method animacion() {
+	  if(keyboard.a())
+	  	self.idleDerecha()
+	  else if(keyboard.d())
+	  	self.idleIzquierda()
+	}
+	method flip() {
+		keyboard.a().onPressDo({game.onTick(500,"idleStateDer",{=> self.idleDerecha()})})
+		keyboard.d().onPressDo({game.onTick(500,"idleStateIzq",{=> self.idleIzquierda()})})
+	}	*/
+
+	
 }

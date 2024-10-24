@@ -6,31 +6,30 @@ import textos.*
 import entrada.*
 import wollok.game.*
 
-object comedor {
-  var property image = "fondoComedor.png" 
+object Musica {
+  var property image = "fondoMusica.png" 
   var property position = game.origin()
 
   method iniciar() {
-    //-------------------------------------propiedades de tablero
+    //------------------------------------------------------propiedades de tablero
     self.borraTodo()
     game.addVisual(self)
 
-    game.addVisual(ubicacionComedor)
-    game.schedule(2000, { => game.removeVisual(ubicacionComedor)})// despues de 2s elimina el texto1
-   
-    //------------------------------------estado del personaje
+    game.addVisual(ubicacionMusica)
+    game.schedule(2000, { => game.removeVisual(ubicacionMusica)})// despues de 2s elimina el texto1
+
+    //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
-    personaje.ubicacion(1)
+    personaje.ubicacion(2)
 
-
-    //-------------------------------------Ubicaciones
+    //------------------------------------------------------ubicacion objetos
     //--personaje
     game.addVisualCharacter(personaje)
-    personaje.irA(game.at(7,5))
+    personaje.irA(game.at(2,5))
 
     //--puertas
     game.addVisual(puertaAEntrada)
-    puertaAEntrada.ubicarEn(game.at(8,5))
+    puertaAEntrada.ubicarEn(game.at(1,5))
 
     //--Items
 

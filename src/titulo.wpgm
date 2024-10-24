@@ -3,20 +3,30 @@ import entrada.*
 import personaje.*
 import comedor.*
 
-
-//import example.pepita
-
 program PepitaGame {
-    entrada.iniciarEntrada()
-	game.start()
+    //--definicion del tablero--
+    game.title("SinRetorno -Wollok Version-")
+	game.height(10)
+	game.width(10)
+    game.cellSize(32)
+    
+    //--Inicio del juego--
+    entrada.iniciar()
+    
+    //--movimiento del personaje--
+    personaje.configurarTeclas()
+    personaje.animacion()
+    game.whenCollideDo(personaje, { elemento => elemento.interaccion()})
+	
+    game.start()
 }
 
 /*
-lo que tengo por ahora:::
-pantalla
-collicion
-eliminar elemento
-hablar
-texto
-
+Habitaciones:
+0 = Entrada
+1 = Comedor
+2 = Musica
+3 = 1do piso
+4 = Terraza
+5 = Biblioteca
 */
