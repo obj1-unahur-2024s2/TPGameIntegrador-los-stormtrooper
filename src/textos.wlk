@@ -1,6 +1,17 @@
 import objetos.*
 import wollok.game.*
 
+//----------------------------------------------------------Clase texto
+class TextosInfo {
+  const property texto
+  const property color
+  const property position 
+
+  method text() = texto
+  method textColor() = color
+  method position() = position
+}
+
 //----------------------------------------------------------Color de textos
 object color {
   const property blanco = "#ffffff"
@@ -8,70 +19,30 @@ object color {
   const property amarillo = "#ffff00"
 }
 
-//----------------------------------------------------------Items
-object textoLlave1 {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "Que es esto, parece importante... 
-  !!Encontraste una llave!!"
-  method textColor() = color.blanco()
-}
+
+
+//-------------------------------------------------------OBJ textos
+//--Items
+const textoLlave1 = new TextosInfo(texto ="Que es esto, parece importante...
+!!Encontraste una llave!!",color =color.blanco(), position = game.at(5,0))//para llave 1
+const nadaImportante = new TextosInfo(texto ="No hay nada interesante aqui",color =color.blanco(), position = game.at(5,0))
+
+
 //----------------------------------------------------------Info de Items
-object puertaCerrada {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La puerta esta Cerrada"
-  method textColor() = color.blanco()
-}
+const txtPuertaCerrada = new TextosInfo(texto ="La puerta esta Cerrada",color =color.blanco(), position = game.at(5,0))//para las puertas cerradas
+
+
 
 //---------------------------------------------------------Info de ubicacion
-object ubicacionEntrada {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Entrada"
-  method textColor() = color.blanco()
-}
-object ubicacionComedor {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "El Comedor"
-  method textColor() = color.blanco()
-}
-object ubicacionMusica {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Sala de Musica"
-  method textColor() = color.blanco()
-}
-object ubicacionPrimerPiso {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "Entrada Segundo Piso"
-  method textColor() = color.blanco()
-}
-object ubicacionTerraza {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Terraza"
-}
-object ubicacionBiblioteca {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Biblioteca"
-}
-object ubicacionCocina {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Cocina"
-}
-object ubicacionDormitorio {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "El Dormitorio"
-}
-object ubicacionTunel1 {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "El Tunel Secreto"
-}
-object ubicacionRitual {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "La Sala del Ritual"
-}
-object ubicacionTunelSalida {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "Tunel de Escape"
-}
-object ubicacionJardinTrasero {
-  method position() = game.at(5,0)//(x,y)
-  method text() = "Jardin Trasero"
-}
+const ubicacionEntrada =       new TextosInfo(texto ="Entrada",             color =color.blanco(), position = game.at(5,0))
+const ubicacionComedor =       new TextosInfo(texto ="El Comedor",          color =color.blanco(), position = game.at(5,0))
+const ubicacionMusica =        new TextosInfo(texto ="La Sala de Musica",   color =color.blanco(), position = game.at(5,0))
+const ubicacionPrimerPiso =    new TextosInfo(texto ="Entrada Segundo Piso",color =color.blanco(), position = game.at(5,0))
+const ubicacionTerraza =       new TextosInfo(texto ="La Terraza",          color =color.blanco(), position = game.at(5,0))
+const ubicacionBiblioteca =    new TextosInfo(texto ="La Biblioteca",       color =color.blanco(), position = game.at(5,0))
+const ubicacionCocina =        new TextosInfo(texto ="La Cocina",           color =color.blanco(), position = game.at(5,0))
+const ubicacionDormitorio =    new TextosInfo(texto ="El Dormitorio",       color =color.blanco(), position = game.at(5,0))
+const ubicacionTunel1 =        new TextosInfo(texto ="El Tunel Secreto",    color =color.blanco(), position = game.at(5,0))
+const ubicacionRitual =        new TextosInfo(texto ="La Sala del Ritual",  color =color.blanco(), position = game.at(5,0))
+const ubicacionTunelSalida =   new TextosInfo(texto ="Tunel de Escape",     color =color.blanco(), position = game.at(5,0))
+const ubicacionJardinTrasero = new TextosInfo(texto ="Jardin Trasero",      color =color.blanco(), position = game.at(5,0))

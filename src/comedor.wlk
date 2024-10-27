@@ -19,18 +19,38 @@ object comedor {
     game.schedule(2000, { => game.removeVisual(ubicacionComedor)})// despues de 2s elimina el texto1
    
     //------------------------------------estado del personaje
-    personaje.inicioDePartida(false)
-    personaje.ubicacion(1)
-
+    personaje.inicioDePartida(false)//
 
     //-------------------------------------Ubicaciones
-    //--personaje
-    game.addVisualCharacter(personaje)
-    personaje.irA(game.at(7,5))
+    //--Ubicacion del personaje segun ekl lugar
+    if(personaje.ubicacion() ==0){// desde la entrada
+      game.addVisualCharacter(personaje)
+      personaje.irA(game.at(7,5))
+      }
+    else{//desde cocina
+      game.addVisualCharacter(personaje)
+      personaje.irA(game.at(2,7))
+      }
+
+    //identificador de ubicacion del personaje 
+    personaje.ubicacion(1)
+    /*
+    Habitaciones:
+    0 = Entrada
+    1 = Comedor
+    2 = Musica
+    3 = 1do piso
+    4 = Terraza
+    5 = Biblioteca
+    6 = cocina
+    */
 
     //--puertas
     game.addVisual(puertaAEntrada)
     puertaAEntrada.ubicarEn(game.at(8,5))
+
+    game.addVisual(puertaACocina)
+    puertaACocina.ubicarEn(game.at(2,8))
 
     //--Items
 
@@ -47,7 +67,9 @@ object comedor {
     game.removeVisual(puertaAEntrada)
     game.removeVisual(puertaAMusica)
     game.removeVisual(escaleraAPrimerPiso)
-
+    game.removeVisual(puertaACocina)
+    game.removeVisual(puertaATerraza)
+    game.removeVisual(puertaAPrimerPiso)
+    game.removeVisual(escaleraAEntrada)
   }
-
 }

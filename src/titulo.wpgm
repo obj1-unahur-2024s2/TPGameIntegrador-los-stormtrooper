@@ -13,20 +13,10 @@ program PepitaGame {
     //--Inicio del juego--
     entrada.iniciar()
     
-    //--movimiento del personaje--
+    //--Metodos que se aplican durante todo el juego (no deben repetirse)--
     personaje.configurarTeclas()
     personaje.animacion()
     game.whenCollideDo(personaje, { elemento => elemento.interaccion()})
-	
+    
     game.start()
 }
-
-/*
-Habitaciones:
-0 = Entrada
-1 = Comedor
-2 = Musica
-3 = 1do piso
-4 = Terraza
-5 = Biblioteca
-*/

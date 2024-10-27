@@ -6,8 +6,8 @@ import textos.*
 import entrada.*
 import wollok.game.*
 
-object musica {
-  var property image = "fondoMusica.png" 
+object cocina {
+  var property image = "fondoCocina.png" 
   var property position = game.origin()
 
   method iniciar() {
@@ -15,12 +15,12 @@ object musica {
     self.borraTodo()
     game.addVisual(self)
 
-    game.addVisual(ubicacionMusica)
-    game.schedule(2000, { => game.removeVisual(ubicacionMusica)})// despues de 2s elimina el texto1
+    game.addVisual(ubicacionCocina)
+    game.schedule(2000, { => game.removeVisual(ubicacionCocina)})// despues de 2s elimina el texto1
 
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
-    personaje.ubicacion(2)
+    personaje.ubicacion(6)
     /*
     Habitaciones:
     0 = Entrada
@@ -35,11 +35,31 @@ object musica {
     //------------------------------------------------------ubicacion objetos
     //--personaje
     game.addVisualCharacter(personaje)
-    personaje.irA(game.at(2,5))
+    personaje.irA(game.at(2,2))
+    // va a cambiar
+
+
+
+
+
+
+
 
     //--puertas
-    game.addVisual(puertaAEntrada)
-    puertaAEntrada.ubicarEn(game.at(1,5))
+    game.addVisual(puertaAComedor)
+    puertaAComedor.ubicarEn(game.at(2,1))
+
+    //puerta sotano
+
+
+
+
+
+
+
+
+
+
 
     //--Items
 

@@ -1,14 +1,15 @@
 
 import wollok.game.*
 object personaje {
-  var property position = game.origin()
-  var property image = "idle1Der.png"
-  var property inicioDePartida = true
-  var property ubicacion = 0
-  var property estado = true
-  var property flip = true
+  	var property position = game.origin()
+  	var property image = "idle1Der.png"
+  	var property inicioDePartida = true
+  	var property ubicacion = 0
+  	var property estado = true
+  	var property flip = true
 
-    method configurarTeclas() {
+	//--Control del personaje
+	method configurarTeclas() {
 		//var property tiempo = 500
 
 		//Left
@@ -35,34 +36,32 @@ object personaje {
 			 })
 	}
 
+	//--Reubicador de personaje
   	method irA(nuevaPosicion) {
 		self.position(nuevaPosicion)
 	}
-	
+	//--Animador de personaje
 	method animacion() {
-	  game.onTick(250,"idleState",{=> self.cambioFlip()})
+	  game.onTick(200,"idleState",{=> self.cambioFlip()})
 	}
 	
+	method imagenIdle(unaImagen) {
+		image = unaImagen
+		estado = !estado
+}
 	method cambioFlip() {
 	  if(flip){
-		if(estado){
-			image = "idle2Der.png"
-			estado = !estado
-			}
-		else{
-			image = "idle1Der.png"
-			estado = !estado
-			}
+		if(estado)
+			self.imagenIdle("idle2Der.png")
+		else
+			self.imagenIdle("idle1Der.png")
 	  }
-	  else
-	  	if(estado){
-	  		image = "idle2Izq.png"
-			estado = !estado
-	  	}
-	  	else{
-			image = "idle1Izq.png"
-			estado = !estado
-	    }
+	  else{
+	  	if(estado)
+	  		self.imagenIdle("idle2Izq.png")
+	  	else
+			self.imagenIdle("idle1Izq.png")
+	  }
 	}
 	/*
 	method idleDerecha() {
