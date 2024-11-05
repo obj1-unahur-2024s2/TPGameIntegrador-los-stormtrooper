@@ -5,71 +5,49 @@ import personaje.*
 import textos.*
 import entrada.*
 import wollok.game.*
+import barraItems.*
+import tablero.*
+
 
 object comedor {
-  var property image = "fondoComedor.png" 
+  var property image = "fondoComedorV5.png" 
   var property position = game.origin()
 
   method iniciar() {
     //-------------------------------------propiedades de tablero
-    self.borraTodo()
-    game.addVisual(self)
+    habitacion.iniciarHabitacion(self,ubicacionComedor)
 
-    game.addVisual(ubicacionComedor)
-    game.schedule(2000, { => game.removeVisual(ubicacionComedor)})// despues de 2s elimina el texto1
-   
-    //------------------------------------estado del personaje
+    //-------------------------------------estado del personaje
     personaje.inicioDePartida(false)//
 
     //-------------------------------------Ubicaciones
     //--Ubicacion del personaje segun ekl lugar
-    if(personaje.ubicacion() ==0){// desde la entrada
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(7,5))
-      }
-    else{//desde cocina
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(2,7))
-      }
-
+    if(personaje.ubicacion() =="entrada")// desde la entrada
+      habitacion.ubicarPersonaje(9, 4)
+    else//desde cocina
+      habitacion.ubicarPersonaje(3, 9)
     //identificador de ubicacion del personaje 
-    personaje.ubicacion(1)
-    /*
-    Habitaciones:
-    0 = Entrada
-    1 = Comedor
-    2 = Musica
-    3 = 1do piso
-    4 = Terraza
-    5 = Biblioteca
-    6 = cocina
-    */
+    personaje.ubicacion("comedor")
 
     //--puertas
-    game.addVisual(puertaAEntrada)
-    puertaAEntrada.ubicarEn(game.at(8,5))
+    habitacion.ubicarEnTablero(puertaAEntrada, 10, 4)
+    habitacion.ubicarEnTablero(puertaACocina, 3, 10)
 
-    game.addVisual(puertaACocina)
-    puertaACocina.ubicarEn(game.at(2,8))
+    //Limites Tablero
+    habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
+    habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
+    habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
+    habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
+    habitacion.ubicarUnKeyItem(itemLlaveTerraza, 6, 5)
+    habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
+
+    //Textos
+    
+    //Items en Inventario
+    barraItems.verificar()
 
   }
 
-  method borraTodo() {
-    //fondo
-    game.removeVisual(self)
-    //personaje, items
-    game.removeVisual(personaje)
-    game.removeVisual(llave1)
-    //puertas
-    game.removeVisual(puertaAComedor)
-    game.removeVisual(puertaAEntrada)
-    game.removeVisual(puertaAMusica)
-    game.removeVisual(escaleraAPrimerPiso)
-    game.removeVisual(puertaACocina)
-    game.removeVisual(puertaATerraza)
-    game.removeVisual(puertaAPrimerPiso)
-    game.removeVisual(escaleraAEntrada)
-  }
 }

@@ -8,6 +8,11 @@ import textos.*
 import wollok.game.*
 import cocina.*
 import terraza.*
+import biblioteca.*
+import dormitorio.*
+import tunel.*
+import ritual.*
+import final.*
 
 //-------------------------------------------------------------------------------clase  Puertas
 class Puertas {
@@ -57,7 +62,7 @@ const puertaAEntrada = new PuertasAbiertas(image= "Door1Open.png", irHacia= entr
 const escaleraAEntrada = new PuertasAbiertas(image= "escalerasDownV2.png", irHacia= entrada, mensaje= txtPuertaCerrada )
 
 //-----------------------------------------------------Entrada -->> Musica
-const puertaAMusica = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= llave1, irHacia= musica, mensaje= txtPuertaCerrada )
+const puertaAMusica = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveMusica, irHacia= musica, mensaje= txtPuertaCerrada )
 
 //-----------------------------------------------------Entrada -->> primer piso
 const escaleraAPrimerPiso = new PuertasAbiertas(image= "escalerasUp.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
@@ -66,7 +71,19 @@ const escaleraAPrimerPiso = new PuertasAbiertas(image= "escalerasUp.png", irHaci
 const puertaAPrimerPiso = new PuertasAbiertas(image= "Door3Open.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
 
 //-----------------------------------------------------Comedor -->> Cocina
-const puertaACocina = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= llave1, irHacia= cocina, mensaje= txtPuertaCerrada )
+const puertaACocina = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveCocina, irHacia= cocina, mensaje= txtPuertaCerrada )
 
 //-----------------------------------------------------primer piso ==>> primer piso
-const puertaATerraza = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= llave1, irHacia= terraza, mensaje= txtPuertaCerrada )
+const puertaATerraza = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveTerraza, irHacia= terraza, mensaje= txtPuertaCerrada )
+
+const puertaADormitorio = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveDormi, irHacia= dormitorio, mensaje= txtPuertaCerrada )
+
+const puertaABiblioteca = new PuertasAbiertas(image= "Door3Open.png", irHacia= biblioteca, mensaje= txtPuertaCerrada )
+
+
+//--------------
+const puertaATunel = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )
+
+const puertaARitual = new PuertasAbiertas(image= "Door2Open.png", irHacia= ritual, mensaje= txtPuertaCerrada )
+
+const puertaAFinal = new PuertasAbiertas(image= "Door2Open.png", irHacia= final, mensaje= txtPuertaCerrada )

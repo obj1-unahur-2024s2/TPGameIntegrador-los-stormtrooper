@@ -5,61 +5,43 @@ import personaje.*
 import textos.*
 import entrada.*
 import wollok.game.*
+import barraItems.*
+import tablero.*
 
 object musica {
-  var property image = "fondoMusica.png" 
+  var property image = "fondoMusicaV5.png" 
   var property position = game.origin()
 
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
-    self.borraTodo()
-    game.addVisual(self)
-
-    game.addVisual(ubicacionMusica)
-    game.schedule(2000, { => game.removeVisual(ubicacionMusica)})// despues de 2s elimina el texto1
+    habitacion.iniciarHabitacion(self,ubicacionMusica)
 
     //------------------------------------------------------estado del personaje
-    personaje.inicioDePartida(false)
-    personaje.ubicacion(2)
-    /*
-    Habitaciones:
-    0 = Entrada
-    1 = Comedor
-    2 = Musica
-    3 = 1do piso
-    4 = Terraza
-    5 = Biblioteca
-    6 = cocina
-    */
+    //personaje.inicioDePartida(false)
+    personaje.ubicacion("musica")
 
     //------------------------------------------------------ubicacion objetos
     //--personaje
-    game.addVisualCharacter(personaje)
-    personaje.irA(game.at(2,5))
+    habitacion.ubicarPersonaje(2, 4)
 
     //--puertas
-    game.addVisual(puertaAEntrada)
-    puertaAEntrada.ubicarEn(game.at(1,5))
+    habitacion.ubicarEnTablero(puertaAEntrada, 1, 4)
+
+    //Limites Tablero
+    habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
+    habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
+    habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
+    habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
+    habitacion.ubicarUnKeyItem(itemEmblema, 2, 9)
+    habitacion.ubicarUnKeyItem(itemNota1, 6, 2)
+    
+  
 
-  }
 
-  method borraTodo() {
-    //fondo
-    game.removeVisual(self)
-    //personaje, items
-    game.removeVisual(personaje)
-    game.removeVisual(llave1)
-    //puertas
-    game.removeVisual(puertaAComedor)
-    game.removeVisual(puertaAEntrada)
-    game.removeVisual(puertaAMusica)
-    game.removeVisual(escaleraAPrimerPiso)
-    game.removeVisual(puertaACocina)
-    game.removeVisual(puertaATerraza)
-    game.removeVisual(puertaAPrimerPiso)
-    game.removeVisual(escaleraAEntrada)
+    //Items en Inventario
+    barraItems.verificar()
   }
 
 }

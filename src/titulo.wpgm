@@ -2,12 +2,13 @@ import wollok.game.*
 import entrada.*
 import personaje.*
 import comedor.*
+import objetos.*
 
 program PepitaGame {
     //--definicion del tablero--
     game.title("SinRetorno -Wollok Version-")
-	game.height(10)
-	game.width(10)
+	game.height(12)
+	game.width(12)
     game.cellSize(32)
     
     //--Inicio del juego--

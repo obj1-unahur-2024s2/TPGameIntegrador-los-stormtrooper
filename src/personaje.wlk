@@ -1,10 +1,12 @@
+import entrada.*
+import objetos.*
 
 import wollok.game.*
 object personaje {
   	var property position = game.origin()
   	var property image = "idle1Der.png"
   	var property inicioDePartida = true
-  	var property ubicacion = 0
+  	var property ubicacion = "vacio"
   	var property estado = true
   	var property flip = true
 
@@ -14,24 +16,24 @@ object personaje {
 
 		//Left
 		keyboard.a().onPressDo({ 
-			if(1 < self.position().x())
+			if(topeIzq.position().x()+1 < self.position().x() )//puertaAComedor.position().x()+1  //&& 1 < self.position().x()
 				self.position(self.position().left(1))
 				flip = false
 			})
 		//right
 		keyboard.d().onPressDo({
-			if(game.width()-2 > self.position().x()) 
+			if(topeDer.position().x()-1 > self.position().x()) //no se //game.width()-2 > self.position().x()  && 
 			 	self.position(self.position().right(1))
 				flip = true
 			 })
 		//down
 		keyboard.s().onPressDo({ 
-			if(1 < self.position().y())
+			if(topeAbajo.position().y()+1 < self.position().y())//1 < self.position().y() && 
 				self.position(self.position().down(1))
 			})
 		//up
 		keyboard.w().onPressDo({
-			if(game.height()-2 > self.position().y()) 
+			if(topeArriba.position().y()-1 > self.position().y()) //no se /*game.height()-2 > self.position().y() && */
 			 	self.position(self.position().up(1))
 			 })
 	}

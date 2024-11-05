@@ -1,94 +1,68 @@
+import barraItems.*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
 import wollok.game.*
+import tablero.*
 
 object entrada {
-  var property image = "fondoEntradaV2.png" 
+  const property image = "fondoEntradaV8.png" 
   var property position = game.origin()
-  
+
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
-    self.borraTodo()//inicializa el tablero
-    game.addVisual(self)
+    habitacion.iniciarHabitacion(self,ubicacionEntrada)
     
-    //--texto indicador de lugar--
-    game.addVisual(ubicacionEntrada)
-    game.schedule(2000, { => game.removeVisual(ubicacionEntrada)})
-
     //----------------------------------------------------------------Ubicaciones
     //--Ubicacion del personaje segun de donde viene--
-	  if(personaje.inicioDePartida()){// ubicacion inicial
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(5,1))
-      }
-    else if(personaje.ubicacion() ==1){// volver de la cocina
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(2,5))
-      }
-    else if(personaje.ubicacion() ==2){// volver de musica
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(7,5))
-      }
-    else if(personaje.ubicacion() ==3){// volver de 1er piso
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(5,5))
-      }
+	  if(personaje.inicioDePartida())// ubicacion inicial
+      habitacion.ubicarPersonaje(5, 1)
+    else if(personaje.ubicacion() =="comedor")// volver del comedor
+      habitacion.ubicarPersonaje(2, 4)
+    else if(personaje.ubicacion() =="musica")// volver de musica
+      habitacion.ubicarPersonaje(9, 4)
+    else if(personaje.ubicacion() =="primerPiso")// volver de 1er piso
+      habitacion.ubicarPersonaje(6, 6)
     //identificador de ubicacion del personaje 
-    personaje.ubicacion(0)
-    /*
-    Habitaciones:
-    0 = Entrada
-    1 = Comedor
-    2 = Musica
-    3 = 1do piso
-    4 = Terraza
-    5 = Biblioteca
-    6 = cocina
-    */
+    personaje.ubicacion("entrada")
 
     //--Puertas
-    game.addVisual(puertaAComedor)
-    puertaAComedor.ubicarEn(game.at(1,5))//(x,y) 0 a 9
-
-    game.addVisual(puertaAMusica)
-    puertaAMusica.ubicarEn(game.at(8,5))
-    //Escalera
-    game.addVisual(escaleraAPrimerPiso)
-    escaleraAPrimerPiso.ubicarEn(game.at(4,6))
-
+    habitacion.ubicarEnTablero(puertaAComedor, 1, 4)
+    habitacion.ubicarEnTablero(puertaAMusica, 10, 4)
+    habitacion.ubicarEnTablero(escaleraAPrimerPiso, 5, 7)
+    
+    //Limites Tablero
+    habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
+    habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
+    habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
+    habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
     //--Items
 
-    //--elimina el obj si ya fue obtenido--
-    if(!llave1.enInventario())
-      game.addVisual(llave1)
-      llave1.ubicarEn(game.at(1,8))
-    
-    //texto prueba
-    game.addVisual(prueba1)
-    prueba1.ubicarEn(game.at(8,1))
-    
-    //--colicion con los objetos--
-    //game.whenCollideDo(personaje, { elemento => elemento.interaccion()})
+    //Textos
+    habitacion.ubicarEnTablero(txtNadaImportante, 3, 1)
+
+    //Items en Inventario
+    barraItems.verificar()
+            
+    const ancho = game.width()-2
+		const largo = game.height()-2    
+		//(0 .. ancho-1).forEach { n => new Arbusto(position = new Position(x = n, y = 1)).dibujar() } // bordeAbajo
+		//(0 .. ancho-1).forEach { n => new Arbusto(position = new Position(x =n, y = largo)).dibujar() } // bordeArriba 
+		//(0 .. largo).forEach { n => new Arbusto(position = new Position(x =2, y = n)).dibujar() } // bordeIzq 
+		//(0 .. largo).forEach { n => new Arbusto(position = new Position(x =ancho, y = n)).dibujar() } // bordeDer
   }
 
-  //--limpia la pantalla.--
-  method borraTodo() {
-    //fondo
-    game.removeVisual(self)
-    //personaje, items
-    game.removeVisual(personaje)
-    game.removeVisual(llave1)
-    //puertas
-    game.removeVisual(puertaAComedor)
-    game.removeVisual(puertaAEntrada)
-    game.removeVisual(puertaAMusica)
-    game.removeVisual(escaleraAPrimerPiso)
-    game.removeVisual(puertaACocina)
-    game.removeVisual(puertaATerraza)
-    game.removeVisual(puertaAPrimerPiso)
-    game.removeVisual(escaleraAEntrada)
-  }
 }
+class Arbusto {
+	var property position
+	
+	method dibujar() {
+		game.addVisual(self)
+	}
+
+	method image() = "key1.png"
+  method interaccion(){}
+}
+
