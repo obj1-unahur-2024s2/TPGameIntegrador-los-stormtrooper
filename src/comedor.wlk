@@ -7,6 +7,8 @@ import entrada.*
 import wollok.game.*
 import barraItems.*
 import tablero.*
+import fantasma.*
+
 
 
 object comedor {
@@ -47,6 +49,8 @@ object comedor {
     
     //Items en Inventario
     barraItems.verificar()
+
+    //game.addVisual(fantasmaDiagona1)
 
   }
 

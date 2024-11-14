@@ -6,6 +6,7 @@ import personaje.*
 import textos.*
 import wollok.game.*
 import tablero.*
+import fantasma.*
 
 object entrada {
   const property image = "fondoEntradaV8.png" 
@@ -14,7 +15,8 @@ object entrada {
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionEntrada)
-    
+    //barraDeVida.mostrarVidas()
+    //game.addVisual(corazon1)
     //----------------------------------------------------------------Ubicaciones
     //--Ubicacion del personaje segun de donde viene--
 	  if(personaje.inicioDePartida())// ubicacion inicial
@@ -45,24 +47,14 @@ object entrada {
 
     //Items en Inventario
     barraItems.verificar()
-            
-    const ancho = game.width()-2
-		const largo = game.height()-2    
-		//(0 .. ancho-1).forEach { n => new Arbusto(position = new Position(x = n, y = 1)).dibujar() } // bordeAbajo
-		//(0 .. ancho-1).forEach { n => new Arbusto(position = new Position(x =n, y = largo)).dibujar() } // bordeArriba 
-		//(0 .. largo).forEach { n => new Arbusto(position = new Position(x =2, y = n)).dibujar() } // bordeIzq 
-		//(0 .. largo).forEach { n => new Arbusto(position = new Position(x =ancho, y = n)).dibujar() } // bordeDer
+
+    game.addVisual(fantasmaDiagonaEntrada1)
+    game.addVisual(fantasmaDiagonaEntrada2)
+    //game.addVisual(fantasmaDiagonaEntrada3)
+
+    game.addVisual(fantasmaDiagonaEntradaOP1)
+    
+    //habitacion.ubicarEnTablero(corazonvida1, 0, 10)
   }
 
 }
-class Arbusto {
-	var property position
-	
-	method dibujar() {
-		game.addVisual(self)
-	}
-
-	method image() = "key1.png"
-  method interaccion(){}
-}
-

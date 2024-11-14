@@ -18,6 +18,7 @@ program PepitaGame {
     personaje.configurarTeclas()
     personaje.animacion()
     game.whenCollideDo(personaje, { elemento => elemento.interaccion()})
+    //keyboard.space().onPressDo({game.stop()})
     
     game.start()
 }

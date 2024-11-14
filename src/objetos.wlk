@@ -278,3 +278,27 @@ const topeAbajo = new Tope()
 const topeArriba = new Tope()
 const topeIzq = new Tope()
 const topeDer = new Tope()
+
+
+//--vida
+class Corazones {
+  const image = "life1Full.png"
+  const position
+}
+
+const corazonvida1 = new Corazones (position = game.at(0,10))
+const corazonvida2 = new Corazones (position = game.at(0,9))
+const corazonvida3 = new Corazones (position = game.at(0,8))
+
+object corazon1 {
+  const property image = "life1Full.png"
+  const property position = game.at(0,10)
+}
+object corazon2 {
+  const property image = "life1Full.png"
+  const property position = game.at(0,9)
+}
+object corazon3 {
+  const property image = "life1Full.png"
+  const property position = game.at(0,8)
+}

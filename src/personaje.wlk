@@ -1,101 +1,125 @@
 import entrada.*
 import objetos.*
+import fantasma.*
+import gameOver.*
 
 import wollok.game.*
 object personaje {
   	var property position = game.origin()
-  	var property image = "idle1Der.png"
+  	var property image = "personajeR.png"
   	var property inicioDePartida = true
   	var property ubicacion = "vacio"
   	var property estado = true
-  	var property flip = true
+	var property personajeVida = 3
+	var orientacion = 1
 
-	//--Control del personaje
+//------------------------------------------------------------------------Control del personaje
 	method configurarTeclas() {
-		//var property tiempo = 500
-
 		//Left
 		keyboard.a().onPressDo({ 
 			if(topeIzq.position().x()+1 < self.position().x() )//puertaAComedor.position().x()+1  //&& 1 < self.position().x()
 				self.position(self.position().left(1))
-				flip = false
+				//flip = false
+				image = "personajeL.png"
+				orientacion = 4
 			})
 		//right
 		keyboard.d().onPressDo({
 			if(topeDer.position().x()-1 > self.position().x()) //no se //game.width()-2 > self.position().x()  && 
 			 	self.position(self.position().right(1))
-				flip = true
+				//flip = true
+				image = "personajeR.png"
+				orientacion = 2
 			 })
 		//down
 		keyboard.s().onPressDo({ 
 			if(topeAbajo.position().y()+1 < self.position().y())//1 < self.position().y() && 
 				self.position(self.position().down(1))
+				image = "personajeD.png"
+				orientacion = 3
 			})
 		//up
 		keyboard.w().onPressDo({
 			if(topeArriba.position().y()-1 > self.position().y()) //no se /*game.height()-2 > self.position().y() && */
 			 	self.position(self.position().up(1))
+				image = "personajeU1.png"
+				orientacion = 1
 			 })
 	}
 
-	//--Reubicador de personaje
+//-------------------------------------------------------------Reubicador de personaje
   	method irA(nuevaPosicion) {
 		self.position(nuevaPosicion)
 	}
-	//--Animador de personaje
-	method animacion() {
-	  game.onTick(200,"idleState",{=> self.cambioFlip()})
+//----------------------------------------------------------------------------VIDA
+	method restarVida() {
+	  personajeVida = personajeVida -1
 	}
-	
-	method imagenIdle(unaImagen) {
-		image = unaImagen
-		estado = !estado
-}
-	method cambioFlip() {
-	  if(flip){
-		if(estado)
-			self.imagenIdle("idle2Der.png")
-		else
-			self.imagenIdle("idle1Der.png")
-	  }
-	  else{
-	  	if(estado)
-	  		self.imagenIdle("idle2Izq.png")
-	  	else
-			self.imagenIdle("idle1Izq.png")
-	  }
-	}
-	/*
-	method idleDerecha() {
-	  if(estado){
-	  	image = "idle2Der.png"
-		estado = !estado
-	  	}
-	  else{
-		image = "idle1Der.png"
-		estado = !estado
-	    }
-	}
-		method idleIzquierda() {
-	  if(estado){
-	  	image = "idle2Izq.png"
-		estado = !estado
-	  	}
-	  else{
-		image = "idle1Izq.png"
-		estado = !estado
-	    }
-	}/*
-	method animacion() {
-	  if(keyboard.a())
-	  	self.idleDerecha()
-	  else if(keyboard.d())
-	  	self.idleIzquierda()
-	}
-	method flip() {
-		keyboard.a().onPressDo({game.onTick(500,"idleStateDer",{=> self.idleDerecha()})})
-		keyboard.d().onPressDo({game.onTick(500,"idleStateIzq",{=> self.idleIzquierda()})})
-	}	*/
 
-	
+	method morir() {
+	  if(personajeVida == 0)
+	  	gameOver.iniciar()
+	}
+
+//---------------------------------------------------------------------------Animador de personaje
+	method animacion() {
+	  game.onTick(400,"estados",{=> self.estados()})
+	}
+
+	method estados() {
+		if(orientacion ==1)//arriba
+			self.CambioDeSprite("personajeU1.png","personajeU2.png")
+
+		else if(orientacion ==2)//derecha
+			self.CambioDeSprite("personajeR.png","personajeR2.png")
+
+		else if(orientacion ==3)//abajo
+			self.CambioDeSprite("personajeD.png","personajeD2.png")
+
+		else if(orientacion ==4)//izquierda
+			self.CambioDeSprite("personajeL.png","personajeL2.png")
+
+	}
+
+	method CambioDeSprite(imagen1,imagen2) {
+	  	if(estado){
+			image = imagen1
+			estado = !estado
+		}
+		else{
+			image = imagen2
+			estado = !estado
+		}
+	}
+}
+
+//-------------pantallaroja de damage
+object damage {
+  const property image = "damage.png"
+  var property position = game.origin()
+}
+
+//---------------------------actualiza los corazones cada vez que cambia de pantalla
+object barraDeVida {
+  method mostrarVidas() {
+	if(personaje.personajeVida() ==3){
+		game.addVisual(corazon1)
+		game.addVisual(corazon2)
+		game.addVisual(corazon3)
+	}
+	else if(personaje.personajeVida() ==2){
+		game.addVisual(corazon1)
+		game.addVisual(corazon2)
+	}
+	else
+		game.addVisual(corazon1)
+  }
+//--------------------------------elimina los corazones a medida que pierde vida
+  method sacarVidas() {
+	if(personaje.personajeVida() ==2){
+		game.removeVisual(corazon3)
+	}
+	else
+		game.removeVisual(corazon2)
+  }
 }

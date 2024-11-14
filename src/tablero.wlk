@@ -5,6 +5,7 @@ import titulo.*
 import personaje.*
 import textos.*
 import wollok.game.*
+import fantasma.*
 
 object habitacion {
   method siEstaEnInventario(unItem) {//ubicador de items inventario
@@ -17,6 +18,7 @@ object habitacion {
     game.addVisual(unaUbicacion)
     //--texto indicador de lugar--
     game.addVisual(textoUbicacion)
+    barraDeVida.mostrarVidas()
   }
 
   method ubicarEnTablero(puertaA, x, y) {//ubica objetos en la pantalla
@@ -46,11 +48,12 @@ object habitacion {
       }
   }
 
-  method borrarTodo(unFondo) {
+  method borrarTodo(unFondo) {//borra todo cada vez que cambia de pantalla (--ES IMPORTANTE QUE TODOS LOS OBJETOS ESTEN CARGADO ACA--)
     //fondo
     game.removeVisual(unFondo)
     //personaje, items
     game.removeVisual(personaje)
+    
     game.removeVisual(itemLlaveTerraza)
     game.removeVisual(iconLlave1Inv)
     game.removeVisual(txtNadaImportante)
@@ -82,6 +85,17 @@ object habitacion {
     game.removeVisual(topeDer)
     game.removeVisual(topeIzq)
 
+    //--corazones
+    game.removeVisual(corazon1)
+    game.removeVisual(corazon2)
+    game.removeVisual(corazon3)
+
+    //Enemigos
+    game.removeVisual(fantasmaDiagonaEntrada1)
+    game.removeVisual(fantasmaDiagonaEntrada2)
+    game.removeVisual(fantasmaDiagonaEntrada3)
+    game.removeVisual(fantasmaDiagonaEntradaOP1)
+    
     //puertas
     game.removeVisual(puertaAComedor)
     game.removeVisual(puertaAEntrada)
