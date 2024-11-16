@@ -9,7 +9,7 @@ import barraItems.*
 import tablero.*
 
 object cocina {
-  var property image = "fondoCocinaV2.png" 
+  var property image = "fondoCocinaV3.png" 
   var property position = game.origin()
 
   method iniciar() {
@@ -33,8 +33,11 @@ object cocina {
 
     //--puertas
     habitacion.ubicarEnTablero(puertaAComedor, 4, 1)
+    habitacion.ubicarEnTablero(puertaATunel, 9, 7)
 
     //--Items
+    habitacion.ubicarUnKeyItem(itemNota2, 9, 2)
+    habitacion.ubicarUnKeyItem(itemPolvoEstrellas, 7, 8)
 
     //Items en Inventario
     barraItems.verificar()

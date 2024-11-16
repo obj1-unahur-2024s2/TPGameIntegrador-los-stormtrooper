@@ -36,9 +36,11 @@ object musica {
     //--Items
     habitacion.ubicarUnKeyItem(itemEmblema, 2, 9)
     habitacion.ubicarUnKeyItem(itemNota1, 6, 2)
-    
-  
+    habitacion.ubicarUnKeyItem(itemNota3, 9, 10)
 
+    
+    
+    habitacion.ubicarEnTablero(txtClavePolvo1, 9, 10)
 
     //Items en Inventario
     barraItems.verificar()

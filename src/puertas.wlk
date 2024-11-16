@@ -13,6 +13,15 @@ import dormitorio.*
 import tunel.*
 import ritual.*
 import final.*
+import jardin.*
+
+/*--INDICE--
+-Clase Puerta
+-Clase Puertas Abiertas
+-Clase Puertas Cerradas
+
+-Instanciacion de las puertas
+*/
 
 //-------------------------------------------------------------------------------clase  Puertas
 class Puertas {
@@ -54,36 +63,31 @@ class PuertasCerradas inherits Puertas  {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//-----------------------------------------------------Entrada -->> Comedor
 const puertaAComedor = new PuertasAbiertas(image= "Door1Open.png", irHacia= comedor, mensaje= txtPuertaCerrada )
 
-//-----------------------------------------------------Comedor, musica, primerpiso -->> Entrada
 const puertaAEntrada = new PuertasAbiertas(image= "Door1Open.png", irHacia= entrada, mensaje= txtPuertaCerrada )
+
 const escaleraAEntrada = new PuertasAbiertas(image= "escalerasDownV2.png", irHacia= entrada, mensaje= txtPuertaCerrada )
 
-//-----------------------------------------------------Entrada -->> Musica
 const puertaAMusica = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveMusica, irHacia= musica, mensaje= txtPuertaCerrada )
 
-//-----------------------------------------------------Entrada -->> primer piso
 const escaleraAPrimerPiso = new PuertasAbiertas(image= "escalerasUp.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
 
-//-----------------------------------------------------Terraza -->> primer piso
 const puertaAPrimerPiso = new PuertasAbiertas(image= "Door3Open.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
 
-//-----------------------------------------------------Comedor -->> Cocina
-const puertaACocina = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveCocina, irHacia= cocina, mensaje= txtPuertaCerrada )
+const puertaACocina = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveTerraza, irHacia= cocina, mensaje= txtPuertaCerrada )//itemLlaveCocina
 
-//-----------------------------------------------------primer piso ==>> primer piso
 const puertaATerraza = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveTerraza, irHacia= terraza, mensaje= txtPuertaCerrada )
 
 const puertaADormitorio = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveDormi, irHacia= dormitorio, mensaje= txtPuertaCerrada )
 
 const puertaABiblioteca = new PuertasAbiertas(image= "Door3Open.png", irHacia= biblioteca, mensaje= txtPuertaCerrada )
 
-
 //--------------
-const puertaATunel = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )
+const puertaATunel = new PuertasCerradas(image= "sotano2.png",puertaCerrada = "sotano2.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )
 
-const puertaARitual = new PuertasAbiertas(image= "Door2Open.png", irHacia= ritual, mensaje= txtPuertaCerrada )
+const puertaARitual = new PuertasAbiertas(image= "sotano2.png", irHacia= ritual, mensaje= txtPuertaCerrada )
 
-const puertaAFinal = new PuertasAbiertas(image= "Door2Open.png", irHacia= final, mensaje= txtPuertaCerrada )
+const puertaATunelSalida = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= final, mensaje= txtPuertaCerrada )
+
+const puertaAJardin = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= jardin, mensaje= txtPuertaCerrada )

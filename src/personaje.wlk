@@ -2,8 +2,22 @@ import entrada.*
 import objetos.*
 import fantasma.*
 import gameOver.*
-
 import wollok.game.*
+
+/*--INDICE--
+-atributos
+-config teclas
+-irA (method para uvicar al personaje)
+-restar vida 
+-morir (acciona gameover)
+-animacion de sprite
+	estados
+	cambio de sprite
+-damage (efecto por daño)
+-barra de vida (actualiza y muestra la cantidad de corazones)
+-sacar vida (resta corazones)
+*/
+
 object personaje {
   	var property position = game.origin()
   	var property image = "personajeR.png"
@@ -57,8 +71,9 @@ object personaje {
 	}
 
 	method morir() {
-	  if(personajeVida == 0)
-	  	gameOver.iniciar()
+	  if(personajeVida == 0){
+		gameOver.iniciar()
+	  }
 	}
 
 //---------------------------------------------------------------------------Animador de personaje

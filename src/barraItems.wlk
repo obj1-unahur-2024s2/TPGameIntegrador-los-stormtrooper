@@ -17,6 +17,14 @@ object barraItems {
     self.siEstaEnInventario(iconNota1Inv)
     self.siEstaEnInventario(iconLlaveDInv)
     self.siEstaEnInventario(iconLlaveCInv)
+    
+    self.siEstaEnInventario(iconNota2Inv)
+    self.siEstaEnInventario(iconLlaveSotanoInv)
+    
+    self.siEstaEnInventario(iconNota3Inv)
+    self.siEstaEnInventario(iconNota3P2Inv)
+    self.siEstaEnInventario(iconPolvoEstrellasInv)
+
   }
 
   method siEstaEnInventario(unItem) {//ubicador de items inventario

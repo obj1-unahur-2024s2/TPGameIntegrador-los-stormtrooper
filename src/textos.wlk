@@ -1,6 +1,13 @@
 import objetos.*
 import wollok.game.*
 
+/*--INDICE--
+-Clase Texto
+-Obj Color
+
+-Instanciacion
+*/
+
 //----------------------------------------------------------Clase texto
 class TextosInfo {
   const property texto
@@ -21,39 +28,54 @@ object color {
 
 //----------------------------------------------------------OBJ textos
 //--Items
-const textoLlaveTerraza = new TextosInfo(texto ="Hay algo dentro del vaso...
-          !!Encontraste la llave de la Terraza!!",color =color.blanco(), position = game.at(5,0))//Llave terraza
+const textoLlaveTerraza = new TextosInfo(texto =" Hay algo dentro del vaso...
+          !!Encontraste la llave de la Terraza!!",color =color.blanco(), position = game.at(6,0))//Llave terraza
 
 //const textoLlave1 = new TextosInfo(texto ="Que es esto, parece importante...
 //          !!Encontraste una llave!!",color =color.blanco(), position = game.at(5,0))//para llave 1
 
-const textoDisco = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste un Disco!!",color =color.blanco(), position = game.at(5,0))//Gema1
+const textoDisco = new TextosInfo(texto ="  Una bolsa de basura. Espera, que es esto!
+          !!Encontraste un Disco!!",color =color.blanco(), position = game.at(6,0))//Gema1
 
-const textoLlaveMusica = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste la llave de la Sala de Musica!!",color =color.blanco(), position = game.at(5,0))//Llave musica
+const textoLlaveMusica = new TextosInfo(texto ="  Un estante con libr...Espera... que es esto?
+          !!Encontraste la llave de la Sala de Musica!!",color =color.blanco(), position = game.at(6,0))//Llave musica
 
+const textoEncendedor = new TextosInfo(texto =" Hay algo dentro del cajon...
+          !!Encontraste un Encendedor!!",color =color.blanco(), position = game.at(6,0))//Encendedor
 
-const textoEncendedor = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste un Encendedor!!",color =color.blanco(), position = game.at(5,0))//Encendedor
+const textoEmblema = new TextosInfo(texto ="  Al encender la chimenea un objeto se cayo.
+          !!Encontraste un Emblema!!",color =color.blanco(), position = game.at(6,0))//Emblema
 
-//
-const textoEmblema = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste un Emblema!!",color =color.blanco(), position = game.at(5,0))//Emblema
+const textoNota1 = new TextosInfo(texto ="  Al usar el tocadiscos algo salio de el.
+          Nota:-El vigilante del cielo tiene el secreto-",color =color.blanco(), position = game.at(6,0))//Nota
 
-const textoNota1 = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste una nota!!",color =color.blanco(), position = game.at(5,0))//Nota
+const textoLlaveD = new TextosInfo(texto =" Usaste el emblema en el reloj.
+          !!Encontraste la llave del dormitorio!!",color =color.blanco(), position = game.at(6,0))//Llave Dormitorio
 
-const textoLlaveD = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste la llave del dormitorio!!",color =color.blanco(), position = game.at(5,0))//Llave Dormitorio
+const textoLlaveC = new TextosInfo(texto =" Dentro del telescopio habia algo.
+          !!Encontraste la llave de la Cocina!!",color =color.blanco(), position = game.at(6,0))//Llave Dormitorio
 
-const textoLlaveC = new TextosInfo(texto ="Que es esto, parece importante...
-          !!Encontraste la llave de la Cocina!!",color =color.blanco(), position = game.at(5,0))//Llave Dormitorio
+const textoNota2 = new TextosInfo(texto =" Hay una NOTA dentro de la botella...
+          -Donde los sueños y pesadillas comienzan-",color =color.blanco(), position = game.at(6,0))//Encendedor
+
+const textoLlaveSotano = new TextosInfo(texto =" Dentro de la almohada hay algo pesado...
+          !!Encontraste la llave del sotano!!",color =color.blanco(), position = game.at(6,0))//Encendedor
+
+const textoNota3 = new TextosInfo(texto =" Hay una NOTA escrita aqui...-El p..vo 
+          de estr...as te ay...r. a des..cer la m...íon.-",color =color.blanco(), position = game.at(6,0))//Encendedor
+
+const textoNota3P2 = new TextosInfo(texto =" Hay una NOTA escrita aqui... 
+          -Úsal. en las 5 ..chas en .n ..den-",color =color.blanco(), position = game.at(6,0))//Encendedor
+
+const textoPolvoEstrellas = new TextosInfo(texto =" Me parece que esto va a ser util... 
+          !!Encontraste el Plovo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
 
 const nadaImportante = new TextosInfo(texto ="No hay nada interesante aqui",color =color.blanco(), position = game.at(5,0))
 const hayAlgoPero = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
 const yaNoHayNada = new TextosInfo(texto ="Ya no hay nada importante aqui",color =color.blanco(), position = game.at(5,0))
 const estaVacio = new TextosInfo(texto ="Esta vacio...",color =color.blanco(), position = game.at(5,0))
+const clavePolvo1 = new TextosInfo(texto =" El p..vo de estr...as te ay... a des..cer la m...íon.",color =color.blanco(), position = game.at(5,10))
+const clavePolvo2 = new TextosInfo(texto =" Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
 
 
 //----------------------------------------------------------Info de Items

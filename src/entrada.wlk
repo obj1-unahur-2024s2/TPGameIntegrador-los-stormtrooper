@@ -8,6 +8,20 @@ import wollok.game.*
 import tablero.*
 import fantasma.*
 
+/*--INDICE--
+-inicio de panel
+-ubicar al personaje segun las puertas
+-identificador de habitacion
+
+-Objetos que se muestran en pantalla-
+    puertas
+    limites
+    items
+    textos
+    inventario
+    fantasmas
+*/
+
 object entrada {
   const property image = "fondoEntradaV8.png" 
   var property position = game.origin()
@@ -15,8 +29,7 @@ object entrada {
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionEntrada)
-    //barraDeVida.mostrarVidas()
-    //game.addVisual(corazon1)
+
     //----------------------------------------------------------------Ubicaciones
     //--Ubicacion del personaje segun de donde viene--
 	  if(personaje.inicioDePartida())// ubicacion inicial
@@ -41,18 +54,21 @@ object entrada {
     habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
     //--Items
-
+    habitacion.ubicarUnKeyItem(itemNota3P2, 3, 9)
+    if(itemNota3.enInventario())
+      habitacion.ubicarEnTablero(txtClavePolvo2, 3, 9)
     //Textos
     habitacion.ubicarEnTablero(txtNadaImportante, 3, 1)
 
     //Items en Inventario
     barraItems.verificar()
+    
 
-    game.addVisual(fantasmaDiagonaEntrada1)
-    game.addVisual(fantasmaDiagonaEntrada2)
+    //game.addVisual(fantasmaDiagonaEntrada1)
+    //game.addVisual(fantasmaDiagonaEntrada2)
     //game.addVisual(fantasmaDiagonaEntrada3)
 
-    game.addVisual(fantasmaDiagonaEntradaOP1)
+    //game.addVisual(fantasmaDiagonaEntradaOP1)
     
     //habitacion.ubicarEnTablero(corazonvida1, 0, 10)
   }

@@ -6,37 +6,22 @@ import personaje.*
 import textos.*
 import entrada.*
 import wollok.game.*
+import tablero.*
+import barraItems.*
 
 object ritual {
-  var property image = "fondoRitual.png" 
+  var property image = "fondoRitualV2.png" 
   var property position = game.origin()
+  var property contador =0
 
   method iniciar() {
+    
     //------------------------------------------------------propiedades de tablero
-    self.borraTodo()
-    game.addVisual(self)
-
-    game.addVisual(ubicacionRitual)
-    game.schedule(2000, { => game.removeVisual(ubicacionRitual)})// despues de 2s elimina el texto1
+    habitacion.iniciarHabitacion(self,ubicacionRitual)
 
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
     personaje.ubicacion(9)
-    /*
-    Habitaciones:
-    0 = Entrada
-    1 = Comedor
-    2 = Musica
-    3 = 1do piso
-    4 = Terraza
-    5 = Biblioteca
-    6 = cocina
-    7 = dormitorio
-    8 = tunel
-    9 = sala ritual
-    10= tunel salida
-    11= jardin trasero
-    */
 
     //------------------------------------------------------ubicacion objetos
     //--personaje
@@ -45,34 +30,43 @@ object ritual {
     
 
     //--puertas
-    //game.addVisual(puertaAPrimerPiso)
-    //puertaAPrimerPiso.ubicarEn(game.at(8,5))
-
+    habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10)
 
     //--Items
 
-  }
+    //Items en Inventario
+    barraItems.verificar()
 
-  method borraTodo() {
-    //fondo
-    game.removeVisual(self)
-    //personaje, items
-    game.removeVisual(personaje)
-    game.removeVisual(llave1)
-    //puertas
-    game.removeVisual(puertaAComedor)
-    game.removeVisual(puertaAEntrada)
-    game.removeVisual(puertaAMusica)
-    game.removeVisual(escaleraAPrimerPiso)
-    game.removeVisual(puertaACocina)
-    game.removeVisual(puertaATerraza)
-    game.removeVisual(puertaAPrimerPiso)
-    game.removeVisual(escaleraAEntrada)
-    game.removeVisual(puertaABiblioteca)
-    game.removeVisual(puertaADormitorio)
-    game.removeVisual(puertaATunel)
-    game.removeVisual(puertaARitual)
+    //Limites Tablero
+    habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
+    habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
+    habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
+    habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
   }
+  method sumar() {
+    contador += 1
+  }
+  method reiniciar() {
+    contador = 0
+  }
+
+}
+class Antorcha {
+  const image = "ddd"
+  const numeroComparador
+
+  method usarPolvoenAntorcha() {
+    
+  }
+  
+  method sumar(elContador) {
+    elContador.sumar()
+  }
+  method reiniciar(elContador) {
+    elContador.reiniciar()
+  }
+}
+object antorcha1  {
 
 }

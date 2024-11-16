@@ -7,6 +7,16 @@ import textos.*
 import wollok.game.*
 import fantasma.*
 
+/*--INDICE--Habitacion
+-siEstaEnInventario(unItem) muestra el item en la zona de inventario
+-iniciarHabitacion(unaUbicacion,textoUbicacion) Borra todo lo que estaba en la pantalla, inicia fondo y agrega el nombre a la zona
+-ubicarEnTablero(puertaA, x, y)
+-ubicarUnKeyItem(unItem, x, y)
+-ubicarPersonaje(x, y)
+-UbicarPersonajePuertasCant2(ubicacion1, x1, y1, x2, y2) --sin uso--
+-borrarTodo(unFondo) 
+*/
+
 object habitacion {
   method siEstaEnInventario(unItem) {//ubicador de items inventario
     if(unItem.loTengo())
@@ -62,6 +72,7 @@ object habitacion {
     game.removeVisual(iconDisco)
     game.removeVisual(iconDiscoInv)
 
+    game.removeVisual(itemLlaveMusica)
     game.removeVisual(iconLlaveMusica)
     game.removeVisual(iconLlaveMInv)
 
@@ -84,6 +95,29 @@ object habitacion {
     game.removeVisual(topeAbajo)
     game.removeVisual(topeDer)
     game.removeVisual(topeIzq)
+
+    game.removeVisual(itemNota2)
+    game.removeVisual(iconNota2)
+    game.removeVisual(iconNota2Inv)
+
+    game.removeVisual(itemLlaveSotano)
+    game.removeVisual(iconLlaveSotano)
+    game.removeVisual(iconLlaveSotanoInv)
+
+    game.removeVisual(itemNota3)
+    game.removeVisual(iconNota3)
+    game.removeVisual(iconNota3Inv)
+    game.removeVisual(txtClavePolvo1)
+
+    game.removeVisual(itemNota3P2)
+    game.removeVisual(iconNota3P2)
+    game.removeVisual(iconNota3P2Inv)
+    game.removeVisual(txtClavePolvo2)
+
+    game.removeVisual(itemPolvoEstrellas)
+    game.removeVisual(iconPolvoEstrellas)
+    game.removeVisual(iconPolvoEstrellasInv)
+    
 
     //--corazones
     game.removeVisual(corazon1)
@@ -109,7 +143,8 @@ object habitacion {
     game.removeVisual(puertaADormitorio)
     game.removeVisual(puertaATunel)
     game.removeVisual(puertaARitual)
-    //game.removeVisual(objConItem)
+    game.removeVisual(puertaATunelSalida)
+    
     //textos Ubicacion
     game.removeVisual(ubicacionEntrada)
     game.removeVisual(ubicacionComedor)

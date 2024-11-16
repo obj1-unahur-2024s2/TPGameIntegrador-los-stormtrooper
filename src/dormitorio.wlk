@@ -35,6 +35,7 @@ object dormitorio {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
+    habitacion.ubicarUnKeyItem(itemLlaveSotano, 8, 8)
 
     //Items en Inventario
     barraItems.verificar()

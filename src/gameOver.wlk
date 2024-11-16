@@ -9,7 +9,7 @@ import tablero.*
 import fantasma.*
 
 object gameOver {
-  const property image = "fondoGameOver.png" 
+  const property image = "gameOver.png" 
   var property position = game.origin()
 
   method iniciar() {    

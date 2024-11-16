@@ -3,6 +3,7 @@ import entrada.*
 import personaje.*
 import comedor.*
 import objetos.*
+import tituloJuego.*
 
 program PepitaGame {
     //--definicion del tablero--
@@ -12,7 +13,9 @@ program PepitaGame {
     game.cellSize(32)
     
     //--Inicio del juego--
-    entrada.iniciar()
+    //entrada.iniciar()
+    tituloJuego.iniciar()
+
     
     //--Metodos que se aplican durante todo el juego (no deben repetirse)--
     personaje.configurarTeclas()
@@ -22,3 +25,4 @@ program PepitaGame {
     
     game.start()
 }
+
