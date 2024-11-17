@@ -118,6 +118,7 @@ object habitacion {
     game.removeVisual(iconPolvoEstrellas)
     game.removeVisual(iconPolvoEstrellasInv)
     
+    game.removeVisual(txtComentariosDeMas)
 
     //--corazones
     game.removeVisual(corazon1)
@@ -158,6 +159,7 @@ object habitacion {
     game.removeVisual(ubicacionRitual)
     game.removeVisual(ubicacionTunelSalida)
     game.removeVisual(ubicacionJardinTrasero)
+    
 
   }
 }

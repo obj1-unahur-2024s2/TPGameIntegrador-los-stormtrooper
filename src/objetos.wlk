@@ -58,6 +58,7 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante)
           const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1)
           const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2)
+          const txtComentariosDeMas = new ObjInvSoloResponde(textoInfo = comentariosDeMas)
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
 class ObjVisSoloResponde inherits ObjInvSoloResponde{
