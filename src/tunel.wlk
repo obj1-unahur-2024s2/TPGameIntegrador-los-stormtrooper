@@ -19,7 +19,9 @@ object tunel {
     //------------------------------------------------------estado del personaje
     //personaje.inicioDePartida(false)
     personaje.ubicacion("tunel")
-
+    
+    game.addVisual(katyCurse)
+    katyCurse.animar()
 
     //------------------------------------------------------ubicacion objetos
     //--personaje
@@ -36,6 +38,9 @@ object tunel {
     //Items en Inventario
     barraItems.verificar()
 
+    //textos
+    habitacion.ubicarEnTablero(txtKatyCursed, 6, 7)
+
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 10)//y max Arriba
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
@@ -43,4 +48,25 @@ object tunel {
     habitacion.ubicarEnTablero(topeIzq, 4, 0)//x min Izquierda
   }
 
+}
+object katyCurse {
+  var property image = "katyFrente1.png"
+  var property position = game.at(6, 7)
+  var property contador=1  
+
+  method animar() {
+    game.onTick(500,"katyCurse",{self.animacion()})
+  }
+
+  method animacion() {
+    if(contador !=2){
+      image = "katyFrente"+contador+"V2.png"
+      contador += 1
+    }
+    else{
+      image = "katyFrente"+contador+"V2.png"
+      contador =1
+    }
+  }
+  method interaccion() {}
 }

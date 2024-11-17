@@ -6,6 +6,7 @@ import personaje.*
 import textos.*
 import wollok.game.*
 import fantasma.*
+import ritual.*
 
 /*--INDICE--Habitacion
 -siEstaEnInventario(unItem) muestra el item en la zona de inventario
@@ -118,11 +119,22 @@ object habitacion {
     game.removeVisual(iconPolvoEstrellas)
     game.removeVisual(iconPolvoEstrellasInv)
     
+    game.removeVisual(txtNadaSilla)
+    game.removeVisual(txtComentariosDeMas)
+    game.removeVisual(txtClaveEspejo)
+    game.removeVisual(txtClaveReloj)
+    game.removeVisual(txtKatyCursed)
 
     //--corazones
     game.removeVisual(corazon1)
     game.removeVisual(corazon2)
     game.removeVisual(corazon3)
+
+    game.removeVisual(antorcha1)
+    game.removeVisual(antorcha2)
+    game.removeVisual(antorcha3)
+    game.removeVisual(antorcha4)
+    game.removeVisual(antorcha5)
 
     //Enemigos
     game.removeVisual(fantasmaDiagonaEntrada1)

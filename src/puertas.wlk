@@ -84,7 +84,7 @@ const puertaADormitorio = new PuertasCerradas(image= "Door3.png",puertaCerrada =
 const puertaABiblioteca = new PuertasAbiertas(image= "Door3Open.png", irHacia= biblioteca, mensaje= txtPuertaCerrada )
 
 //--------------
-const puertaATunel = new PuertasCerradas(image= "sotano2.png",puertaCerrada = "sotano2.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )
+const puertaATunel = new PuertasCerradas(image= "sotano2.png",puertaCerrada = "sotano2.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )//itemLlaveSotano
 
 const puertaARitual = new PuertasAbiertas(image= "sotano2.png", irHacia= ritual, mensaje= txtPuertaCerrada )
 

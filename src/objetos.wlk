@@ -46,18 +46,25 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
   //method text() = textoInfo
   //method eliminar() 
   //method ubicarEn(unaUbicacion) 
+  const tiempo
   
   method interaccion() {
     game.addVisual(textoInfo)//--muestra texto--
-    game.schedule(1500, { => game.removeVisual(textoInfo)})//--despues de 2s elimina el texto--
+    game.schedule(tiempo, { => game.removeVisual(textoInfo)})//--despues de 2s elimina el texto--
   }
 }
-          const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1)
-          const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2)
+          const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
+          const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
+          const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
+          const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
+          const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1, tiempo =3000)
+          const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2, tiempo =3000)
+          const txtNadaSilla = new ObjInvSoloResponde (textoInfo = nadaImportanteSilla, tiempo =3000)
+          const txtComentariosDeMas = new ObjInvSoloResponde(textoInfo = comentariosDeMas, tiempo =3000)
+          const txtClaveEspejo = new ObjInvSoloResponde (textoInfo = claveEspejo, tiempo =3000)
+          const txtClaveReloj = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
+
+          const txtKatyCursed = new ObjInvSoloResponde (textoInfo = katyCursed, tiempo =5000)
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
 class ObjVisSoloResponde inherits ObjInvSoloResponde{
@@ -301,7 +308,7 @@ class Iconos {
         const iconLlaveC= new Iconos(image ="iconKey6.png")
         const iconNota2= new Iconos(image ="iconNote2.png")
         const iconLlaveSotano= new Iconos(image ="iconKey5.png")
-        const iconNota3= new Iconos(image ="iconNote3.png")
+        const iconNota3= new Iconos(image ="iconNote3V1.png")
         const iconNota3P2= new Iconos(image ="iconNote3.png")
         const iconPolvoEstrellas= new Iconos(image ="iconPolvo.png")
 
@@ -325,7 +332,7 @@ class IconoDeInventario {
         const iconLlaveCInv = new IconoDeInventario(image= "iconKey6.png", position= game.at(11,3))
         const iconNota2Inv = new IconoDeInventario(image= "iconNote2.png", position= game.at(11,2))
         const iconLlaveSotanoInv = new IconoDeInventario(image= "iconKey5.png", position= game.at(11,2))
-        const iconNota3Inv = new IconoDeInventario(image= "iconNote3.png", position= game.at(11,1))
+        const iconNota3Inv = new IconoDeInventario(image= "iconNote3V1.png", position= game.at(11,1))
         const iconNota3P2Inv = new IconoDeInventario(image= "iconNote3.png", position= game.at(11,1))
         const iconPolvoEstrellasInv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(11,1))
 

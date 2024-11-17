@@ -39,6 +39,10 @@ object dormitorio {
 
     //Items en Inventario
     barraItems.verificar()
+
+    //textos
+    habitacion.ubicarEnTablero(txtClaveEspejo, 3, 9)
+    habitacion.ubicarEnTablero(txtClaveReloj, 2, 9)
   
   }
 

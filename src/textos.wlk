@@ -70,12 +70,38 @@ const textoNota3P2 = new TextosInfo(texto =" Hay una NOTA escrita aqui...
 const textoPolvoEstrellas = new TextosInfo(texto =" Me parece que esto va a ser util... 
           !!Encontraste el Plovo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
 
+
+
 const nadaImportante = new TextosInfo(texto ="No hay nada interesante aqui",color =color.blanco(), position = game.at(5,0))
 const hayAlgoPero = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
 const yaNoHayNada = new TextosInfo(texto ="Ya no hay nada importante aqui",color =color.blanco(), position = game.at(5,0))
 const estaVacio = new TextosInfo(texto ="Esta vacio...",color =color.blanco(), position = game.at(5,0))
 const clavePolvo1 = new TextosInfo(texto =" El p..vo de estr...as te ay... a des..cer la m...íon.",color =color.blanco(), position = game.at(5,10))
 const clavePolvo2 = new TextosInfo(texto =" Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
+
+const nadaImportanteSilla = new TextosInfo(texto ="no me gusta esta silla...",color =color.blanco(), position = game.at(5,0))
+const comentariosDeMas = new TextosInfo(texto ="Pff, este cuadro podría haberlo hecho yo", color= color.blanco(),position=game.at(5, 0))
+
+const claveEspejo = new TextosInfo(texto ="Hay algo escrito aqui: 12, 9, 3, 7, 5. Sigue esa orden. 
+                      Mi compañero que aun esta vivo será tu guía...¿?", color= color.blanco(),position=game.at(5, 0))
+
+const claveReloj = new TextosInfo(texto ="Un reloj que aun funciona...
+Que raro no?...", color= color.blanco(),position=game.at(5, 0))
+
+//ritual
+const txtAntorchaOk = new TextosInfo(texto ="¡¡Al usar el polvo en la antorcha 
+                                          un humo de colores salio de ella!!",color =color.blanco(), position = game.at(5,0))
+const txtAntorchaMal = new TextosInfo(texto ="¡¡No paso nada?!
+                                          Algo salio mal!!",color =color.blanco(), position = game.at(5,0))
+const txtAntorchaSinPolvo = new TextosInfo(texto ="Es una Antorcha!...
+                                          ¿Y que?",color =color.blanco(), position = game.at(5,0))
+const txtMaldicionRota = new TextosInfo(texto ="La maldicion se rompio!!!
+                                          ¡¡Arriba esta la salida!!!",color =color.blanco(), position = game.at(5,0))
+
+const katyCursed = new TextosInfo(texto ="Katy!? 
+Como llegaste hasta aqui? Estas extraña. 
+Porque quieres ir hacia esa puerta? 
+No queda otra opcion que avanzar...",color =color.blanco(), position = game.at(5,1)) 
 
 
 //----------------------------------------------------------Info de Items

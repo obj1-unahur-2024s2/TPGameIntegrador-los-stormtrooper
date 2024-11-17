@@ -43,8 +43,10 @@ object biblioteca {
     //--Items
     habitacion.ubicarUnKeyItem(itemLlaveMusica, 8, 6)
     habitacion.ubicarUnKeyItem(itemEncendedor, 1, 9)
+    
     //--textos
-
+    habitacion.ubicarEnTablero(txtComentariosDeMas, 8, 10)
+    
     //Items en Inventario
     barraItems.verificar()
 

@@ -1,3 +1,4 @@
+import tituloJuego.*
 import barraItems.*
 import puertas.*
 import objetos.*
@@ -7,6 +8,7 @@ import textos.*
 import wollok.game.*
 import tablero.*
 import fantasma.*
+import ritual.*
 
 /*--INDICE--
 -inicio de panel
@@ -29,7 +31,7 @@ object entrada {
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionEntrada)
-
+    tituloJuego.activarMenu(false)
     //----------------------------------------------------------------Ubicaciones
     //--Ubicacion del personaje segun de donde viene--
 	  if(personaje.inicioDePartida())// ubicacion inicial
@@ -42,6 +44,9 @@ object entrada {
       habitacion.ubicarPersonaje(6, 6)
     //identificador de ubicacion del personaje 
     personaje.ubicacion("entrada")
+
+    //game.addVisual(agis)
+    //agis.animar()
 
     //--Puertas
     habitacion.ubicarEnTablero(puertaAComedor, 1, 4)
@@ -57,16 +62,18 @@ object entrada {
     habitacion.ubicarUnKeyItem(itemNota3P2, 3, 9)
     if(itemNota3.enInventario())
       habitacion.ubicarEnTablero(txtClavePolvo2, 3, 9)
+    
     //Textos
     habitacion.ubicarEnTablero(txtNadaImportante, 3, 1)
+    habitacion.ubicarEnTablero(txtNadaSilla, 7, 9)
 
     //Items en Inventario
     barraItems.verificar()
-    
 
-    //game.addVisual(fantasmaDiagonaEntrada1)
-    //game.addVisual(fantasmaDiagonaEntrada2)
-    //game.addVisual(fantasmaDiagonaEntrada3)
+    //fantasmas
+    game.addVisual(fantasmaDiagonaEntrada1)
+    game.addVisual(fantasmaDiagonaEntrada2)
+    game.addVisual(fantasmaDiagonaEntrada3)
 
     //game.addVisual(fantasmaDiagonaEntradaOP1)
     

@@ -34,3 +34,25 @@ object jardin {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
   }
 }
+
+object katyLast {
+  var property image = "katyLado1.png"
+  var property position = game.at(5, 6)
+  var property contador=1  
+
+  method animar() {
+    game.onTick(500,"katyCurse",{self.animacion()})
+  }
+
+  method animacion() {
+    if(contador !=2){
+      image = "katyLado"+contador+".png"
+      contador += 1
+    }
+    else{
+      image = "katyLado"+contador+".png"
+      contador =1
+    }
+  }
+  method interaccion() {}
+}

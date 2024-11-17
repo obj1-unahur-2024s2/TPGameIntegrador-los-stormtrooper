@@ -20,7 +20,7 @@ program PepitaGame {
     //--Metodos que se aplican durante todo el juego (no deben repetirse)--
     personaje.configurarTeclas()
     personaje.animacion()
-    game.whenCollideDo(personaje, { elemento => elemento.interaccion()})
+    game.onCollideDo(personaje, { elemento => elemento.interaccion()})
     //keyboard.space().onPressDo({game.stop()})
     
     game.start()
