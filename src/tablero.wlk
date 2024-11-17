@@ -120,7 +120,7 @@ object habitacion {
     game.removeVisual(iconPolvoEstrellasInv)
     
     game.removeVisual(txtNadaSilla)
-    game.removeVisual(txtComentariosDeMas)
+    
     game.removeVisual(txtClaveEspejo)
     game.removeVisual(txtClaveReloj)
     game.removeVisual(txtKatyCursed)

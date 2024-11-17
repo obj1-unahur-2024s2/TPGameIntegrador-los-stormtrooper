@@ -80,7 +80,7 @@ const clavePolvo1 = new TextosInfo(texto =" El p..vo de estr...as te ay... a des
 const clavePolvo2 = new TextosInfo(texto =" Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
 
 const nadaImportanteSilla = new TextosInfo(texto ="no me gusta esta silla...",color =color.blanco(), position = game.at(5,0))
-const comentariosDeMas = new TextosInfo(texto ="Pff, este cuadro podría haberlo hecho yo", color= color.blanco(),position=game.at(5, 0))
+
 
 const claveEspejo = new TextosInfo(texto ="Hay algo escrito aqui: 12, 9, 3, 7, 5. Sigue esa orden. 
                       Mi compañero que aun esta vivo será tu guía...¿?", color= color.blanco(),position=game.at(5, 0))

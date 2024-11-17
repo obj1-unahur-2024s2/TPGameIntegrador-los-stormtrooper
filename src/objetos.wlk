@@ -60,7 +60,7 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1, tiempo =3000)
           const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2, tiempo =3000)
           const txtNadaSilla = new ObjInvSoloResponde (textoInfo = nadaImportanteSilla, tiempo =3000)
-          const txtComentariosDeMas = new ObjInvSoloResponde(textoInfo = comentariosDeMas, tiempo =3000)
+          
           const txtClaveEspejo = new ObjInvSoloResponde (textoInfo = claveEspejo, tiempo =3000)
           const txtClaveReloj = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
 
