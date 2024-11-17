@@ -68,7 +68,7 @@ const textoNota3P2 = new TextosInfo(texto =" Hay una NOTA escrita aqui...
           -Úsal. en las 5 ..chas en .n ..den-",color =color.blanco(), position = game.at(6,0))//Encendedor
 
 const textoPolvoEstrellas = new TextosInfo(texto =" Me parece que esto va a ser util... 
-          !!Encontraste el Plovo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
+          !!Encontraste el Polvo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
 
 
 
@@ -78,6 +78,7 @@ const yaNoHayNada = new TextosInfo(texto ="Ya no hay nada importante aqui",color
 const estaVacio = new TextosInfo(texto ="Esta vacio...",color =color.blanco(), position = game.at(5,0))
 const clavePolvo1 = new TextosInfo(texto =" El p..vo de estr...as te ay... a des..cer la m...íon.",color =color.blanco(), position = game.at(5,10))
 const clavePolvo2 = new TextosInfo(texto =" Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
+//<<<<<<< HEAD
 
 const nadaImportanteSilla = new TextosInfo(texto ="no me gusta esta silla...",color =color.blanco(), position = game.at(5,0))
 
@@ -103,6 +104,9 @@ Como llegaste hasta aqui? Estas extraña.
 Porque quieres ir hacia esa puerta? 
 No queda otra opcion que avanzar...",color =color.blanco(), position = game.at(5,1)) 
 
+//=======
+const comentariosDeMas = new TextosInfo(texto ="Pff, este cuadro podría haberlo hecho yo", color= color.blanco(),position=game.at(5, 0))
+//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
 
 //----------------------------------------------------------Info de Items
 const txtPuertaCerrada = new TextosInfo(texto ="La puerta esta Cerrada",color =color.blanco(), position = game.at(5,0))//para las puertas cerradas

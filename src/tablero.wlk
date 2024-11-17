@@ -119,11 +119,15 @@ object habitacion {
     game.removeVisual(iconPolvoEstrellas)
     game.removeVisual(iconPolvoEstrellasInv)
     
+//<<<<<<< HEAD
     game.removeVisual(txtNadaSilla)
     
     game.removeVisual(txtClaveEspejo)
     game.removeVisual(txtClaveReloj)
     game.removeVisual(txtKatyCursed)
+//=======
+    game.removeVisual(txtComentariosDeMas)
+//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
 
     //--corazones
     game.removeVisual(corazon1)
@@ -170,6 +174,7 @@ object habitacion {
     game.removeVisual(ubicacionRitual)
     game.removeVisual(ubicacionTunelSalida)
     game.removeVisual(ubicacionJardinTrasero)
+    
 
   }
 }

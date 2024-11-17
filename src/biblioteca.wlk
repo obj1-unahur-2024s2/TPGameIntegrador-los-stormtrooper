@@ -45,8 +45,13 @@ object biblioteca {
     habitacion.ubicarUnKeyItem(itemEncendedor, 1, 9)
     
     //--textos
+//<<<<<<< HEAD
     
     
+//=======
+    habitacion.ubicarEnTablero(txtComentariosDeMas, 8, 10)
+
+//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
     //Items en Inventario
     barraItems.verificar()
 

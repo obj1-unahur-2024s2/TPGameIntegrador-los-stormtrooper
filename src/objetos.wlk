@@ -53,6 +53,7 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
     game.schedule(tiempo, { => game.removeVisual(textoInfo)})//--despues de 2s elimina el texto--
   }
 }
+//<<<<<<< HEAD
           const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
           const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
           const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
@@ -65,6 +66,15 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const txtClaveReloj = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
 
           const txtKatyCursed = new ObjInvSoloResponde (textoInfo = katyCursed, tiempo =5000)
+//=======
+          //const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante)
+          //const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante)
+          //const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante)
+          //const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante)
+          //const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1)
+          //const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2)
+          const txtComentariosDeMas = new ObjInvSoloResponde(textoInfo = comentariosDeMas, tiempo =3000)
+//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
 class ObjVisSoloResponde inherits ObjInvSoloResponde{
