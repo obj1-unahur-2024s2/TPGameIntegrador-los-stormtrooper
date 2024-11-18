@@ -43,6 +43,8 @@ object dormitorio {
     //textos
     habitacion.ubicarEnTablero(txtClaveEspejo, 3, 9)
     habitacion.ubicarEnTablero(txtClaveReloj, 2, 9)
+    habitacion.ubicarEnTablero(txtPuertaSinUso, 1,6)
+    habitacion.ubicarEnTablero(txtCofreDormi, 5, 9)
   
   }
 

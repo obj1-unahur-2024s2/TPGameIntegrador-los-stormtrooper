@@ -191,7 +191,7 @@ object habitacion {
     //--para hacer
     game.removeVisual(txtLamparas)
     game.removeVisual(txtHeladera)
-    game.removeVisual(txtPuertasSinUso)
+    game.removeVisual(txtPuertaSinUso)
     game.removeVisual(txtCocina)
     game.removeVisual(txtEstantes)
 
