@@ -4,9 +4,12 @@ import personaje.*
 import comedor.*
 import objetos.*
 import tituloJuego.*
+import creditos.*
 
-program PepitaGame {
+
+program SinRetorno {
     //--definicion del tablero--
+    
     game.title("SinRetorno -Wollok Version-")
 	game.height(12)
 	game.width(12)
@@ -14,8 +17,7 @@ program PepitaGame {
     
     //--Inicio del juego--
     //entrada.iniciar()
-    tituloJuego.iniciar()
-
+    creditos.iniciar()
     
     //--Metodos que se aplican durante todo el juego (no deben repetirse)--
     personaje.configurarTeclas()

@@ -131,7 +131,12 @@ const arpa = new TextosInfo(texto ="cuando tenga plata, me compro un arpa",color
 //----------------------------------------------------------Info de Items
 const txtPuertaCerrada = new TextosInfo(texto ="La puerta está Cerrada",color =color.blanco(), position = game.at(5,0))//para las puertas cerradas
 
-
+const txtAgis = new TextosInfo(texto ="Te he estado esperando...
+Veo que mi pequeño esclavo hizo su trabajo...
+No te enojes con el, solo tome posesión de su ser para atraerte hasta aquí.
+Ya no puedes salir de este lugar...
+¡¡ENTREGAME TU ALMA!! 
+¡YA NO PUEDES ESCAPÁR DE MI!",color =color.blanco(), position = game.at(5,7))
 
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------

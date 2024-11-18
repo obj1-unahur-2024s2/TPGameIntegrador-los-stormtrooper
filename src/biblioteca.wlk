@@ -7,15 +7,23 @@ import entrada.*
 import wollok.game.*
 import barraItems.*
 import tablero.*
+import musicaSonido.*
 
 object biblioteca {
   var property image = "fondoBibliotecaV3.png" 
   var property position = game.origin()
 
+  const musicaAmviente = ambiente2
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }
+
   method iniciar() {
     //-------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionBiblioteca)
-   
+    self.reproducirMusica()
     //------------------------------------estado del personaje
     //personaje.inicioDePartida(false)//
 

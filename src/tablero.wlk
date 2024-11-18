@@ -137,6 +137,17 @@ object habitacion {
     game.removeVisual(fantasmaDiagonaEntrada2)
     game.removeVisual(fantasmaDiagonaEntrada3)
     game.removeVisual(fantasmaDiagonaEntradaOP1)
+
+    game.removeVisual(fantasmaDiagonaRitual1)
+    game.removeVisual(fantasmaDiagonaRitual2)
+    game.removeVisual(fantasmaDiagonaRitual3)
+    game.removeVisual(fantasmaDiagonaRitual4)
+    game.removeVisual(fantasmaDiagonaRitual5)
+    game.removeVisual(fantasmaDiagonaRitual6)
+    game.removeVisual(fantasmaDiagonaRitual7)
+    game.removeVisual(fantasmaDiagonaRitual8)
+    game.removeVisual(fantasmaDiagonaRitual9)
+    game.removeVisual(fantasmaDiagonaRitual10)
     
     //puertas
     game.removeVisual(puertaAComedor)
@@ -187,6 +198,7 @@ object habitacion {
     game.removeVisual(txtBiblioInfo2)
     game.removeVisual(txtBiblioInfo3)
     game.removeVisual(txtBiblioInfo4)
+
     
     //--para hacer
     game.removeVisual(txtLamparas)

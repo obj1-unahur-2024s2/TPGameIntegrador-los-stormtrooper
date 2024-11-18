@@ -3,6 +3,7 @@ import objetos.*
 import fantasma.*
 import gameOver.*
 import wollok.game.*
+import musicaSonido.*
 
 /*--INDICE--
 -atributos
@@ -68,6 +69,7 @@ object personaje {
 //----------------------------------------------------------------------------VIDA
 	method restarVida() {
 	  personajeVida = personajeVida -1
+
 	}
 
 	method morir() {
@@ -134,7 +136,9 @@ object barraDeVida {
 	if(personaje.personajeVida() ==2){
 		game.removeVisual(corazon3)
 	}
-	else
+	else{
 		game.removeVisual(corazon2)
+	}
+
   }
 }

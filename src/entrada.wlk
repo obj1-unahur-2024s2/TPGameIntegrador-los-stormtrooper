@@ -9,6 +9,7 @@ import wollok.game.*
 import tablero.*
 import fantasma.*
 import ritual.*
+import musicaSonido.*
 
 /*--INDICE--
 -inicio de panel
@@ -27,11 +28,19 @@ import ritual.*
 object entrada {
   const property image = "fondoEntradaV8.png" 
   var property position = game.origin()
+  
+  const musicaAmbiente = ambiente1
+
+  method reproducirMusica() {
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
+  }
 
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionEntrada)
-    tituloJuego.activarMenu(false)
+    //tituloJuego.activarMenu(false)
+    self.reproducirMusica()
     //----------------------------------------------------------------Ubicaciones
     //--Ubicacion del personaje segun de donde viene--
 	  if(personaje.inicioDePartida())// ubicacion inicial
@@ -76,11 +85,25 @@ object entrada {
     //fantasmas
     //game.addVisual(fantasmaDiagonaEntrada1)
     //game.addVisual(fantasmaDiagonaEntrada2)
-    game.addVisual(fantasmaDiagonaEntrada3)
+    //game.addVisual(fantasmaDiagonaEntrada3)
 
     //game.addVisual(fantasmaDiagonaEntradaOP1)
     
     //habitacion.ubicarEnTablero(corazonvida1, 0, 10)
+    /*
+    const x = 1.randomUpTo(10).truncate(0)
+    const y = 1.randomUpTo(10).truncate(0)
+    //const enemigo = new FantasmaDiagonal(position= game.at(x, y), velocidad = 500)
+        //position = game.at(2,5), velocidad = 500
+    
+
+    (1..10).forEach{  value => 
+            game.schedule(1000, {
+                const enemigo  = new FantasmaDiagonal(position= game.at(x, y)   , velocidad = 500 + value)
+                const enemigo2 = new FantasmaDiagonal(position= game.at(5,value), velocidad = 500 + value)
+            }) 
+    }
+    */
   }
 
 }

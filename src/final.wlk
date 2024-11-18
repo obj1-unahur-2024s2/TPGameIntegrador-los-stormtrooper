@@ -8,14 +8,23 @@ import entrada.*
 import wollok.game.*
 import tablero.*
 import barraItems.*
+import musicaSonido.*
 
 object final {
   var property image = "fondoTunelSalidaV2.png" 
   var property position = game.origin()
 
+  const musicaAmviente = salaJardin
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }  
+
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionTunelSalida)
+    self.reproducirMusica()
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
     personaje.ubicacion(8)

@@ -7,15 +7,23 @@ import textos.*
 import entrada.*
 import wollok.game.*
 import tablero.*
+import musicaSonido.*
 
 object jardin {
   var property image = "fondoJardinV5.png" 
   var property position = game.origin()
 
+  const musicaAmviente = salaJardin
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }  
+
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self, ubicacionJardinTrasero)
-
+    self.reproducirMusica()
     //------------------------------------------------------estado del personaje
     personaje.ubicacion(11)
 

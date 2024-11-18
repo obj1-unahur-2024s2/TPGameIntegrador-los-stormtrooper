@@ -8,15 +8,23 @@ import entrada.*
 import wollok.game.*
 import terraza.*
 import tablero.*
+import musicaSonido.*
 
 object entradaPrimerPiso {
   var property image = "fondoEntrada1PV8.png" 
   var property position = game.origin()
 
+  const musicaAmviente = ambiente2
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }  
+
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionPrimerPiso)
-   
+    self.reproducirMusica()
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
 

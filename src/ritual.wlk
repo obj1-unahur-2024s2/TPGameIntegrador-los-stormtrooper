@@ -8,16 +8,27 @@ import entrada.*
 import wollok.game.*
 import tablero.*
 import barraItems.*
+import musicaSonido.*
+import fantasma.*
 
 object ritual {
   var property image = "fondoRitualV2.png" 
   var property position = game.origin()
   var property contador = 0
+  var property estavencido = false
+
+  const musicaAmviente = salaRitual
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }  
 
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionRitual)
-
+    self.reproducirMusica()
+    
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
     personaje.ubicacion(9)
@@ -25,10 +36,21 @@ object ritual {
     //------------------------------------------------------ubicacion objetos
     //--personaje
     game.addVisualCharacter(personaje)
-    personaje.irA(game.at(7,1))
+    personaje.irA(game.at(5,1))
     
-    game.addVisual(agis)
-    agis.animar()
+    //agis
+    game.schedule(1000, {=>game.addVisual(frase)})
+
+    game.schedule(10000, {=>
+      game.removeVisual(frase)
+      game.addVisual(damage)
+    })
+    
+    game.schedule(10250, {=>
+      game.removeVisual(damage)
+      game.addVisual(agis)
+      agis.animar()
+    })
     
     antorcha1.animar()
     antorcha2.animar()
@@ -53,7 +75,68 @@ object ritual {
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
+
+
+    //game.schedule(11000, {=>self.agregarFantasmas2()})
+    //game.addVisual(fantasmaDiagonaRitual1)
+    //game.addVisual(fantasmaDiagonaRitual2)
+    //self.agregarFantasmas()
+    if(!estavencido){
+      game.schedule(11000, {=>game.addVisual(fantasmaDiagonaRitual1)})
+    }
+
+    if(!estavencido){game.schedule(14000, {=>game.addVisual(fantasmaDiagonaRitual2)})}
+      
+    if(!estavencido){game.schedule(17000, {=>game.addVisual(fantasmaDiagonaRitual3)})}
+      
+    if(!estavencido){game.schedule(20000, {=>game.addVisual(fantasmaDiagonaRitual4)})}
+      
+    if(!estavencido){game.schedule(23000, {=>game.addVisual(fantasmaDiagonaRitual5)})}
+      
+
+    if(!estavencido){game.schedule(26000, {=>game.addVisual(fantasmaDiagonaRitual6)})}
+      
+    if(!estavencido){game.schedule(29000, {=>game.addVisual(fantasmaDiagonaRitual7)})}
+      
+    if(!estavencido){game.schedule(32000, {=>game.addVisual(fantasmaDiagonaRitual8)})}
+      
+    if(!estavencido){game.schedule(35000, {=>game.addVisual(fantasmaDiagonaRitual9)})}
+      
+    if(!estavencido){game.schedule(38000, {=>game.addVisual(fantasmaDiagonaRitual10)})}
+      
+    if(estavencido){game.onTick(100, "borrarFantasmas",{=> self.borrarFantasmas()})}
   }
+  /*
+  method agregarFantasmas() {
+    if(ritual.contador <5){
+    game.schedule(11000, {=>game.addVisual(fantasmaDiagonaRitual1)})
+    game.schedule(14000, {=>game.addVisual(fantasmaDiagonaRitual2)})
+    game.schedule(17000, {=>game.addVisual(fantasmaDiagonaRitual3)})
+    game.schedule(20000, {=>game.addVisual(fantasmaDiagonaRitual4)})
+    game.schedule(23000, {=>game.addVisual(fantasmaDiagonaRitual5)})
+
+    game.schedule(26000, {=>game.addVisual(fantasmaDiagonaRitual6)})
+    game.schedule(29000, {=>game.addVisual(fantasmaDiagonaRitual7)})
+    game.schedule(32000, {=>game.addVisual(fantasmaDiagonaRitual8)})
+    game.schedule(35000, {=>game.addVisual(fantasmaDiagonaRitual9)})
+    game.schedule(38000, {=>game.addVisual(fantasmaDiagonaRitual10)})
+    }
+  }
+
+  method agregarFantasmas2() {
+    var velocidad = 300
+    var lugar = 1
+
+    if(contador!=5){
+      const fantasmaDiagonal = new FantasmaDiagonal(position = game.at(lugar,1), velocidad = velocidad)
+      //game.schedule(3000, {=>const fantasmaDiagonal = new FantasmaDiagonal(position = game.at(lugar,1), velocidad = velocidad)})
+      lugar +=1
+      velocidad -=25
+    }
+    
+  
+  }
+  */
 
   method sumar() {
     contador += 1
@@ -62,24 +145,60 @@ object ritual {
   method reiniciar() {
     contador = 0
   }
-
-  method aparecerPuerta() {
-    if(contador >=5)
-      habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10)     
+  method borrarFantasmas() {
+      game.removeVisual(fantasmaDiagonaRitual1)
+      game.removeVisual(fantasmaDiagonaRitual2)
+      game.removeVisual(fantasmaDiagonaRitual3)
+      game.removeVisual(fantasmaDiagonaRitual4)
+      game.removeVisual(fantasmaDiagonaRitual5)
+      game.removeVisual(fantasmaDiagonaRitual6)
+      game.removeVisual(fantasmaDiagonaRitual7)
+      game.removeVisual(fantasmaDiagonaRitual8)
+      game.removeVisual(fantasmaDiagonaRitual9)
+      game.removeVisual(fantasmaDiagonaRitual10)
   }
 
-  
+  method aparecerPuerta() {
+    if(contador >=5){
+      estavencido = true
+      habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10) 
+      game.removeVisual(fantasmaDiagonaRitual1)
+      game.removeVisual(fantasmaDiagonaRitual2)
+      game.removeVisual(fantasmaDiagonaRitual3)
+      game.removeVisual(fantasmaDiagonaRitual4)
+      game.removeVisual(fantasmaDiagonaRitual5)
+      game.removeVisual(fantasmaDiagonaRitual6)
+      game.removeVisual(fantasmaDiagonaRitual7)
+      game.removeVisual(fantasmaDiagonaRitual8)
+      game.removeVisual(fantasmaDiagonaRitual9)
+      game.removeVisual(fantasmaDiagonaRitual10)
+      game.removeVisual(agis)
+      game.addVisual(agisDefeated)
+      agisDefeated.animar()
+      game.schedule(2500, {=>game.addVisual(fraseDefeated)})
+      game.schedule(7000, {=>game.removeVisual(fraseDefeated)})
+    }    
+  }
+
 }
+
+const fantasmaDiagonaRitual1 = new FantasmaDiagonal(position = game.at(1,1), velocidad = 300)
+const fantasmaDiagonaRitual2 = new FantasmaDiagonal(position = game.at(2,1), velocidad = 300)
+const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), velocidad = 250)
+const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 250)
+const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 200)
+const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 200)
+const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 150)
+const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 150)
+const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 100)
+const fantasmaDiagonaRitual10 = new FantasmaDiagonal(position = game.at(10,1), velocidad = 100)
 //------------------------------------------------------------------------------------------------Clase Antrocha
 class Antorcha {
   var property image = "torch_1V2.png"
   var property position = game.origin()
   const numeroComparador
   const numeroFinal
-
   var property contador=1
-
-  
 
   method animar() {
     game.onTick(5,"Antorcha",{self.animacion()})
@@ -94,8 +213,8 @@ class Antorcha {
       contador =1
       image = "torch_"+contador+"V2.png"
     }
-
   }
+
   method ubicarEn(unaUbicacion) {
     self.position(unaUbicacion)  
   }
@@ -103,6 +222,7 @@ class Antorcha {
   method interaccion() {//utiliza la colicion
     self.destruir(ritual)
   }
+
   method mostrarMensaje(unMensaje) {
     game.addVisual(unMensaje)//--muestra texto--
     game.schedule(2500, { => game.removeVisual(unMensaje)})
@@ -146,22 +266,64 @@ object agis {
   var property image = "AgisF1V2.png"
   const property position = game.at(2, 3)
   var property contador=1
-
+ 
   method animar() {
     game.onTick(5,"Agis",{self.animacion()})
   }
 
   method animacion() {
     if(contador !=15){
-      image = "AgisF"+contador+"V2.png"
       contador += 1
+      image = "AgisF"+contador+"V2.png"
     }
     else{
       contador =1
       image = "AgisF"+contador+"V2.png"
     }
-
   }
+}
+//--------------------------------------------------------------------------------Agis derrotado
+object agisDefeated {
+  var property image = "AgisDef1.png"
+  const property position = game.at(2, 3)
+  var property contador=1
+ 
+  method animar() {
+    game.onTick(5,"AgisDef",{self.animacion()})
+  }
+
+  method animacion() {
+    if(contador !=2){
+      contador += 1
+      image = "AgisDef"+contador+".png"
+    }
+    else{
+      contador =1
+      image = "AgisDef"+contador+".png"
+    }
+  }
+}
+//------------------------------------------------------------------------------Frase intro
+object frase {
+  method position() = game.at(5,7)
+  method textColor() = "#ffffff"
+
+  method text() = "     Te he estado esperando...
+      Veo que mi pequeño esclavo hizo su trabajo...
+      No te enojes con el, solo tome posesión 
+      de su ser para atraerte hasta aquí.
+      Ya no puedes salir de este lugar...
+      ¡¡ENTREGAME TU ALMA!! 
+      ¡YA NO PUEDES ESCAPÁR DE MI!"
+}
+//-------------------------------------------------------------------------------Frase final
+object fraseDefeated {
+  method position() = game.at(5,7)
+  method textColor() = "#ffffff"
+
+  method text() = "     Nooo!! que has hecho!!
+      No puedes irte de aquí!!
+      ¡¡¡Te lo pRohiiíbOo00o0o00Ooo0o!!!"
 }
 
 /*
@@ -170,6 +332,17 @@ object agis {
         toni.position(controlDeMovimientos.defaultPosition())
         game.addVisual(toni)
         
+        const x = 1.randomUpTo(10).truncate(0)
+        const y = 1.randomUpTo(10).truncate(0)
+        const enemigo = new FantasmaDiagonal(position= game.at(x, y)
+
+
+        (1..10).forEach{ value => 
+            game.schedule(value * 1000, {
+                const enemigo = new Enemigo(position= game.at((0..game.width()-1).anyOne(),value))
+                controlDeColisiones.inicializar(enemigo)
+
+
         (1..game.height()-2).forEach{ value => 
             game.schedule(value * 1000, {
                 const enemigo = new Enemigo(position= game.at((0..game.width()-1).anyOne(),value))
@@ -183,4 +356,32 @@ object agis {
             })    
         }
     }
+
+
+Eventos automaticos
+Una funcionalidad interesante que podemos implementar es que la caja se mueva cada n segundos (por ejemplo, cada 2 segundos), enviando el mensaje onTick() al objeto game, el lapso de repetición expresado en milisegundos, un identificador (string descriptivo) y el bloque de código que debe ejecutar:
+
+program ejemplo {
+  game.addVisualCharacter(wollok)
+  game.addVisual(caja)
+  // cada dos segundos muevo la caja
+  game.onTick(2000, "movimiento", { caja.movete() })
+  //
+  game.start()
+}
+
+El método movete() en caja actualiza la posición en base a un valor al azar, tomando en cuenta el ancho y alto del tablero:
+
+object caja {
+  var property position = game.center()
+  method image() = "caja.png"
+  method movete() {
+    const x = 0.randomUpTo(game.width()).truncate(0)
+    const y = 0.randomUpTo(game.height()).truncate(0)
+    // otra forma de generar números aleatorios
+    // const x = (0.. game.width()-1).anyOne()
+    // const y = (0.. game.height()-1).anyOne()
+    position = game.at(x,y)
+  }
+}
 */

@@ -14,6 +14,7 @@ import tunel.*
 import ritual.*
 import final.*
 import jardin.*
+import musicaSonido.*
 
 /*--INDICE--
 -Clase Puerta
@@ -30,6 +31,7 @@ class Puertas {
   //var property item  //llave1.enInventario()
   var property irHacia //comedor.iniciar()
   var property mensaje //puertaCerrada
+  const musicaAmbiente
 
   //--Reubicacion
   method ubicarEn(unaUbicacion) {
@@ -41,6 +43,7 @@ class Puertas {
 class PuertasAbiertas inherits Puertas  {
   //--Puertas abiertas
   method interaccion() {
+    musicaAmbiente.stop()
     irHacia.iniciar()
   }
 }
@@ -53,6 +56,7 @@ class PuertasCerradas inherits Puertas  {
   method interaccion() {
     if(item.enInventario()){
         image = puertaCerrada//--al pasar por la puerta, esta queda abierta
+        musicaAmbiente.stop()
         irHacia.iniciar()
     }
     else{
@@ -63,31 +67,31 @@ class PuertasCerradas inherits Puertas  {
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-const puertaAComedor = new PuertasAbiertas(image= "Door1Open.png", irHacia= comedor, mensaje= txtPuertaCerrada )
+const puertaAComedor = new PuertasAbiertas(image= "Door1Open.png", irHacia= comedor, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente1 )
 
-const puertaAEntrada = new PuertasAbiertas(image= "Door1Open.png", irHacia= entrada, mensaje= txtPuertaCerrada )
+const puertaAEntrada = new PuertasAbiertas(image= "Door1Open.png", irHacia= entrada, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente1 )
 
-const escaleraAEntrada = new PuertasAbiertas(image= "escalerasDownV2.png", irHacia= entrada, mensaje= txtPuertaCerrada )
+const escaleraAEntrada = new PuertasAbiertas(image= "escalerasDownV2.png", irHacia= entrada, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente2 )
 
-const puertaAMusica = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveMusica, irHacia= musica, mensaje= txtPuertaCerrada )
+const puertaAMusica = new PuertasCerradas(image="Door1.png",puertaCerrada="Door1Open.png",item=itemLlaveMusica,irHacia=musica,mensaje=txtPuertaCerrada,musicaAmbiente= ambiente1 )
 
-const escaleraAPrimerPiso = new PuertasAbiertas(image= "escalerasUp.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
+const escaleraAPrimerPiso = new PuertasAbiertas(image= "escalerasUp.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente1 )
 
-const puertaAPrimerPiso = new PuertasAbiertas(image= "Door3Open.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada )
+const puertaAPrimerPiso = new PuertasAbiertas(image= "Door3Open.png", irHacia= entradaPrimerPiso, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente2 )
 
-const puertaACocina = new PuertasCerradas(image= "Door1.png",puertaCerrada = "Door1Open.png", item= itemLlaveTerraza, irHacia= cocina, mensaje= txtPuertaCerrada )//itemLlaveCocina
+const puertaACocina = new PuertasCerradas(image="Door1.png",puertaCerrada="Door1Open.png",item=itemLlaveCocina,irHacia=cocina,mensaje=txtPuertaCerrada,musicaAmbiente= ambiente1 )//itemLlaveCocina
 
-const puertaATerraza = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveTerraza, irHacia= terraza, mensaje= txtPuertaCerrada )
+const puertaATerraza = new PuertasCerradas(image="Door3.png",puertaCerrada="Door3Open.png",item=itemLlaveTerraza,irHacia=terraza,mensaje=txtPuertaCerrada,musicaAmbiente= ambiente2 )
 
-const puertaADormitorio = new PuertasCerradas(image= "Door3.png",puertaCerrada = "Door3Open.png", item= itemLlaveDormi, irHacia= dormitorio, mensaje= txtPuertaCerrada )
+const puertaADormitorio = new PuertasCerradas(image="Door3.png",puertaCerrada="Door3Open.png",item=itemLlaveDormi,irHacia=dormitorio,mensaje=txtPuertaCerrada,musicaAmbiente= ambiente2 )
 
-const puertaABiblioteca = new PuertasAbiertas(image= "Door3Open.png", irHacia= biblioteca, mensaje= txtPuertaCerrada )
+const puertaABiblioteca = new PuertasAbiertas(image= "Door3Open.png", irHacia= biblioteca, mensaje= txtPuertaCerrada, musicaAmbiente= ambiente2 )
 
 //--------------
-const puertaATunel = new PuertasCerradas(image= "sotano2.png",puertaCerrada = "sotano2.png", item= itemLlaveTerraza, irHacia= tunel, mensaje= txtPuertaCerrada )//itemLlaveSotano
+const puertaATunel = new PuertasCerradas(image="sotano2.png",puertaCerrada="sotano2.png",item=itemLlaveSotano,irHacia=tunel,mensaje=txtPuertaCerrada,musicaAmbiente= ambiente1 )//itemLlaveSotano
 
-const puertaARitual = new PuertasAbiertas(image= "sotano2.png", irHacia= ritual, mensaje= txtPuertaCerrada )
+const puertaARitual = new PuertasAbiertas(image= "sotano2.png", irHacia= ritual, mensaje= txtPuertaCerrada, musicaAmbiente= salaTunel )
 
-const puertaATunelSalida = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= final, mensaje= txtPuertaCerrada )
+const puertaATunelSalida = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= final, mensaje= txtPuertaCerrada, musicaAmbiente= salaRitual )
 
-const puertaAJardin = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= jardin, mensaje= txtPuertaCerrada )
+const puertaAJardin = new PuertasAbiertas(image= "escalerasarriba.png", irHacia= jardin, mensaje= txtPuertaCerrada, musicaAmbiente= salaJardin )

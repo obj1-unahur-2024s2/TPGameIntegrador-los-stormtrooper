@@ -2,6 +2,7 @@ import gameOver.*
 import objetos.*
 import personaje.*
 import tablero.*
+import musicaSonido.*
 
 class Fantasma {
   var orientacion = up

@@ -8,17 +8,24 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import fantasma.*
-
+import musicaSonido.*
 
 
 object comedor {
   var property image = "fondoComedorV5.png" 
   var property position = game.origin()
 
+  const musicaAmviente = ambiente1
+
+  method reproducirMusica() {
+    musicaAmviente.sonar()
+    musicaAmviente.loop()
+  }
+
   method iniciar() {
     //-------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionComedor)
-
+    self.reproducirMusica()
     //-------------------------------------estado del personaje
     personaje.inicioDePartida(false)//
 
