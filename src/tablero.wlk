@@ -62,14 +62,14 @@ object habitacion {
   method borrarTodo(unFondo) {//borra todo cada vez que cambia de pantalla (--ES IMPORTANTE QUE TODOS LOS OBJETOS ESTEN CARGADO ACA--)
     //fondo
     game.removeVisual(unFondo)
-    //personaje, items
+    
+    //personaje
     game.removeVisual(personaje)
     
+    //Items
     game.removeVisual(itemLlaveTerraza)
     game.removeVisual(iconLlave1Inv)
-    game.removeVisual(txtNadaImportante)
-    //game.removeVisual(itemGema1)
-    //game.removeVisual(iconGema1Inv)
+
     game.removeVisual(iconDisco)
     game.removeVisual(iconDiscoInv)
 
@@ -91,11 +91,6 @@ object habitacion {
 
     game.removeVisual(itemLlaveCocina)
     game.removeVisual(iconLlaveCInv)
-
-    game.removeVisual(topeArriba)
-    game.removeVisual(topeAbajo)
-    game.removeVisual(topeDer)
-    game.removeVisual(topeIzq)
 
     game.removeVisual(itemNota2)
     game.removeVisual(iconNota2)
@@ -119,21 +114,18 @@ object habitacion {
     game.removeVisual(iconPolvoEstrellas)
     game.removeVisual(iconPolvoEstrellasInv)
     
-//<<<<<<< HEAD
-    game.removeVisual(txtNadaSilla)
-    
-    game.removeVisual(txtClaveEspejo)
-    game.removeVisual(txtClaveReloj)
-    game.removeVisual(txtKatyCursed)
-//=======
-    game.removeVisual(txtComentariosDeMas)
-//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
+    //topes
+    game.removeVisual(topeArriba)
+    game.removeVisual(topeAbajo)
+    game.removeVisual(topeDer)
+    game.removeVisual(topeIzq)
 
     //--corazones
     game.removeVisual(corazon1)
     game.removeVisual(corazon2)
     game.removeVisual(corazon3)
 
+    //Antorchas
     game.removeVisual(antorcha1)
     game.removeVisual(antorcha2)
     game.removeVisual(antorcha3)
@@ -161,7 +153,7 @@ object habitacion {
     game.removeVisual(puertaARitual)
     game.removeVisual(puertaATunelSalida)
     
-    //textos Ubicacion
+    //textos de Ubicacion
     game.removeVisual(ubicacionEntrada)
     game.removeVisual(ubicacionComedor)
     game.removeVisual(ubicacionMusica)
@@ -175,7 +167,13 @@ object habitacion {
     game.removeVisual(ubicacionTunelSalida)
     game.removeVisual(ubicacionJardinTrasero)
     
-    //otros textos
+    //otros textos de escena
+    game.removeVisual(txtNadaSilla)
+    game.removeVisual(txtClaveEspejo)
+    game.removeVisual(txtClaveReloj)
+    game.removeVisual(txtKatyCursed)
+    game.removeVisual(txtComentariosDeMas)
+
     game.removeVisual(txtEspejo)
     game.removeVisual(txtJarron)
     game.removeVisual(txtSillaRota)
@@ -184,6 +182,36 @@ object habitacion {
     game.removeVisual(txtCuadro)
     game.removeVisual(txtPlanta)
     game.removeVisual(txtReloj)
+    game.removeVisual(txtNadaImportante)
+    game.removeVisual(txtBiblioInfo1)
+    game.removeVisual(txtBiblioInfo2)
+    game.removeVisual(txtBiblioInfo3)
+    game.removeVisual(txtBiblioInfo4)
+    
+    //--para hacer
+    game.removeVisual(txtLamparas)
+    game.removeVisual(txtHeladera)
+    game.removeVisual(txtPuertasSinUso)
+    game.removeVisual(txtCocina)
+    game.removeVisual(txtEstantes)
+
+    game.removeVisual(txtMesitas)
+    game.removeVisual(txtTv)
+    game.removeVisual(txtRadio)
+    game.removeVisual(txtSofa)
+    game.removeVisual(txtAlfombra)
+
+    game.removeVisual(txtPiano)
+    game.removeVisual(txtViolin)
+    game.removeVisual(txtOcarina)
+    game.removeVisual(txtArpa)
+    game.removeVisual(txtRadioMusic)
+
+    game.removeVisual(txtCofreDormi)
+    game.removeVisual(txtCuadro2)
+    game.removeVisual(txtSikus)
+    game.removeVisual(txtPolvoPiso)
+    game.removeVisual(txtMuebles2)
 
   }
 }

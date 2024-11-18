@@ -49,6 +49,11 @@ object biblioteca {
     habitacion.ubicarEnTablero(txtEspejo, 2, 10)
     habitacion.ubicarEnTablero(txtSillaRota, 2, 2)
 
+    habitacion.ubicarEnTablero(txtBiblioInfo1, 7, 9)
+    habitacion.ubicarEnTablero(txtBiblioInfo2, 1, 7)
+    habitacion.ubicarEnTablero(txtBiblioInfo3, 8, 3)
+    habitacion.ubicarEnTablero(txtBiblioInfo4, 7, 3)
+
     
 //=======
     habitacion.ubicarEnTablero(txtComentariosDeMas, 8, 10)

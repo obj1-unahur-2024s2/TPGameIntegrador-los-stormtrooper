@@ -50,7 +50,7 @@ object entradaPrimerPiso {
 
     //texto
     habitacion.ubicarEnTablero(txtPlanta, 1, 7)
-    habitacion.ubicarEnTablero(txtPlanta, 9, 7)
+  
 
 
     

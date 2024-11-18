@@ -70,25 +70,23 @@ const textoNota3P2 = new TextosInfo(texto =" Hay una NOTA escrita aqui...
 const textoPolvoEstrellas = new TextosInfo(texto =" Me parece que esto va a ser util... 
           !!Encontraste el Polvo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
 
-
-
 const nadaImportante = new TextosInfo(texto ="No hay nada interesante aqui",color =color.blanco(), position = game.at(5,0))
-const hayAlgoPero = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
-const yaNoHayNada = new TextosInfo(texto ="Ya no hay nada importante aqui",color =color.blanco(), position = game.at(5,0))
-const estaVacio = new TextosInfo(texto ="Esta vacio...",color =color.blanco(), position = game.at(5,0))
-const clavePolvo1 = new TextosInfo(texto =" El p..vo de estr...as te ay... a des..cer la m...íon.",color =color.blanco(), position = game.at(5,10))
-const clavePolvo2 = new TextosInfo(texto =" Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
+const hayAlgoPero    = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
+const yaNoHayNada    = new TextosInfo(texto ="Ya no hay nada importante aqui",color =color.blanco(), position = game.at(5,0))
+const estaVacio      = new TextosInfo(texto ="Esta vacio...",color =color.blanco(), position = game.at(5,0))
+const clavePolvo1    = new TextosInfo(texto ="El p..vo de estr...as te ay... a des..cer la m...íon.",color =color.blanco(), position = game.at(5,10))
+const clavePolvo2    = new TextosInfo(texto ="Úsal. en las 5 ..chas en .n ..den",color =color.blanco(), position = game.at(5,10))
 //<<<<<<< HEAD
 
 const nadaImportanteSilla = new TextosInfo(texto ="No me gusta esta silla...",color =color.blanco(), position = game.at(5,0))
-const espejotxt = new TextosInfo(texto ="En este espejo veo una persona detras de mi...",color =color.blanco(), position = game.at(5,0))
-const jarrontxt = new TextosInfo(texto ="Este jarron esta lleno de polvo...",color =color.blanco(), position = game.at(5,0))
-const sillaRotatxt = new TextosInfo(texto ="Todas las sillas estan por romperce...",color =color.blanco(), position = game.at(5,0))
-const comidatxt = new TextosInfo(texto ="Esta comida no tiene buena pinta...",color =color.blanco(), position = game.at(5,0))
-const rototxt = new TextosInfo(texto ="Aqui esta todo roto...",color =color.blanco(), position = game.at(5,0))
-const cuadrotxt = new TextosInfo(texto ="Siento que la figura del cuadro me mira...",color =color.blanco(), position = game.at(5,0))
-const plantatxt = new TextosInfo(texto ="Esta planta no la riegan hace años...",color =color.blanco(), position = game.at(5,0))
-const relojtxt = new TextosInfo(texto ="Este reloj esta yendo hacia atras?!...",color =color.blanco(), position = game.at(5,0))
+const espejotxt           = new TextosInfo(texto ="En este espejo veo una persona detras de mi...",color =color.blanco(), position = game.at(5,0))
+const jarrontxt           = new TextosInfo(texto ="Este jarron esta lleno de polvo...",color =color.blanco(), position = game.at(5,0))
+const sillaRotatxt        = new TextosInfo(texto ="Todas las sillas estan por romperce...",color =color.blanco(), position = game.at(5,0))
+const comidatxt           = new TextosInfo(texto ="Esta comida no tiene buena pinta...",color =color.blanco(), position = game.at(5,0))
+const rototxt             = new TextosInfo(texto ="Aqui esta todo roto...",color =color.blanco(), position = game.at(5,0))
+const cuadrotxt           = new TextosInfo(texto ="Siento que la figura del cuadro me mira...",color =color.blanco(), position = game.at(5,0))
+const plantatxt           = new TextosInfo(texto ="Esta planta no la riegan hace años...",color =color.blanco(), position = game.at(5,0))
+const relojtxt            = new TextosInfo(texto ="Este reloj esta yendo hacia atras?!...",color =color.blanco(), position = game.at(5,0))
 
 
 const claveEspejo = new TextosInfo(texto ="Hay algo escrito aqui: 12, 9, 3, 7, 5. Sigue esa orden. 
@@ -112,14 +110,25 @@ Como llegaste hasta aqui? Estas extraña.
 Porque quieres ir hacia esa puerta? 
 No queda otra opcion que avanzar...",color =color.blanco(), position = game.at(5,1)) 
 
-//=======
+const biblioInfo1 = new TextosInfo(texto ="Un estante lleno de libros sobre un demonio que 
+aprisiona a sus victimas para obtener sus almas...",color =color.blanco(), position = game.at(5,0))
+
+const biblioInfo2 = new TextosInfo(texto ="Un estante lleno con libros sobre 
+posesiones demoniacas... Quien lee esto!?...",color =color.blanco(), position = game.at(5,0))
+
+const biblioInfo3 = new TextosInfo(texto ="Un estante lleno de libros sobre sacrificios...
+Esto no me gusta nada...",color =color.blanco(), position = game.at(5,0))
+
+const biblioInfo4 = new TextosInfo(texto ="Un estante lleno de libros sobre sectas religiosas...",color =color.blanco(), position = game.at(5,0))
+
 const comentariosDeMas = new TextosInfo(texto ="Pff, este cuadro podría haberlo hecho yo", color= color.blanco(),position=game.at(5, 0))
-//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
+
 
 //----------------------------------------------------------Info de Items
 const txtPuertaCerrada = new TextosInfo(texto ="La puerta esta Cerrada",color =color.blanco(), position = game.at(5,0))//para las puertas cerradas
 
 
+//----------------------------------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------Info de ubicacion
 const ubicacionEntrada =       new TextosInfo(texto ="        Entrada",             color =color.blanco(), position = game.at(5,11))
 const ubicacionComedor =       new TextosInfo(texto ="        El Comedor",          color =color.blanco(), position = game.at(5,11))

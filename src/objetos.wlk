@@ -53,41 +53,65 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
     game.schedule(tiempo, { => game.removeVisual(textoInfo)})//--despues de 2s elimina el texto--
   }
 }
-//<<<<<<< HEAD
-          const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
+//--Instanciaciones
+          const txtNadaImportante  = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
           const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
           const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
           const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
-          const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1, tiempo =3000)
-          const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2, tiempo =3000)
-          const txtNadaSilla = new ObjInvSoloResponde (textoInfo = nadaImportanteSilla, tiempo =3000)
-          const txtEspejo = new ObjInvSoloResponde (textoInfo = espejotxt, tiempo =1500)
-          const txtJarron = new ObjInvSoloResponde (textoInfo = jarrontxt, tiempo =1500)
-          const txtSillaRota = new ObjInvSoloResponde (textoInfo = sillaRotatxt, tiempo =1500)
-          const txtComida = new ObjInvSoloResponde (textoInfo = comidatxt, tiempo =1500)
-          const txtRoto = new ObjInvSoloResponde (textoInfo = rototxt, tiempo =1500)
-          const txtCuadro = new ObjInvSoloResponde (textoInfo = cuadrotxt, tiempo =1500)
-          const txtPlanta = new ObjInvSoloResponde (textoInfo = plantatxt, tiempo =1500)
-          const txtReloj = new ObjInvSoloResponde (textoInfo = relojtxt, tiempo =1500)
-          
-          const txtClaveEspejo = new ObjInvSoloResponde (textoInfo = claveEspejo, tiempo =3000)
-          const txtClaveReloj = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
+          const txtClavePolvo1     = new ObjInvSoloResponde (textoInfo = clavePolvo1, tiempo =3000)
+          const txtClavePolvo2     = new ObjInvSoloResponde (textoInfo = clavePolvo2, tiempo =3000)
+          const txtNadaSilla       = new ObjInvSoloResponde (textoInfo = nadaImportanteSilla, tiempo =3000)
+          const txtComentariosDeMas= new ObjInvSoloResponde (textoInfo = comentariosDeMas, tiempo =3000)
 
-          const txtKatyCursed = new ObjInvSoloResponde (textoInfo = katyCursed, tiempo =5000)
-//=======
-          //const txtNadaImportante = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          //const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          //const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          //const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante)
-          //const txtClavePolvo1 = new ObjInvSoloResponde (textoInfo = clavePolvo1)
-          //const txtClavePolvo2 = new ObjInvSoloResponde (textoInfo = clavePolvo2)
-          const txtComentariosDeMas = new ObjInvSoloResponde(textoInfo = comentariosDeMas, tiempo =3000)
+          const txtEspejo          = new ObjInvSoloResponde (textoInfo = espejotxt, tiempo =1500)
+          const txtJarron          = new ObjInvSoloResponde (textoInfo = jarrontxt, tiempo =1500)
+          const txtSillaRota       = new ObjInvSoloResponde (textoInfo = sillaRotatxt, tiempo =1500)
+          const txtComida          = new ObjInvSoloResponde (textoInfo = comidatxt, tiempo =1500)
+          const txtRoto            = new ObjInvSoloResponde (textoInfo = rototxt, tiempo =1500)
+          const txtCuadro          = new ObjInvSoloResponde (textoInfo = cuadrotxt, tiempo =1500)
+          const txtPlanta          = new ObjInvSoloResponde (textoInfo = plantatxt, tiempo =1500)
+          const txtReloj           = new ObjInvSoloResponde (textoInfo = relojtxt, tiempo =1500)
+
+          //textos para hacer
+          const txtLamparas        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtHeladera        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtPuertasSinUso   = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtCocina          = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtEstantes        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtMesitas         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtTv              = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtRadio           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtSofa            = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtAlfombra        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtPiano           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtViolin          = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtOcarina         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtArpa            = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtRadioMusic      = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtCofreDormi      = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtCuadro2         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtSikus           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtMuebles2        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+
+
+
+//--IMPORTANTES
+          const txtClaveEspejo     = new ObjInvSoloResponde (textoInfo = claveEspejo, tiempo =3000)
+          const txtClaveReloj      = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
+          const txtKatyCursed      = new ObjInvSoloResponde (textoInfo = katyCursed, tiempo =5000)
+
+          const txtBiblioInfo1     = new ObjInvSoloResponde (textoInfo = biblioInfo1, tiempo =4000)
+          const txtBiblioInfo2     = new ObjInvSoloResponde (textoInfo = biblioInfo2, tiempo =3000)
+          const txtBiblioInfo3     = new ObjInvSoloResponde (textoInfo = biblioInfo3, tiempo =3000)
+          const txtBiblioInfo4     = new ObjInvSoloResponde (textoInfo = biblioInfo4, tiempo =3000)
+
+
 //>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
 class ObjVisSoloResponde inherits ObjInvSoloResponde{
   const property image
-
 }
 //const prueba3 = new ObjVisSoloResponde (image = "life1Full.png", textoInfo = nadaImportante)//////////////////////////////////////////////////////////////////
 
@@ -214,25 +238,25 @@ class ItemQueSeRecibe {
 }
 
 const itemEmblema = new ItemQueSeRecibe(
-          textoExplicacion= textoEmblema, 
-          iconDelItem= iconEmblema, 
-          itemInventario= iconEmblemaInv,
-          itemNecesario= itemEncendedor, 
-          textoNoSePuede= hayAlgoPero)
+  textoExplicacion= textoEmblema, 
+  iconDelItem= iconEmblema, 
+  itemInventario= iconEmblemaInv,
+  itemNecesario= itemEncendedor, 
+  textoNoSePuede= hayAlgoPero)
 
 const itemNota1 = new ItemQueSeRecibe(
-          textoExplicacion= textoNota1, 
-          iconDelItem= iconNota1, 
-          itemInventario= iconNota1Inv,
-          itemNecesario= itemDisco, 
-          textoNoSePuede= hayAlgoPero)
+  textoExplicacion= textoNota1, 
+  iconDelItem= iconNota1, 
+  itemInventario= iconNota1Inv,
+  itemNecesario= itemDisco, 
+  textoNoSePuede= hayAlgoPero)
 
 const itemLlaveDormi = new ItemQueSeRecibe(
-          textoExplicacion= textoLlaveD, 
-          iconDelItem= iconLlaveD, 
-          itemInventario= iconLlaveDInv,
-          itemNecesario= itemEmblema, 
-          textoNoSePuede= hayAlgoPero)
+  textoExplicacion= textoLlaveD, 
+  iconDelItem= iconLlaveD, 
+  itemInventario= iconLlaveDInv,
+  itemNecesario= itemEmblema, 
+  textoNoSePuede= hayAlgoPero)
 
 const itemLlaveCocina = new ItemQueSeRecibe(
   textoExplicacion= textoLlaveC, 
@@ -241,25 +265,26 @@ const itemLlaveCocina = new ItemQueSeRecibe(
   itemNecesario= itemNota1, 
   textoNoSePuede= hayAlgoPero)
 
-
 const itemLlaveSotano = new ItemQueSeRecibe(
-    textoExplicacion= textoLlaveSotano, 
-    iconDelItem= iconLlaveSotano, 
-    itemInventario= iconLlaveSotanoInv,
-    itemNecesario= itemNota2, 
-    textoNoSePuede= nadaImportante)
+  textoExplicacion= textoLlaveSotano, 
+  iconDelItem= iconLlaveSotano, 
+  itemInventario= iconLlaveSotanoInv,
+  itemNecesario= itemNota2, 
+  textoNoSePuede= nadaImportante)
+
 const itemNota3P2 = new ItemQueSeRecibe(
-    textoExplicacion= textoNota3P2, 
-    iconDelItem= iconNota3P2, 
-    itemInventario= iconNota3P2Inv,
-    itemNecesario= itemNota3, 
-    textoNoSePuede= nadaImportante)
+  textoExplicacion= textoNota3P2, 
+  iconDelItem= iconNota3P2, 
+  itemInventario= iconNota3P2Inv,
+  itemNecesario= itemNota3, 
+  textoNoSePuede= nadaImportante)
+
 const itemPolvoEstrellas = new ItemQueSeRecibe(
-    textoExplicacion= textoPolvoEstrellas, 
-    iconDelItem= iconPolvoEstrellas, 
-    itemInventario= iconPolvoEstrellasInv,
-    itemNecesario= itemNota3P2, 
-    textoNoSePuede= hayAlgoPero)
+  textoExplicacion= textoPolvoEstrellas, 
+  iconDelItem= iconPolvoEstrellas, 
+  itemInventario= iconPolvoEstrellasInv,
+  itemNecesario= itemNota3P2, 
+  textoNoSePuede= hayAlgoPero)
 
 //-------------------------------------------------------------------------------------------------------Clase Items VISIBLES (que se eliminan de pantalla)
 class ItemVisible {

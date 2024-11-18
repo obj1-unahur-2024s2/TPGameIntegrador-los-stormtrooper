@@ -5,13 +5,14 @@ import tablero.*
 
 class Fantasma {
   var orientacion = up
+  var property velocidad
 
   var property position = game.origin()//posicion inicio
 
   method image() = "fantasma" + orientacion.descripcion() + ".png" //descripcion: "U D R L" (U) "cohete" + orientacion.descripcion() + ".png"
 
   method initialize() {
-    game.onTick(500,"fantasma",{self.desplazarse()})
+    game.onTick(velocidad,"fantasma",{self.desplazarse()})
   }
 
   method desplazarse() {
@@ -131,11 +132,11 @@ object left{
 
 
 
-const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(2,5))
-const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(7,6))
-const fantasmaDiagonaEntrada3 = new FantasmaDiagonal(position = game.at(3,8))
+const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(2,5), velocidad = 500)
+const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(7,6), velocidad = 400)
+const fantasmaDiagonaEntrada3 = new FantasmaDiagonal(position = game.at(8,2), velocidad = 300)
 
-const fantasmaDiagonaEntradaOP1 = new FantasmaDiagonalOpuesto(position = game.at(3,8))
+const fantasmaDiagonaEntradaOP1 = new FantasmaDiagonalOpuesto(position = game.at(3,8), velocidad = 500)
 
 //0.randomUpTo(game.width()).truncate(0)
 //topeIzq.position().x()+1
