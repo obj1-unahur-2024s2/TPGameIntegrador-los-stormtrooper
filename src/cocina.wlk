@@ -42,6 +42,13 @@ object cocina {
     //Items en Inventario
     barraItems.verificar()
   
+    //Textos
+    habitacion.ubicarEnTablero(txtComida, 5, 6)
+    habitacion.ubicarEnTablero(txtComida, 6, 6)
+    habitacion.ubicarEnTablero(txtReloj, 8, 9)
+    habitacion.ubicarEnTablero(txtSillaRota, 5, 3)
+    habitacion.ubicarEnTablero(txtSillaRota, 6, 3)
+
   }
 
 }

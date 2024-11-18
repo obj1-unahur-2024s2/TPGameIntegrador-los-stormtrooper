@@ -46,7 +46,12 @@ object comedor {
     habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
 
     //Textos
-    
+    habitacion.ubicarEnTablero(txtComida, 4, 6)
+    habitacion.ubicarEnTablero(txtComida, 5, 6)
+    habitacion.ubicarEnTablero(txtRoto, 10, 7)
+    habitacion.ubicarEnTablero(txtCuadro, 1, 10)
+    habitacion.ubicarEnTablero(txtPlanta, 2, 9)
+
     //Items en Inventario
     barraItems.verificar()
 

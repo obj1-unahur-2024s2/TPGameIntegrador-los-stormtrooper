@@ -46,7 +46,9 @@ object biblioteca {
     
     //--textos
 //<<<<<<< HEAD
-    
+    habitacion.ubicarEnTablero(txtEspejo, 2, 10)
+    habitacion.ubicarEnTablero(txtSillaRota, 2, 2)
+
     
 //=======
     habitacion.ubicarEnTablero(txtComentariosDeMas, 8, 10)

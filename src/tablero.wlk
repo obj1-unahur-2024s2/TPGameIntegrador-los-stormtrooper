@@ -175,6 +175,15 @@ object habitacion {
     game.removeVisual(ubicacionTunelSalida)
     game.removeVisual(ubicacionJardinTrasero)
     
+    //otros textos
+    game.removeVisual(txtEspejo)
+    game.removeVisual(txtJarron)
+    game.removeVisual(txtSillaRota)
+    game.removeVisual(txtComida)
+    game.removeVisual(txtRoto)
+    game.removeVisual(txtCuadro)
+    game.removeVisual(txtPlanta)
+    game.removeVisual(txtReloj)
 
   }
 }

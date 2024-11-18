@@ -66,6 +66,9 @@ object entrada {
     //Textos
     habitacion.ubicarEnTablero(txtNadaImportante, 3, 1)
     habitacion.ubicarEnTablero(txtNadaSilla, 7, 9)
+    habitacion.ubicarEnTablero(txtEspejo, 2, 10)
+    habitacion.ubicarEnTablero(txtJarron, 4, 10)
+    habitacion.ubicarEnTablero(txtSillaRota, 8, 7)
 
     //Items en Inventario
     barraItems.verificar()
