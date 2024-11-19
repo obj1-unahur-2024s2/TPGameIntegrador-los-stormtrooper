@@ -9,6 +9,7 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object dormitorio {
   var property image = "fondoDormitorioV5.png" 
@@ -53,6 +54,10 @@ object dormitorio {
     habitacion.ubicarEnTablero(txtClaveReloj, 2, 9)
     habitacion.ubicarEnTablero(txtPuertaSinUso, 1,6)
     habitacion.ubicarEnTablero(txtCofreDormi, 5, 9)
+
+    game.addVisual(fantasmaDiagonalDormi1)
+    game.addVisual(fantasmaDiagonalDormi2)
+    game.addVisual(fantasmaDiagonalDormi3)//op
   
   }
 

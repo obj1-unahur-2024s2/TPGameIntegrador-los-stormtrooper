@@ -10,6 +10,7 @@ import tablero.*
 import fantasma.*
 import entrada.*
 import musicaSonido.*
+import jardin.*
 
 object tituloJuego {
   const property image = "tituloJuegoV2.png" 
@@ -45,6 +46,7 @@ object tituloJuego {
       activarMenu = false
       introImage.stop()
       entrada.iniciar()
+      //jardin.iniciar()
       }})
   }
 }

@@ -9,6 +9,7 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object terraza {
   var property image = "fondoTerrazaV5.png" 
@@ -50,6 +51,9 @@ object terraza {
     
     //Items en Inventario
     barraItems.verificar()
+
+    game.addVisual(fantasmaDiagonalTerraza1)
+    game.addVisual(fantasmaDiagonalTerraza2)
 
   }
 

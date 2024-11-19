@@ -28,6 +28,8 @@ object jardin {
     personaje.ubicacion(11)
 
     //------------------------------------------------------ubicacion objetos
+    game.addVisual(katyLast)
+    katyLast.animar()
     //--personaje
     habitacion.ubicarPersonaje(5, 1)
     
@@ -38,8 +40,8 @@ object jardin {
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 7)//y max Arriba
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
-    habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
-    habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
+    habitacion.ubicarEnTablero(topeDer, 6, 0)//x max Derecha
+    habitacion.ubicarEnTablero(topeIzq, 4, 0)//x min Izquierda
   }
 }
 
@@ -62,5 +64,31 @@ object katyLast {
       contador =1
     }
   }
-  method interaccion() {}
+  method interaccion() {
+    game.addVisual(fraseFinal)
+    game.schedule(11000, {=>
+      game.removeVisual(fraseFinal)
+      game.addVisual(fraseEnd)
+      })
+    game.schedule(12000, {=>game.stop()})
+  }
+}
+
+object fraseFinal {
+  method position() = game.at(5,8)
+  method textColor() = "#ffffff"
+
+  method text() = " Katyyy!! 
+        Estas aquí! Pudiste escapar también!...
+
+        ...Volvamos a casa...
+        El sótano se derrumbo, 
+        ya no hay nada que temer.."
+}
+object fraseEnd {
+  method position() = game.at(5,8)
+  method textColor() = "#ffffff"
+
+  method text() =           "FIN
+        ¡¡Muchas Gracias por Jugar!!"
 }

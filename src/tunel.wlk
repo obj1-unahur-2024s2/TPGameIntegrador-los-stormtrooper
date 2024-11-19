@@ -59,7 +59,7 @@ object tunel {
 
 }
 object katyCurse {
-  var property image = "katyFrente1.png"
+  var property image = "katyFrente1V2.png"
   var property position = game.at(6, 7)
   var property contador=1  
 
@@ -69,12 +69,12 @@ object katyCurse {
 
   method animacion() {
     if(contador !=2){
-      image = "katyFrente"+contador+"V2.png"
       contador += 1
+      image = "katyFrente"+contador+"V2.png"
     }
     else{
-      image = "katyFrente"+contador+"V2.png"
       contador =1
+      image = "katyFrente"+contador+"V2.png"
     }
   }
   method interaccion() {}

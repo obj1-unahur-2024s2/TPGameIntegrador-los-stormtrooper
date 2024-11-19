@@ -8,6 +8,7 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object cocina {
   var property image = "fondoCocinaV3.png" 
@@ -54,6 +55,10 @@ object cocina {
     habitacion.ubicarEnTablero(txtComida, 5, 6)
     habitacion.ubicarEnTablero(txtReloj, 8, 9)
     habitacion.ubicarEnTablero(txtSillaRota, 5, 3)
+
+    game.addVisual(fantasmaDiagonalCocina1)
+    game.addVisual(fantasmaDiagonalCocina2)
+    game.addVisual(fantasmaDiagonalCocina3)
 
   }
 

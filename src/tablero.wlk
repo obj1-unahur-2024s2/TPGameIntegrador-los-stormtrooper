@@ -134,10 +134,41 @@ object habitacion {
 
     //Enemigos
     game.removeVisual(fantasmaDiagonaEntrada1)
-    game.removeVisual(fantasmaDiagonaEntrada2)
-    game.removeVisual(fantasmaDiagonaEntrada3)
-    game.removeVisual(fantasmaDiagonaEntradaOP1)
+    //game.removeVisual(fantasmaDiagonaEntrada2)
+    //game.removeVisual(fantasmaDiagonaEntrada3)
+    //game.removeVisual(fantasmaDiagonaEntradaOP1)
+    
+    game.removeVisual(fantasmaDiagonalComedor1)
+    game.removeVisual(fantasmaDiagonalComedor2)
+    game.removeVisual(fantasmaDiagonalComedor3)
 
+    game.removeVisual(fantasmaDiagonalCocina1)
+    game.removeVisual(fantasmaDiagonalCocina2)
+    game.removeVisual(fantasmaDiagonalCocina3)//op
+
+    game.removeVisual(fantasmaDiagonalMusica1)
+    game.removeVisual(fantasmaDiagonalMusica2)
+    game.removeVisual(fantasmaDiagonalMusica3)//op
+
+    //primerPiso
+    game.removeVisual(fantasmaDiagonalPrimerPiso1)
+
+    //terraza
+    game.removeVisual(fantasmaDiagonalTerraza1)
+    game.removeVisual(fantasmaDiagonalTerraza2)
+
+    //bilbioteca
+    game.removeVisual(fantasmaDiagonalBiblio1)
+    game.removeVisual(fantasmaDiagonalBiblio2)
+    game.removeVisual(fantasmaDiagonalBiblio3)//op
+
+    //dormitorio
+    game.removeVisual(fantasmaDiagonalDormi1)
+    game.removeVisual(fantasmaDiagonalDormi2)
+    game.removeVisual(fantasmaDiagonalDormi3)//op
+
+
+    //ritual
     game.removeVisual(fantasmaDiagonaRitual1)
     game.removeVisual(fantasmaDiagonaRitual2)
     game.removeVisual(fantasmaDiagonaRitual3)

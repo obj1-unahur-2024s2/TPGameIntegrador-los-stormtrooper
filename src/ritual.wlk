@@ -27,7 +27,41 @@ object ritual {
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionRitual)
-    self.reproducirMusica()
+    
+    game.schedule(1000, {=>self.reproducirMusica()})
+
+
+    //--personaje
+    game.addVisual(dimension)
+    game.addVisualCharacter(personaje)
+    personaje.irA(game.at(5,1))    
+    
+    
+    //game.addVisual(dimension)
+    game.schedule(1000, {=>
+      game.removeVisual(dimension)
+      game.addVisual(oscuridad)
+
+      game.removeVisual(personaje)
+      game.addVisualCharacter(personaje)
+      personaje.irA(game.at(5,1))  
+      })
+
+    game.schedule(2700, {=>game.addVisual(frase)})
+
+    game.schedule(4500, {=>
+      game.removeVisual(oscuridad)
+      game.addVisual(estrellas)
+      game.removeVisual(personaje)
+      game.addVisualCharacter(personaje)
+      personaje.irA(game.at(5,1)) 
+      game.removeVisual(frase)
+      game.addVisualCharacter(frase)
+      })
+
+    game.schedule(6350, {=>game.removeVisual(estrellas)})
+
+
     
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
@@ -35,35 +69,38 @@ object ritual {
 
     //------------------------------------------------------ubicacion objetos
     //--personaje
-    game.addVisualCharacter(personaje)
-    personaje.irA(game.at(5,1))
+    //game.addVisualCharacter(personaje)
+    //personaje.irA(game.at(5,1))
     
     //agis
-    game.schedule(1000, {=>game.addVisual(frase)})
+    //game.schedule(2000, {=>game.addVisual(frase)})
 
-    game.schedule(10000, {=>
+    game.schedule(12000, {=>
       game.removeVisual(frase)
       game.addVisual(damage)
     })
     
-    game.schedule(10250, {=>
+    game.schedule(12250, {=>
       game.removeVisual(damage)
       game.addVisual(agis)
       agis.animar()
     })
-    
-    antorcha1.animar()
-    antorcha2.animar()
-    antorcha3.animar()
-    antorcha4.animar()
-    antorcha5.animar()
-    
+        
     //--Antorchas
+    /*
     habitacion.ubicarEnTablero(antorcha1, 6, 10)
     habitacion.ubicarEnTablero(antorcha2, 1, 7)
     habitacion.ubicarEnTablero(antorcha3, 10, 7)
     habitacion.ubicarEnTablero(antorcha4, 3, 2)
     habitacion.ubicarEnTablero(antorcha5, 8, 2)
+    */
+    self.agregarAntorchas()
+    //animacion Antorchas
+    antorcha1.animar()
+    antorcha2.animar()
+    antorcha3.animar()
+    antorcha4.animar()
+    antorcha5.animar()
 
     //--Items
 
@@ -75,68 +112,18 @@ object ritual {
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
-
-
-    //game.schedule(11000, {=>self.agregarFantasmas2()})
-    //game.addVisual(fantasmaDiagonaRitual1)
-    //game.addVisual(fantasmaDiagonaRitual2)
-    //self.agregarFantasmas()
-    if(!estavencido){
-      game.schedule(11000, {=>game.addVisual(fantasmaDiagonaRitual1)})
-    }
-
-    if(!estavencido){game.schedule(14000, {=>game.addVisual(fantasmaDiagonaRitual2)})}
-      
-    if(!estavencido){game.schedule(17000, {=>game.addVisual(fantasmaDiagonaRitual3)})}
-      
-    if(!estavencido){game.schedule(20000, {=>game.addVisual(fantasmaDiagonaRitual4)})}
-      
-    if(!estavencido){game.schedule(23000, {=>game.addVisual(fantasmaDiagonaRitual5)})}
-      
-
-    if(!estavencido){game.schedule(26000, {=>game.addVisual(fantasmaDiagonaRitual6)})}
-      
-    if(!estavencido){game.schedule(29000, {=>game.addVisual(fantasmaDiagonaRitual7)})}
-      
-    if(!estavencido){game.schedule(32000, {=>game.addVisual(fantasmaDiagonaRitual8)})}
-      
-    if(!estavencido){game.schedule(35000, {=>game.addVisual(fantasmaDiagonaRitual9)})}
-      
-    if(!estavencido){game.schedule(38000, {=>game.addVisual(fantasmaDiagonaRitual10)})}
-      
-    if(estavencido){game.onTick(100, "borrarFantasmas",{=> self.borrarFantasmas()})}
-  }
-  /*
-  method agregarFantasmas() {
-    if(ritual.contador <5){
-    game.schedule(11000, {=>game.addVisual(fantasmaDiagonaRitual1)})
-    game.schedule(14000, {=>game.addVisual(fantasmaDiagonaRitual2)})
-    game.schedule(17000, {=>game.addVisual(fantasmaDiagonaRitual3)})
-    game.schedule(20000, {=>game.addVisual(fantasmaDiagonaRitual4)})
-    game.schedule(23000, {=>game.addVisual(fantasmaDiagonaRitual5)})
-
-    game.schedule(26000, {=>game.addVisual(fantasmaDiagonaRitual6)})
-    game.schedule(29000, {=>game.addVisual(fantasmaDiagonaRitual7)})
-    game.schedule(32000, {=>game.addVisual(fantasmaDiagonaRitual8)})
-    game.schedule(35000, {=>game.addVisual(fantasmaDiagonaRitual9)})
-    game.schedule(38000, {=>game.addVisual(fantasmaDiagonaRitual10)})
-    }
-  }
-
-  method agregarFantasmas2() {
-    var velocidad = 300
-    var lugar = 1
-
-    if(contador!=5){
-      const fantasmaDiagonal = new FantasmaDiagonal(position = game.at(lugar,1), velocidad = velocidad)
-      //game.schedule(3000, {=>const fantasmaDiagonal = new FantasmaDiagonal(position = game.at(lugar,1), velocidad = velocidad)})
-      lugar +=1
-      velocidad -=25
-    }
     
-  
+    //fantasmas
+    self.agregarFantasmas()
+
   }
-  */
+  method agregarAntorchas() {
+    game.schedule(9000, {=>habitacion.ubicarEnTablero(antorcha1, 6, 10)})
+    game.schedule(9500, {=>habitacion.ubicarEnTablero(antorcha3, 10, 7)})
+    game.schedule(10000, {=>habitacion.ubicarEnTablero(antorcha5, 8, 2)})
+    game.schedule(10500, {=>habitacion.ubicarEnTablero(antorcha4, 3, 2)})
+    game.schedule(11000, {=>habitacion.ubicarEnTablero(antorcha2, 1, 7)})
+  }
 
   method sumar() {
     contador += 1
@@ -145,6 +132,29 @@ object ritual {
   method reiniciar() {
     contador = 0
   }
+
+  method agregarFantasmas() {
+    //primeros 5
+    self.crearFantasmaSegunTiempo(15000,fantasmaDiagonaRitual1)
+    self.crearFantasmaSegunTiempo(18000,fantasmaDiagonaRitual2)
+    self.crearFantasmaSegunTiempo(21000,fantasmaDiagonaRitual3)
+    self.crearFantasmaSegunTiempo(24000,fantasmaDiagonaRitual4)
+    self.crearFantasmaSegunTiempo(27000,fantasmaDiagonaRitual5)
+    //segunada tanda
+    self.crearFantasmaSegunTiempo(35000,fantasmaDiagonaRitual6)
+    self.crearFantasmaSegunTiempo(40000,fantasmaDiagonaRitual7)
+    self.crearFantasmaSegunTiempo(45000,fantasmaDiagonaRitual8)
+    self.crearFantasmaSegunTiempo(50000,fantasmaDiagonaRitual9)
+    self.crearFantasmaSegunTiempo(55000,fantasmaDiagonaRitual10)
+  }
+
+  method crearFantasmaSegunTiempo(unTiempo,unFantasma) {
+    game.schedule(unTiempo, {=>
+      if(!estavencido || (personaje.personajeVida()!=0 &&  !estavencido))
+        game.addVisual(unFantasma)
+    })  
+  }
+
   method borrarFantasmas() {
       game.removeVisual(fantasmaDiagonaRitual1)
       game.removeVisual(fantasmaDiagonaRitual2)
@@ -162,16 +172,7 @@ object ritual {
     if(contador >=5){
       estavencido = true
       habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10) 
-      game.removeVisual(fantasmaDiagonaRitual1)
-      game.removeVisual(fantasmaDiagonaRitual2)
-      game.removeVisual(fantasmaDiagonaRitual3)
-      game.removeVisual(fantasmaDiagonaRitual4)
-      game.removeVisual(fantasmaDiagonaRitual5)
-      game.removeVisual(fantasmaDiagonaRitual6)
-      game.removeVisual(fantasmaDiagonaRitual7)
-      game.removeVisual(fantasmaDiagonaRitual8)
-      game.removeVisual(fantasmaDiagonaRitual9)
-      game.removeVisual(fantasmaDiagonaRitual10)
+      self.borrarFantasmas()//
       game.removeVisual(agis)
       game.addVisual(agisDefeated)
       agisDefeated.animar()
@@ -180,18 +181,20 @@ object ritual {
     }    
   }
 
-}
+}//fin de metodo iniciar
 
-const fantasmaDiagonaRitual1 = new FantasmaDiagonal(position = game.at(1,1), velocidad = 300)
-const fantasmaDiagonaRitual2 = new FantasmaDiagonal(position = game.at(2,1), velocidad = 300)
-const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), velocidad = 250)
-const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 250)
-const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 200)
+//instancias fantasma
+const fantasmaDiagonaRitual1 = new FantasmaDiagonal(position = game.at(1,2), velocidad = 400)
+const fantasmaDiagonaRitual2 = new FantasmaDiagonal(position = game.at(2,1), velocidad = 400)
+const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), velocidad = 350)
+const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 350)
+const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 300)
+
 const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 200)
 const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 150)
 const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 150)
 const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 100)
-const fantasmaDiagonaRitual10 = new FantasmaDiagonal(position = game.at(10,1), velocidad = 100)
+const fantasmaDiagonaRitual10 = new FantasmaDiagonal(position = game.at(10,2), velocidad = 100)
 //------------------------------------------------------------------------------------------------Clase Antrocha
 class Antorcha {
   var property image = "torch_1V2.png"
@@ -206,8 +209,8 @@ class Antorcha {
 
   method animacion() {
     if(contador !=4){
-      image = "torch_"+contador+"V2.png"
       contador += 1
+      image = "torch_"+contador+"V2.png"
     }
     else{
       contador =1
@@ -325,6 +328,21 @@ object fraseDefeated {
       No puedes irte de aquí!!
       ¡¡¡Te lo pRohiiíbOo00o0o00Ooo0o!!!"
 }
+
+object dimension {
+  const property image = "dimension.png"
+  var property position = game.origin()
+}
+object oscuridad {
+  const property image = "fondoOscuridad.png"
+  var property position = game.origin()
+}
+object estrellas {
+  const property image = "fondoRitual.png"
+  var property position = game.origin()
+}
+
+
 
 /*
     method inicializar(){

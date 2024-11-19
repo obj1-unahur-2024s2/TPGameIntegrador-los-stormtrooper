@@ -9,6 +9,7 @@ import wollok.game.*
 import terraza.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object entradaPrimerPiso {
   var property image = "fondoEntrada1PV8.png" 
@@ -58,6 +59,8 @@ object entradaPrimerPiso {
 
     //texto
     habitacion.ubicarEnTablero(txtPlanta, 1, 7)
+
+    game.addVisual(fantasmaDiagonalPrimerPiso1)
   
 
 

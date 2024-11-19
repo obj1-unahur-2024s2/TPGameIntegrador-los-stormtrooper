@@ -61,7 +61,9 @@ object comedor {
     //Items en Inventario
     barraItems.verificar()
 
-    //game.addVisual(fantasmaDiagona1)
+    game.addVisual(fantasmaDiagonalComedor1)
+    game.addVisual(fantasmaDiagonalComedor2)
+    game.addVisual(fantasmaDiagonalComedor3)
 
   }
 

@@ -8,6 +8,7 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object musica {
   var property image = "fondoMusicaV5.png" 
@@ -55,6 +56,10 @@ object musica {
 
     //Items en Inventario
     barraItems.verificar()
+
+    game.addVisual(fantasmaDiagonalMusica1)
+    game.addVisual(fantasmaDiagonalMusica2)
+    game.addVisual(fantasmaDiagonalMusica3)
   }
 
 }

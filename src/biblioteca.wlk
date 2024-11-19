@@ -8,6 +8,7 @@ import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
+import fantasma.*
 
 object biblioteca {
   var property image = "fondoBibliotecaV3.png" 
@@ -69,6 +70,10 @@ object biblioteca {
 //>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
     //Items en Inventario
     barraItems.verificar()
+
+    game.addVisual(fantasmaDiagonalBiblio1)
+    game.addVisual(fantasmaDiagonalBiblio2)
+    game.addVisual(fantasmaDiagonalBiblio3)//op
 
   }
 
