@@ -1,34 +1,34 @@
+/*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
 import wollok.game.*
+*/
 
 object barraItems {
-  
-  method verificar() {
-    self.siEstaEnInventario(iconLlave1Inv)
-    //self.siEstaEnInventario(iconGema1Inv)
-    self.siEstaEnInventario(iconDiscoInv)
-    self.siEstaEnInventario(iconLlaveMInv)
-    self.siEstaEnInventario(iconEncendedorInv)
-    self.siEstaEnInventario(iconEmblemaInv)
-    self.siEstaEnInventario(iconNota1Inv)
-    self.siEstaEnInventario(iconLlaveDInv)
-    self.siEstaEnInventario(iconLlaveCInv)
-    
-    self.siEstaEnInventario(iconNota2Inv)
-    self.siEstaEnInventario(iconLlaveSotanoInv)
-    
-    self.siEstaEnInventario(iconNota3Inv)
-    self.siEstaEnInventario(iconNota3P2Inv)
-    self.siEstaEnInventario(iconPolvoEstrellasInv)
+  const property listaDeItems = []
+  const property listaDeEstadosDeItems =[]
 
+  method agregarAlaLista(unItem,itemEstado) {
+    listaDeItems.add(unItem)
+    listaDeEstadosDeItems.add(itemEstado)
+  }
+  method mostrarListaDeItems() {
+    listaDeItems.forEach({a=>game.addVisual(a)})
+  }
+  method esconderListaDeItems() {
+    listaDeItems.forEach({a=> game.removeVisual(a)})
+  }
+  method ResetItemsDeInventario() {
+    listaDeEstadosDeItems.forEach({a=>a.enInventario(false)})
+    listaDeEstadosDeItems.clear()
+    listaDeItems.clear()
   }
 
-  method siEstaEnInventario(unItem) {//ubicador de items inventario
-    if(unItem.loTengo())
-      game.addVisual(unItem)
+  method refreshListaDeItems() {
+    self.esconderListaDeItems()
+    self.mostrarListaDeItems()
   }
 }

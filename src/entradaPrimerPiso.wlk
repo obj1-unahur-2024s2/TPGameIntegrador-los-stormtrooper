@@ -30,17 +30,6 @@ object entradaPrimerPiso {
     personaje.inicioDePartida(false)
 
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    //--Ubicacion del personaje segun el lugar    
-    if(personaje.ubicacion() =="entrada")// desde entrada
-      habitacion.ubicarPersonaje(5, 3)
-    else if(personaje.ubicacion() =="terraza")// desde la terraza
-      habitacion.ubicarPersonaje(2, 5)
-    else if(personaje.ubicacion() =="biblioteca")// desde la biblioteca
-      habitacion.ubicarPersonaje(9, 5)
-    //identificador de ubicacion del personaje 
-    personaje.ubicacion("primerPiso")
-
     //--puertas
     habitacion.ubicarEnTablero(escaleraAEntrada, 6, 2)
     habitacion.ubicarEnTablero(puertaATerraza, 1, 5)
@@ -55,17 +44,21 @@ object entradaPrimerPiso {
     //--Items
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
     //texto
-    habitacion.ubicarEnTablero(txtPlanta, 1, 7)
+    habitacion.ubicarEnTablero(objPlanta, 1, 7)
 
-    game.addVisual(fantasmaDiagonalPrimerPiso1)
+    //game.addVisual(fantasmaDiagonalPrimerPiso1)
   
-
-
-    
-
+    //--Ubicacion del personaje segun el lugar    
+    if(personaje.ubicacion() =="entrada")// desde entrada
+      habitacion.ubicarPersonaje(5, 3)
+    else if(personaje.ubicacion() =="terraza")// desde la terraza
+      habitacion.ubicarPersonaje(2, 5)
+    else if(personaje.ubicacion() =="biblioteca")// desde la biblioteca
+      habitacion.ubicarPersonaje(9, 5)
+    //identificador de ubicacion del personaje 
+    personaje.ubicacion("primerPiso")
   }
-
 }

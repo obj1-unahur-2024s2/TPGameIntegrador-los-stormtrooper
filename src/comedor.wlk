@@ -30,14 +30,6 @@ object comedor {
     personaje.inicioDePartida(false)//
 
     //-------------------------------------Ubicaciones
-    //--Ubicacion del personaje segun ekl lugar
-    if(personaje.ubicacion() =="entrada")// desde la entrada
-      habitacion.ubicarPersonaje(9, 4)
-    else//desde cocina
-      habitacion.ubicarPersonaje(3, 9)
-    //identificador de ubicacion del personaje 
-    personaje.ubicacion("comedor")
-
     //--puertas
     habitacion.ubicarEnTablero(puertaAEntrada, 10, 4)
     habitacion.ubicarEnTablero(puertaACocina, 3, 10)
@@ -53,18 +45,25 @@ object comedor {
     habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
 
     //Textos
-    habitacion.ubicarEnTablero(txtComida, 4, 6)
-    habitacion.ubicarEnTablero(txtRoto, 10, 7)
-    habitacion.ubicarEnTablero(txtCuadro, 1, 10)
-    habitacion.ubicarEnTablero(txtPlanta, 2, 9)
+    habitacion.ubicarEnTablero(objComida, 4, 6)
+    habitacion.ubicarEnTablero(objRoto, 10, 7)
+    habitacion.ubicarEnTablero(objCuadro, 1, 10)
+    habitacion.ubicarEnTablero(objPlanta, 2, 9)
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalComedor1)
-    game.addVisual(fantasmaDiagonalComedor2)
-    game.addVisual(fantasmaDiagonalComedor3)
-
+    //game.addVisual(fantasmaDiagonalComedor1)
+    //game.addVisual(fantasmaDiagonalComedor2)
+    //game.addVisual(fantasmaDiagonalComedor3)
+    
+    //--Ubicacion del personaje segun ekl lugar
+    if(personaje.ubicacion() =="entrada")// desde la entrada
+      habitacion.ubicarPersonaje(9, 4)
+    else//desde cocina
+      habitacion.ubicarPersonaje(3, 9)
+    //identificador de ubicacion del personaje 
+    personaje.ubicacion("comedor")
   }
 
 }

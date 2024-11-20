@@ -24,15 +24,9 @@ object cocina {
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionCocina)
-    self.reproducirMusica()
-    //------------------------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)
-    personaje.ubicacion("cocina")
+    self.reproducirMusica()    
 
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(4, 2)
-    // va a cambiar
 
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 10)//y max Arriba
@@ -49,17 +43,20 @@ object cocina {
     habitacion.ubicarUnKeyItem(itemPolvoEstrellas, 7, 8)
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
   
     //Textos
-    habitacion.ubicarEnTablero(txtComida, 5, 6)
-    habitacion.ubicarEnTablero(txtReloj, 8, 9)
-    habitacion.ubicarEnTablero(txtSillaRota, 5, 3)
+    habitacion.ubicarEnTablero(objComida, 5, 6)
+    habitacion.ubicarEnTablero(objReloj, 8, 9)
+    habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
-    game.addVisual(fantasmaDiagonalCocina1)
-    game.addVisual(fantasmaDiagonalCocina2)
-    game.addVisual(fantasmaDiagonalCocina3)
-
+    //game.addVisual(fantasmaDiagonalCocina1)
+    //game.addVisual(fantasmaDiagonalCocina2)
+    //game.addVisual(fantasmaDiagonalCocina3)
+    
+    //--personaje
+    personaje.ubicacion("cocina")
+    habitacion.ubicarPersonaje(4, 2)
   }
 
 }

@@ -26,14 +26,8 @@ object dormitorio {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionDormitorio)
     self.reproducirMusica()
-    //------------------------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)
-    personaje.ubicacion("dormitorio")
 
-    //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(5, 3)
-    
+    //------------------------------------------------------ubicacion objetos    
     //--puertas
     habitacion.ubicarEnTablero(puertaABiblioteca, 5, 2)
 
@@ -47,18 +41,22 @@ object dormitorio {
     habitacion.ubicarUnKeyItem(itemLlaveSotano, 8, 8)
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
     //textos
-    habitacion.ubicarEnTablero(txtClaveEspejo, 3, 9)
-    habitacion.ubicarEnTablero(txtClaveReloj, 2, 9)
-    habitacion.ubicarEnTablero(txtPuertaSinUso, 1,6)
-    habitacion.ubicarEnTablero(txtCofreDormi, 5, 9)
+    habitacion.ubicarEnTablero(objClaveEspejo, 3, 9)
+    habitacion.ubicarEnTablero(objClaveReloj, 2, 9)
+    habitacion.ubicarEnTablero(objPuertaSinUso, 1,6)
+    habitacion.ubicarEnTablero(objCofreDormi, 5, 9)
 
-    game.addVisual(fantasmaDiagonalDormi1)
-    game.addVisual(fantasmaDiagonalDormi2)
-    game.addVisual(fantasmaDiagonalDormi3)//op
-  
+    //game.addVisual(fantasmaDiagonalDormi1)
+    //game.addVisual(fantasmaDiagonalDormi2)
+    //game.addVisual(fantasmaDiagonalDormi3)//op
+    
+    //--personaje
+    personaje.ubicacion("dormitorio")    
+    habitacion.ubicarPersonaje(5, 3)
+
   }
 
 }

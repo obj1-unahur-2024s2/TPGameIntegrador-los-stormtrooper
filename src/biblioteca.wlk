@@ -22,23 +22,10 @@ object biblioteca {
   }
 
   method iniciar() {
-    //-------------------------------------propiedades de tablero
+    //--propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionBiblioteca)
     self.reproducirMusica()
-    //------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)//
-
-    //-------------------------------------Ubicaciones
-    //--Ubicacion del personaje segun ekl lugar
-    if(personaje.ubicacion() =="primerPiso"){// desde el primer piso
-      habitacion.ubicarPersonaje(2, 5)
-      }
-    else{//desde dormitorio
-      habitacion.ubicarPersonaje(5, 9)
-      }
-    //identificador de ubicacion del personaje 
-    personaje.ubicacion("biblioteca")
-
+    //------------------------------------------------------------------Ubicaciones
     //--puertas
     habitacion.ubicarEnTablero(puertaAPrimerPiso, 1, 5)
     habitacion.ubicarEnTablero(puertaADormitorio, 5, 10)
@@ -54,27 +41,30 @@ object biblioteca {
     habitacion.ubicarUnKeyItem(itemEncendedor, 1, 9)
     
     //--textos
-//<<<<<<< HEAD
-    habitacion.ubicarEnTablero(txtEspejo, 2, 10)
-    habitacion.ubicarEnTablero(txtSillaRota, 2, 2)
+    habitacion.ubicarEnTablero(objEspejo, 2, 10)
+    habitacion.ubicarEnTablero(objSillaRota, 2, 2)
 
-    habitacion.ubicarEnTablero(txtBiblioInfo1, 7, 9)
-    habitacion.ubicarEnTablero(txtBiblioInfo2, 1, 7)
-    habitacion.ubicarEnTablero(txtBiblioInfo3, 8, 3)
-    habitacion.ubicarEnTablero(txtBiblioInfo4, 7, 3)
+    habitacion.ubicarEnTablero(objBiblioInfo1, 7, 9)
+    habitacion.ubicarEnTablero(objBiblioInfo2, 1, 7)
+    habitacion.ubicarEnTablero(objBiblioInfo3, 8, 3)
+    habitacion.ubicarEnTablero(objBiblioInfo4, 7, 3)
+    habitacion.ubicarEnTablero(objComentariosDeMas, 8, 10)
 
-    
-//=======
-    habitacion.ubicarEnTablero(txtComentariosDeMas, 8, 10)
+    //--Items en Inventario
+    barraItems.refreshListaDeItems()
 
-//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
-    //Items en Inventario
-    barraItems.verificar()
+    //game.addVisual(fantasmaDiagonalBiblio1)
+    //game.addVisual(fantasmaDiagonalBiblio2)
+    //game.addVisual(fantasmaDiagonalBiblio3)//op
 
-    game.addVisual(fantasmaDiagonalBiblio1)
-    game.addVisual(fantasmaDiagonalBiblio2)
-    game.addVisual(fantasmaDiagonalBiblio3)//op
-
+    //--Ubicacion del personaje segun ekl lugar
+    if(personaje.ubicacion() =="primerPiso"){// desde el primer piso
+      habitacion.ubicarPersonaje(2, 5)
+      }
+    else{//desde dormitorio
+      habitacion.ubicarPersonaje(5, 9)
+      }
+    //identificador de ubicacion del personaje 
+    personaje.ubicacion("biblioteca")
   }
-
 }

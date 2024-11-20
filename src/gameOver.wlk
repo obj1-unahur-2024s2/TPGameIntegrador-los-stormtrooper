@@ -1,3 +1,4 @@
+import entrada.*
 import ritual.*
 import tituloJuego.*
 import barraItems.*
@@ -34,17 +35,25 @@ object gameOver {
 
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
-    habitacion.borrarTodo(self)
+    //habitacion.borrarTodo(self)
+    habitacion.borrarEscena()
     self.pararTodasLAsMusicas()
     self.reproducirMusica()
     game.removeVisual(corazon1)// borra ultimo corazon
     game.addVisual(self)//muestra game over
     activo = true
+
+    habitacion.cerrarPuertasAbiertas()
+    habitacion.borrarListaconPuertas()
+
     personaje.personajeVida(3)
+    personaje.inicioDePartida(true)
+    barraItems.ResetItemsDeInventario()
 
     keyboard.num(1).onPressDo({if(activo){
       musicaAmbiente.stop()
-      tituloJuego.iniciar()
+      activo = false
+      entrada.iniciar()
       }})
     //keyboard.num(1).onPressDo({tituloJuego.iniciar()})
     //keyboard.num(2).onPressDo({self.ModoDificil()})//modo dificil

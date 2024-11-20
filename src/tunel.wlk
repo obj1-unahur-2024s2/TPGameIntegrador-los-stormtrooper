@@ -26,35 +26,33 @@ object tunel {
     habitacion.iniciarHabitacion(self,ubicacionTunel)
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)
-    personaje.ubicacion("tunel")
+
     
     game.addVisual(katyCurse)
     katyCurse.animar()
 
-    //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(6, 1)
-    
-
+    //------------------------------------------------------ubicacion objetos   
     //--puertas
     game.addVisual(puertaARitual)
     puertaARitual.ubicarEn(game.at(5,9))
 
-
     //--Items
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
     //textos
-    habitacion.ubicarEnTablero(txtKatyCursed, 6, 7)
+    habitacion.ubicarEnTablero(objKatyCursed, 6, 7)
 
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 10)//y max Arriba
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 7, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 4, 0)//x min Izquierda
+
+    //--personaje
+    personaje.ubicacion("tunel")
+    habitacion.ubicarPersonaje(6, 1)
   }
 
 }

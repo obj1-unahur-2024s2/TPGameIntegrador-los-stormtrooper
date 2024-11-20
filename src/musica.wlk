@@ -26,13 +26,9 @@ object musica {
     habitacion.iniciarHabitacion(self,ubicacionMusica)
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)
     personaje.ubicacion("musica")
 
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(2, 4)
-
     //--puertas
     habitacion.ubicarEnTablero(puertaAEntrada, 1, 4)
 
@@ -48,18 +44,19 @@ object musica {
     habitacion.ubicarUnKeyItem(itemNota3, 9, 10)
 
     //--textos
-    habitacion.ubicarEnTablero(txtPuertaSinUso, 4, 10)
-    
-    habitacion.ubicarEnTablero(txtClavePolvo1, 9, 10)
-
-    habitacion.ubicarEnTablero(txtArpa, 9,8)
+    habitacion.ubicarEnTablero(objPuertaSinUso, 4, 10)
+    habitacion.ubicarEnTablero(objClavePolvo1, 9, 10)
+    habitacion.ubicarEnTablero(objArpa, 9,8)
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalMusica1)
-    game.addVisual(fantasmaDiagonalMusica2)
-    game.addVisual(fantasmaDiagonalMusica3)
+    //game.addVisual(fantasmaDiagonalMusica1)
+    //game.addVisual(fantasmaDiagonalMusica2)
+    //game.addVisual(fantasmaDiagonalMusica3)
+
+    //--personaje
+    habitacion.ubicarPersonaje(2, 4)
   }
 
 }

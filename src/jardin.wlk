@@ -25,14 +25,13 @@ object jardin {
     habitacion.iniciarHabitacion(self, ubicacionJardinTrasero)
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
-    personaje.ubicacion(11)
+    //personaje.ubicacion(11)
 
     //------------------------------------------------------ubicacion objetos
+    //--Katy
     game.addVisual(katyLast)
     katyLast.animar()
-    //--personaje
-    habitacion.ubicarPersonaje(5, 1)
-    
+
     //--puertas
 
     //--Items
@@ -42,6 +41,9 @@ object jardin {
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 6, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 4, 0)//x min Izquierda
+    
+    //--personaje
+    habitacion.ubicarPersonaje(5, 1)
   }
 }
 

@@ -30,22 +30,18 @@ object ritual {
     
     game.schedule(1000, {=>self.reproducirMusica()})
 
-
     //--personaje
     game.addVisual(dimension)
     game.addVisualCharacter(personaje)
     personaje.irA(game.at(5,1))    
     
-    
-    //game.addVisual(dimension)
     game.schedule(1000, {=>
       game.removeVisual(dimension)
       game.addVisual(oscuridad)
-
       game.removeVisual(personaje)
       game.addVisualCharacter(personaje)
       personaje.irA(game.at(5,1))  
-      })
+    })
 
     game.schedule(2700, {=>game.addVisual(frase)})
 
@@ -57,23 +53,13 @@ object ritual {
       personaje.irA(game.at(5,1)) 
       game.removeVisual(frase)
       game.addVisualCharacter(frase)
-      })
+    })
 
     game.schedule(6350, {=>game.removeVisual(estrellas)})
 
-
-    
     //------------------------------------------------------estado del personaje
-    personaje.inicioDePartida(false)
-    personaje.ubicacion(9)
-
+  
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    //game.addVisualCharacter(personaje)
-    //personaje.irA(game.at(5,1))
-    
-    //agis
-    //game.schedule(2000, {=>game.addVisual(frase)})
 
     game.schedule(12000, {=>
       game.removeVisual(frase)
@@ -87,15 +73,7 @@ object ritual {
     })
         
     //--Antorchas
-    /*
-    habitacion.ubicarEnTablero(antorcha1, 6, 10)
-    habitacion.ubicarEnTablero(antorcha2, 1, 7)
-    habitacion.ubicarEnTablero(antorcha3, 10, 7)
-    habitacion.ubicarEnTablero(antorcha4, 3, 2)
-    habitacion.ubicarEnTablero(antorcha5, 8, 2)
-    */
     self.agregarAntorchas()
-    //animacion Antorchas
     antorcha1.animar()
     antorcha2.animar()
     antorcha3.animar()
@@ -105,7 +83,7 @@ object ritual {
     //--Items
 
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
@@ -117,6 +95,7 @@ object ritual {
     self.agregarFantasmas()
 
   }
+
   method agregarAntorchas() {
     game.schedule(9000, {=>habitacion.ubicarEnTablero(antorcha1, 6, 10)})
     game.schedule(9500, {=>habitacion.ubicarEnTablero(antorcha3, 10, 7)})
@@ -150,10 +129,14 @@ object ritual {
 
   method crearFantasmaSegunTiempo(unTiempo,unFantasma) {
     game.schedule(unTiempo, {=>
-      if(!estavencido || (personaje.personajeVida()!=0 &&  !estavencido))
+      if(self.sePuedeSeguirCreandoFantasmas())
         game.addVisual(unFantasma)
     })  
   }
+  method sePuedeSeguirCreandoFantasmas() {
+    return !estavencido || (personaje.personajeVida()!=0 &&  !estavencido)
+  }
+
 
   method borrarFantasmas() {
       game.removeVisual(fantasmaDiagonaRitual1)
@@ -228,26 +211,29 @@ class Antorcha {
 
   method mostrarMensaje(unMensaje) {
     game.addVisual(unMensaje)//--muestra texto--
-    game.schedule(2500, { => game.removeVisual(unMensaje)})
+    game.schedule(2000, { => game.removeVisual(unMensaje)})
   }
 
   method destruir(unRitual) {
     if(itemPolvoEstrellas.enInventario()){//si tenes el polvo
-        if(unRitual.contador()==numeroComparador || unRitual.contador()==numeroFinal){//si haces la combinacion correcta
+        if(self.siEsLaCombinacionCorrecta(unRitual)){//si haces la combinacion correcta
           self.sumar(unRitual)
           if(unRitual.contador()<=4)
-            self.mostrarMensaje(txtAntorchaOk)//mensaje OK
+            self.mostrarMensaje(textoAntorchaOk)//mensaje OK
           else
-            self.mostrarMensaje(txtMaldicionRota)//mensaje MAL
+            self.mostrarMensaje(textoMaldicionRota)//mensaje MAL
           unRitual.aparecerPuerta()//verifica si se habrio la puerta
         }
         else{//si haces MAL la combinacion
           self.reiniciar(unRitual)
-          self.mostrarMensaje(txtAntorchaMal)
+          self.mostrarMensaje(textoAntorchaMal)
         }
     }
     else//si NO tenes el polvo. PERDISTE
-      self.mostrarMensaje(txtAntorchaSinPolvo)
+      self.mostrarMensaje(textoAntorchaSinPolvo)
+  }
+  method siEsLaCombinacionCorrecta(unRitual) {
+    return unRitual.contador()==numeroComparador || unRitual.contador()==numeroFinal
   }
   
   method sumar(unRitual) {
@@ -328,7 +314,7 @@ object fraseDefeated {
       No puedes irte de aquí!!
       ¡¡¡Te lo pRohiiíbOo00o0o00Ooo0o!!!"
 }
-
+//--imagenes--
 object dimension {
   const property image = "dimension.png"
   var property position = game.origin()
@@ -342,64 +328,3 @@ object estrellas {
   var property position = game.origin()
 }
 
-
-
-/*
-    method inicializar(){
-        controlTeclado.inicializar(toni)
-        toni.position(controlDeMovimientos.defaultPosition())
-        game.addVisual(toni)
-        
-        const x = 1.randomUpTo(10).truncate(0)
-        const y = 1.randomUpTo(10).truncate(0)
-        const enemigo = new FantasmaDiagonal(position= game.at(x, y)
-
-
-        (1..10).forEach{ value => 
-            game.schedule(value * 1000, {
-                const enemigo = new Enemigo(position= game.at((0..game.width()-1).anyOne(),value))
-                controlDeColisiones.inicializar(enemigo)
-
-
-        (1..game.height()-2).forEach{ value => 
-            game.schedule(value * 1000, {
-                const enemigo = new Enemigo(position= game.at((0..game.width()-1).anyOne(),value))
-                controlDeColisiones.inicializar(enemigo)
-                
-                if(0.randomUpTo(1) <= 0.5) 
-                    self.cambiarDireccionDerecha(enemigo, "Evento-" + value)
-                else 
-                    self.cambiarDireccionIzquierda(enemigo, "Evento-" + value)
-               // game.addVisual(enemigo)
-            })    
-        }
-    }
-
-
-Eventos automaticos
-Una funcionalidad interesante que podemos implementar es que la caja se mueva cada n segundos (por ejemplo, cada 2 segundos), enviando el mensaje onTick() al objeto game, el lapso de repetición expresado en milisegundos, un identificador (string descriptivo) y el bloque de código que debe ejecutar:
-
-program ejemplo {
-  game.addVisualCharacter(wollok)
-  game.addVisual(caja)
-  // cada dos segundos muevo la caja
-  game.onTick(2000, "movimiento", { caja.movete() })
-  //
-  game.start()
-}
-
-El método movete() en caja actualiza la posición en base a un valor al azar, tomando en cuenta el ancho y alto del tablero:
-
-object caja {
-  var property position = game.center()
-  method image() = "caja.png"
-  method movete() {
-    const x = 0.randomUpTo(game.width()).truncate(0)
-    const y = 0.randomUpTo(game.height()).truncate(0)
-    // otra forma de generar números aleatorios
-    // const x = (0.. game.width()-1).anyOne()
-    // const y = (0.. game.height()-1).anyOne()
-    position = game.at(x,y)
-  }
-}
-*/

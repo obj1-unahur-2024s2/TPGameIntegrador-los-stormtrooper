@@ -27,22 +27,24 @@ object final {
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
-    personaje.ubicacion(8)
+    //personaje.ubicacion(8)
  
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(5, 1)
-    
     //--puertas
     habitacion.ubicarEnTablero(puertaAJardin, 6, 9)
 
     //--Items
+
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
+    
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 10)//y max Arriba
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 7, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 4, 0)//x min Izquierda
+
+    //--personaje
+    habitacion.ubicarPersonaje(5, 1)
   }
 }

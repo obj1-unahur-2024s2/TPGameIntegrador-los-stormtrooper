@@ -27,13 +27,8 @@ object terraza {
     habitacion.iniciarHabitacion(self,ubicacionTerraza)
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
-    //personaje.inicioDePartida(false)
-    personaje.ubicacion("terraza")
 
     //------------------------------------------------------ubicacion objetos
-    //--personaje
-    habitacion.ubicarPersonaje(9, 4)  
-
     //--puertas
     habitacion.ubicarEnTablero(puertaAPrimerPiso, 10, 4)
 
@@ -43,18 +38,19 @@ object terraza {
     habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
     habitacion.ubicarEnTablero(topeIzq, 2, 0)//x min Izquierda
 
-
     //--Items
-    //habitacion.ubicarUnKeyItem(itemGema1, 6, 7)
     habitacion.ubicarUnKeyItem(itemDisco, 6, 7)
     habitacion.ubicarUnKeyItem(itemLlaveCocina, 3, 6)
     
     //Items en Inventario
-    barraItems.verificar()
+    barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalTerraza1)
-    game.addVisual(fantasmaDiagonalTerraza2)
-
+    //game.addVisual(fantasmaDiagonalTerraza1)
+    //game.addVisual(fantasmaDiagonalTerraza2)
+    
+    //--personaje
+    personaje.ubicacion("terraza")
+    habitacion.ubicarPersonaje(9, 4) 
   }
 
 }

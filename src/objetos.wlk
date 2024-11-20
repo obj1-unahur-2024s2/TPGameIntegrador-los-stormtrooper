@@ -1,25 +1,26 @@
+import barraItems.*
 import comedor.*
 import personaje.*
 import textos.*
 import wollok.game.*
 
 /*--INDICE--
--Clase Obj Invisibles
--clase Obj que solo muestra mensaje
--Clase Obj Visible que solo responde
--Clase Obj que dan un item a cambio
+  -Clase Obj Invisibles
+  -clase Obj que solo muestra mensaje
+  -Clase Obj Visible que solo responde
+  -Clase Obj que dan un item a cambio
 
--Clase Item invisible
--Clase Item que se recibe
--Clase Item Visivble
+  -Clase Item invisible
+  -Clase Item que se recibe
+  -Clase Item Visivble
 
--Iconos
--Iconos de Inventario
--Limites de mapa
--Obj Corazones
--
+  -Iconos
+  -Iconos de Inventario
+  -Limites de mapa
+  -Obj Corazones
+  -
 
-*/
+  */
 
 //----------------------------------------------------------------------------------------------------------Clase ObjetosInvisibles
 class ObjetosInvisibles {
@@ -30,7 +31,7 @@ class ObjetosInvisibles {
   
   //--elimina la visual y pasa al inventario
   method eliminar() {
-    game.removeVisual(self)
+    game.removeVisual(textoInfo)
   }
  
   //--reubica el obj al principio
@@ -50,118 +51,71 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
   
   method interaccion() {
     game.addVisual(textoInfo)//--muestra texto--
-    game.schedule(tiempo, { => game.removeVisual(textoInfo)})//--despues de 2s elimina el texto--
+    game.schedule(tiempo, { => self.eliminar()})//--despues de 2s elimina el texto--game.removeVisual(textoInfo)
+    //game.whenCollideDo(personaje, { txtNadaImportante => game.addVisual(txtNadaImportante)})
+    //if(!game.onSameCell(personaje.position(), self.position()))
+    //  game.removeVisual(TextosInfo)
   }
 }
 //--Instanciaciones
-          const txtNadaImportante  = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
-          const txtNadaImportante2 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
-          const txtNadaImportante3 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
-          const txtNadaImportante4 = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =2000)
-          const txtClavePolvo1     = new ObjInvSoloResponde (textoInfo = clavePolvo1, tiempo =3000)
-          const txtClavePolvo2     = new ObjInvSoloResponde (textoInfo = clavePolvo2, tiempo =3000)
-          const txtNadaSilla       = new ObjInvSoloResponde (textoInfo = nadaImportanteSilla, tiempo =3000)
-          const txtComentariosDeMas= new ObjInvSoloResponde (textoInfo = comentariosDeMas, tiempo =3000)
+          const objNadaImportante  = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const objNadaImportante2 = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =2000)
+          const objNadaImportante3 = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =2000)
+          const objNadaImportante4 = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =2000)
+          const objClavePolvo1     = new ObjInvSoloResponde (textoInfo = textoClavePolvo1, tiempo =3000)
+          const objClavePolvo2     = new ObjInvSoloResponde (textoInfo = textoClavePolvo2, tiempo =3000)
+          const objNadaSilla       = new ObjInvSoloResponde (textoInfo = textoNadaImportanteSilla, tiempo =3000)
+          const objComentariosDeMas= new ObjInvSoloResponde (textoInfo = textoComentariosDeMas, tiempo =3000)
 
-          const txtEspejo          = new ObjInvSoloResponde (textoInfo = espejotxt, tiempo =1500)
-          const txtJarron          = new ObjInvSoloResponde (textoInfo = jarrontxt, tiempo =1500)
-          const txtSillaRota       = new ObjInvSoloResponde (textoInfo = sillaRotatxt, tiempo =1500)
-          const txtComida          = new ObjInvSoloResponde (textoInfo = comidatxt, tiempo =1500)
-          const txtRoto            = new ObjInvSoloResponde (textoInfo = rototxt, tiempo =1500)
-          const txtCuadro          = new ObjInvSoloResponde (textoInfo = cuadrotxt, tiempo =1500)
-          const txtPlanta          = new ObjInvSoloResponde (textoInfo = plantatxt, tiempo =1500)
-          const txtReloj           = new ObjInvSoloResponde (textoInfo = relojtxt, tiempo =1500)
-          const txtPuertaSinUso   = new ObjInvSoloResponde (textoInfo = puertaSinUso, tiempo =1500)
-          const txtCofreDormi      = new ObjInvSoloResponde (textoInfo = cofreDormi, tiempo =1500)
-          const txtArpa            = new ObjInvSoloResponde (textoInfo = arpa, tiempo =1500)
+          const objEspejo          = new ObjInvSoloResponde (textoInfo = textoEspejo, tiempo =1500)
+          const objJarron          = new ObjInvSoloResponde (textoInfo = textoJarron, tiempo =1500)
+          const objSillaRota       = new ObjInvSoloResponde (textoInfo = textoSillaRota, tiempo =1500)
+          const objComida          = new ObjInvSoloResponde (textoInfo = textoComida, tiempo =1500)
+          const objRoto            = new ObjInvSoloResponde (textoInfo = textoRoto, tiempo =1500)
+          const objCuadro          = new ObjInvSoloResponde (textoInfo = textoCuadro, tiempo =1500)
+          const objPlanta          = new ObjInvSoloResponde (textoInfo = textoPlanta, tiempo =1500)
+          const objReloj           = new ObjInvSoloResponde (textoInfo = textoReloj, tiempo =1500)
+          const objPuertaSinUso    = new ObjInvSoloResponde (textoInfo = textoPuertaSinUso, tiempo =1500)
+          const objCofreDormi      = new ObjInvSoloResponde (textoInfo = textoCofreDormi, tiempo =1500)
+          const objArpa            = new ObjInvSoloResponde (textoInfo = textoArpa, tiempo =1500)
 
           //textos para hacer
-          const txtLamparas        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtHeladera        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtCocina          = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtEstantes        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtMesitas         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtTv              = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtRadio           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtSofa            = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtAlfombra        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtPiano           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtViolin          = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtOcarina         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtRadioMusic      = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtCuadro2         = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtSikus           = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
-          const txtMuebles2        = new ObjInvSoloResponde (textoInfo = nadaImportante, tiempo =1500)
+          const txtLamparas        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtHeladera        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtCocina          = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtEstantes        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtMesitas         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtTv              = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtRadio           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtSofa            = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtAlfombra        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtPiano           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtViolin          = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtOcarina         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtRadioMusic      = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtCuadro2         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtSikus           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtMuebles2        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+
+  //--IMPORTANTES
+          const objClaveEspejo     = new ObjInvSoloResponde (textoInfo = textoClaveEspejo, tiempo =3000)
+          const objClaveReloj      = new ObjInvSoloResponde (textoInfo = textoClaveReloj, tiempo =3000)
+          const objKatyCursed      = new ObjInvSoloResponde (textoInfo = textoKatyCursed, tiempo =5000)
+
+          const objBiblioInfo1     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo1, tiempo =4000)
+          const objBiblioInfo2     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo2, tiempo =3000)
+          const objBiblioInfo3     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo3, tiempo =3000)
+          const objBiblioInfo4     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo4, tiempo =3000)
 
 
 
-//--IMPORTANTES
-          const txtClaveEspejo     = new ObjInvSoloResponde (textoInfo = claveEspejo, tiempo =3000)
-          const txtClaveReloj      = new ObjInvSoloResponde (textoInfo = claveReloj, tiempo =3000)
-          const txtKatyCursed      = new ObjInvSoloResponde (textoInfo = katyCursed, tiempo =5000)
-
-          const txtBiblioInfo1     = new ObjInvSoloResponde (textoInfo = biblioInfo1, tiempo =4000)
-          const txtBiblioInfo2     = new ObjInvSoloResponde (textoInfo = biblioInfo2, tiempo =3000)
-          const txtBiblioInfo3     = new ObjInvSoloResponde (textoInfo = biblioInfo3, tiempo =3000)
-          const txtBiblioInfo4     = new ObjInvSoloResponde (textoInfo = biblioInfo4, tiempo =3000)
-
-
-//>>>>>>> 80e25f83126c53d5bfcc3e02b0b193e17ab706d2
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
 class ObjVisSoloResponde inherits ObjInvSoloResponde{
   const property image
 }
 //const prueba3 = new ObjVisSoloResponde (image = "life1Full.png", textoInfo = nadaImportante)//////////////////////////////////////////////////////////////////
-
-//--------------------------------------------------------------------------------------------------------Clase Obj que dan item a cambio de otro
-class ObjQueDanItemACambio inherits ObjetosInvisibles{
-  //var property position = game.center()
-  //const property textoInfo
-  //method text() = textoInfo
-  //method eliminar() 
-  //method ubicarEn(unaUbicacion) 
-  const itemNesesario 
-  const itemACambio
-  const iconItemACambio
-  const textoNoPodes
-  const textoObtenerItem
-  const property image
-
-  method interaccion() {//obj invisible que nececita un item para funcionar
-    if(!itemNesesario.enInventario()){
-      game.addVisual(textoNoPodes)//--muestra texto--
-      game.schedule(4000, { => game.removeVisual(textoNoPodes)})//--despues de 2s elimina el texto--
-    }
-    else if (itemNesesario.enInventario() && !itemACambio.enInventario()){
-      game.addVisual(textoObtenerItem)//--muestra texto--
-      game.schedule(4000, { => game.removeVisual(textoObtenerItem)})//--despues de 2s elimina el texto--
-      
-      game.addVisual(iconItemACambio)
-      game.schedule(4000, { => game.removeVisual(iconItemACambio)})
-      
-      itemACambio.enInventario(true)
-      //self.eliminar()
-    }
-    //no se puede usar por ahora
-    /*else if(itemNesesario.enInventario() && itemACambio.enInventario()){
-      game.addVisual(yaNoHayNada)
-      game.schedule(3000, { => game.removeVisual(yaNoHayNada)})
-    } */
-  }
-  
-}
-/*
-const chimenea = new ObjQueDanItemACambio(
-  image = "objMueble.png", 
-  itemNesesario = llave1, 
-  itemACambio = llave2,
-  iconItemACambio = iconLlave2, 
-  textoNoPodes = hayAlgoPero, 
-  textoObtenerItem = textoLlave1, 
-  textoInfo = nadaImportante
-)*/
 
 //---------------------------------------------------------------------------------------------------------Clase Items INVISIBLES 
 class ItemInvisible {
@@ -170,7 +124,7 @@ class ItemInvisible {
   const property textoExplicacion
   const property iconDelItem
   const property itemInventario
-  var property loTengo = itemInventario.loTengo()
+  //var property loTengo = itemInventario.loTengo()
 
   method interaccion() {
     //texto
@@ -181,17 +135,18 @@ class ItemInvisible {
     game.schedule(4000, { => game.removeVisual(iconDelItem)})
     
     self.enInventario(true)
-    game.removeVisual(self)
+    game.removeVisual(self)//cuando tomas el item,se borra
+    
     //agrega el item al inventario
-    game.addVisual(itemInventario)
-    itemInventario.loTengo(true)
+    barraItems.agregarAlaLista(itemInventario,self)
+    barraItems.refreshListaDeItems()
   }
 
   method ubicarEn(unaUbicacion) {
     self.position(unaUbicacion)  
   }
 }
-        const itemLlaveTerraza = new ItemInvisible(textoExplicacion = textoLlaveTerraza, iconDelItem = iconLlaveTerraza,itemInventario= iconLlave1Inv)
+        const itemLlaveTerraza = new ItemInvisible(textoExplicacion = textoLlaveTerraza, iconDelItem = iconLlaveTerraza,itemInventario= iconLlaveTerrazaInv)
         const itemDisco = new ItemInvisible(textoExplicacion = textoDisco, iconDelItem = iconDisco, itemInventario = iconDiscoInv)
         const itemLlaveMusica = new ItemInvisible(textoExplicacion = textoLlaveMusica, iconDelItem = iconLlaveMusica, itemInventario = iconLlaveMInv)
         const itemEncendedor = new ItemInvisible(textoExplicacion = textoEncendedor, iconDelItem = iconEncendedor, itemInventario = iconEncendedorInv)
@@ -199,8 +154,7 @@ class ItemInvisible {
         const itemNota3 = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
 //
 
-//const itemNota1 = new ItemInvisible(textoExplicacion = textoNota1, iconDelItem = iconNota1, itemInventario = iconNota1Inv)
-//-------------------------------
+//------------------------------------------------------------------------Clase que da un Item a cambio de otro
 class ItemQueSeRecibe {
   var property position = game.center()
   var property enInventario = false
@@ -225,10 +179,10 @@ class ItemQueSeRecibe {
 
       self.enInventario(true)
       game.removeVisual(self)
-      //agrega el item al inventario
-      itemInventario.loTengo(true)
-      game.addVisual(itemInventario)
 
+      //agrega el item al inventario
+      barraItems.agregarAlaLista(itemInventario, self)
+      barraItems.refreshListaDeItems()
     }    
   }
 
@@ -237,54 +191,54 @@ class ItemQueSeRecibe {
   }
 }
 
-const itemEmblema = new ItemQueSeRecibe(
+const itemEmblema        = new ItemQueSeRecibe(
   textoExplicacion= textoEmblema, 
   iconDelItem= iconEmblema, 
   itemInventario= iconEmblemaInv,
   itemNecesario= itemEncendedor, 
-  textoNoSePuede= hayAlgoPero)
+  textoNoSePuede= textoHayAlgoPero)
 
-const itemNota1 = new ItemQueSeRecibe(
+const itemNota1          = new ItemQueSeRecibe(
   textoExplicacion= textoNota1, 
   iconDelItem= iconNota1, 
   itemInventario= iconNota1Inv,
   itemNecesario= itemDisco, 
-  textoNoSePuede= hayAlgoPero)
+  textoNoSePuede= textoHayAlgoPero)
 
-const itemLlaveDormi = new ItemQueSeRecibe(
+const itemLlaveDormi     = new ItemQueSeRecibe(
   textoExplicacion= textoLlaveD, 
   iconDelItem= iconLlaveD, 
   itemInventario= iconLlaveDInv,
   itemNecesario= itemEmblema, 
-  textoNoSePuede= hayAlgoPero)
+  textoNoSePuede= textoHayAlgoPero)
 
-const itemLlaveCocina = new ItemQueSeRecibe(
+const itemLlaveCocina    = new ItemQueSeRecibe(
   textoExplicacion= textoLlaveC, 
   iconDelItem= iconLlaveC, 
   itemInventario= iconLlaveCInv,
   itemNecesario= itemNota1, 
-  textoNoSePuede= hayAlgoPero)
+  textoNoSePuede= textoHayAlgoPero)
 
-const itemLlaveSotano = new ItemQueSeRecibe(
+const itemLlaveSotano    = new ItemQueSeRecibe(
   textoExplicacion= textoLlaveSotano, 
   iconDelItem= iconLlaveSotano, 
   itemInventario= iconLlaveSotanoInv,
   itemNecesario= itemNota2, 
-  textoNoSePuede= nadaImportante)
+  textoNoSePuede= textoNadaImportante)
 
-const itemNota3P2 = new ItemQueSeRecibe(
+const itemNota3P2        = new ItemQueSeRecibe(
   textoExplicacion= textoNota3P2, 
   iconDelItem= iconNota3P2, 
   itemInventario= iconNota3P2Inv,
   itemNecesario= itemNota3, 
-  textoNoSePuede= nadaImportante)
+  textoNoSePuede= textoNadaImportante)
 
 const itemPolvoEstrellas = new ItemQueSeRecibe(
   textoExplicacion= textoPolvoEstrellas, 
   iconDelItem= iconPolvoEstrellas, 
   itemInventario= iconPolvoEstrellasInv,
   itemNecesario= itemNota3P2, 
-  textoNoSePuede= hayAlgoPero)
+  textoNoSePuede= textoHayAlgoPero)
 
 //-------------------------------------------------------------------------------------------------------Clase Items VISIBLES (que se eliminan de pantalla)
 class ItemVisible {
@@ -321,64 +275,55 @@ class ItemVisible {
 }
 //const llave1 = new ItemVisible(textoExplicacion = textoLlave1, iconDelItem = iconLlaveTerraza, image = "key1.png")
 
-//-----------------------------------------------------------------------------------------------OBJ Iconos
-
-
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////--Clase Iconos en los TEXTOS
+////////////////////////////////////////////////////////////////////--ICONOS--//////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+//-----------------------------------------------------------------------------------------------OBJ Iconos de presentacion
 class Iconos {
   const property image
   method position() = game.at(1,0)
 }
+        const iconLlaveTerraza   = new Iconos(image ="iconKey1.png")
+        const iconDisco          = new Iconos(image ="iconDisco.png")
+        const iconLlaveMusica    = new Iconos(image ="iconKey3.png")
+        const iconEncendedor     = new Iconos(image ="iconEncendedorV2.png")
 
-        const iconLlaveTerraza = new Iconos(image ="iconKey1.png")
-        //const iconGema1 = new Iconos(image ="iconGem1.png")
-        const iconDisco = new Iconos(image ="iconDisco.png")
-        const iconLlaveMusica = new Iconos(image ="iconKey3.png")
-        const iconEncendedor = new Iconos(image ="iconEncendedorV2.png")
+        const iconEmblema        = new Iconos(image ="iconShield.png")
+        const iconNota1          = new Iconos(image ="iconNote1.png")
+        const iconLlaveD         = new Iconos(image ="iconKey7.png")
+        const iconLlaveC         = new Iconos(image ="iconKey6.png")
+        const iconNota2          = new Iconos(image ="iconNote2.png")
+        const iconLlaveSotano    = new Iconos(image ="iconKey5.png")
+        const iconNota3          = new Iconos(image ="iconNote3V1.png")
+        const iconNota3P2        = new Iconos(image ="iconNote3.png")
+        const iconPolvoEstrellas = new Iconos(image ="iconPolvo.png")
 
-        const iconEmblema = new Iconos(image ="iconShield.png")
-        const iconNota1= new Iconos(image ="iconNote1.png")
-        const iconLlaveD= new Iconos(image ="iconKey7.png")
-        const iconLlaveC= new Iconos(image ="iconKey6.png")
-        const iconNota2= new Iconos(image ="iconNote2.png")
-        const iconLlaveSotano= new Iconos(image ="iconKey5.png")
-        const iconNota3= new Iconos(image ="iconNote3V1.png")
-        const iconNota3P2= new Iconos(image ="iconNote3.png")
-        const iconPolvoEstrellas= new Iconos(image ="iconPolvo.png")
-
-
-
-//--Clase Iconos en el INVENTARIO
+//----------------------------------------------------------------------------------------Clase Iconos en el INVENTARIO
 class IconoDeInventario {
   const property image 
   const property position 
   var property loTengo = false
 }
-        const iconLlave1Inv = new IconoDeInventario(image= "iconKey2.png", position= game.at(11,10))
+        const iconLlaveTerrazaInv   = new IconoDeInventario(image= "iconKey2.png", position= game.at(11,10))
         //const iconGema1Inv = new IconoDeInventario(image= "iconGem1.png", position= game.at(11,9))
-        const iconDiscoInv = new IconoDeInventario(image= "iconDisco.png", position= game.at(11,9))
-        const iconLlaveMInv = new IconoDeInventario(image= "iconKey3.png", position= game.at(11,8))
-        const iconEncendedorInv = new IconoDeInventario(image= "iconEncendedorV2.png", position= game.at(11,7))
+        const iconDiscoInv          = new IconoDeInventario(image= "iconDisco.png", position= game.at(11,9))
+        const iconLlaveMInv         = new IconoDeInventario(image= "iconKey3.png", position= game.at(11,8))
+        const iconEncendedorInv     = new IconoDeInventario(image= "iconEncendedorV2.png", position= game.at(11,7))
 
-        const iconEmblemaInv = new IconoDeInventario(image= "iconShield.png", position= game.at(11,6))
-        const iconNota1Inv = new IconoDeInventario(image= "iconNote1.png", position= game.at(11,5))
-        const iconLlaveDInv = new IconoDeInventario(image= "iconKey7.png", position= game.at(11,4))
-        const iconLlaveCInv = new IconoDeInventario(image= "iconKey6.png", position= game.at(11,3))
-        const iconNota2Inv = new IconoDeInventario(image= "iconNote2.png", position= game.at(11,2))
-        const iconLlaveSotanoInv = new IconoDeInventario(image= "iconKey5.png", position= game.at(11,2))
-        const iconNota3Inv = new IconoDeInventario(image= "iconNote3V1.png", position= game.at(11,1))
-        const iconNota3P2Inv = new IconoDeInventario(image= "iconNote3.png", position= game.at(11,1))
+        const iconEmblemaInv        = new IconoDeInventario(image= "iconShield.png", position= game.at(11,6))
+        const iconNota1Inv          = new IconoDeInventario(image= "iconNote1.png", position= game.at(11,5))
+        const iconLlaveDInv         = new IconoDeInventario(image= "iconKey7.png", position= game.at(11,4))
+        const iconLlaveCInv         = new IconoDeInventario(image= "iconKey6.png", position= game.at(11,3))
+        const iconNota2Inv          = new IconoDeInventario(image= "iconNote2.png", position= game.at(11,2))
+        const iconLlaveSotanoInv    = new IconoDeInventario(image= "iconKey5.png", position= game.at(11,2))
+        const iconNota3Inv          = new IconoDeInventario(image= "iconNote3V1.png", position= game.at(11,1))
+        const iconNota3P2Inv        = new IconoDeInventario(image= "iconNote3.png", position= game.at(11,1))
         const iconPolvoEstrellasInv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(11,1))
 
+//---------------------------------------------------------------------------Bordes del tablero
 class Tope {
   var property position = game.origin()
 
@@ -386,13 +331,12 @@ class Tope {
     self.position(unaUbicacion)  
   }
 }
-        const topeAbajo = new Tope()
+        const topeAbajo  = new Tope()
         const topeArriba = new Tope()
-        const topeIzq = new Tope()
-        const topeDer = new Tope()
+        const topeIzq    = new Tope()
+        const topeDer    = new Tope()
 
-
-//--vida
+//--------------------------------------------------------------------------corazones de vida
 object corazon1 {
   const property image = "life1Full.png"
   const property position = game.at(0,10)
