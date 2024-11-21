@@ -50,9 +50,9 @@ object cocina {
     habitacion.ubicarEnTablero(objReloj, 8, 9)
     habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
-    //game.addVisual(fantasmaDiagonalCocina1)
-    //game.addVisual(fantasmaDiagonalCocina2)
-    //game.addVisual(fantasmaDiagonalCocina3)
+    game.addVisual(fantasmaDiagonalCocina1)
+    game.addVisual(fantasmaDiagonalCocina2)
+    game.addVisual(fantasmaDiagonalCocina3)
     
     //--personaje
     personaje.ubicacion("cocina")

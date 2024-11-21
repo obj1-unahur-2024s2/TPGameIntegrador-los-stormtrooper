@@ -1,11 +1,8 @@
 import wollok.game.*
-import entrada.*
 import personaje.*
-import comedor.*
 import objetos.*
 import tituloJuego.*
 import creditos.*
-
 
 program SinRetorno {
     //--definicion del tablero--
@@ -16,14 +13,12 @@ program SinRetorno {
     game.cellSize(32)
     
     //--Inicio del juego--
-    //entrada.iniciar()
     creditos.iniciar()
     
     //--Metodos que se aplican durante todo el juego (no deben repetirse)--
     personaje.configurarTeclas()
     personaje.animacion()
     game.onCollideDo(personaje, { elemento => elemento.interaccion()})
-    //keyboard.space().onPressDo({game.stop()})
     
     game.start()
 }

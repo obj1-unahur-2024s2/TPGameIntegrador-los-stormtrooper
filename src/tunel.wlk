@@ -75,5 +75,7 @@ object katyCurse {
       image = "katyFrente"+contador+"V2.png"
     }
   }
-  method interaccion() {}
+  method interaccion() {
+
+  }
 }

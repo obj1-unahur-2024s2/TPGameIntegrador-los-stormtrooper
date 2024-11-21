@@ -1,9 +1,8 @@
-import gameOver.*
 import objetos.*
 import personaje.*
 import tablero.*
 import musicaSonido.*
-import comedor.*
+
 
 class Fantasma {
   var orientacion = self.orientacionInicial() //up
@@ -21,9 +20,9 @@ class Fantasma {
     
   }
 
-  var property position = game.origin()//posicion inicio
+  var property position //= game.origin()//posicion inicio
 
-  method image() = "fantasma" + orientacion.descripcion() + ".png" //descripcion: "U D R L" (U) "cohete" + orientacion.descripcion() + ".png"
+  method image() = "fantasma" + orientacion.descripcion() + "V2.png" //descripcion: "U D R L" (U) "cohete" + orientacion.descripcion() + ".png"
 
   method initialize() {
     game.onTick(velocidad,"fantasma",{self.desplazarse()})
@@ -65,6 +64,7 @@ class Fantasma {
  
   method interaccion() {
     //gameOver.iniciar()
+    game.sound("xfxDamage.mp3").play()
     personaje.restarVida()
     barraDeVida.sacarVidas()//--actualiza la cantidad de vidas
     game.addVisual(damage)//--muestra pantalla color rojo--
@@ -108,6 +108,7 @@ class FantasmaDiagonalOpuesto inherits Fantasma{
       super()//orientacion = orientacion.siguiente()
     }
   }
+
 }
 //-----------------------------------------------------------------------------------------------
 
@@ -144,14 +145,13 @@ object left{
   method enElBorde(position) = position.x() <= topeIzq.position().x()+1
 }
 //entrada
-const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(6,6), velocidad = 700)
-//const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(7,6), velocidad = 400)
-//const fantasmaDiagonaEntrada3 = new FantasmaDiagonal(position = game.at(8,2), velocidad = 300)
+const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(11,6), velocidad = 800)
+const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(11,2), velocidad = 900)
 
 //comedor
 const fantasmaDiagonalComedor1 = new FantasmaDiagonal(position = game.at(2,9), velocidad = 700)
-const fantasmaDiagonalComedor2 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 800)
-const fantasmaDiagonalComedor3 = new FantasmaDiagonal(position = game.at(8,3), velocidad = 600)
+const fantasmaDiagonalComedor2 = new FantasmaDiagonal(position = game.at(2,2), velocidad = 800)
+const fantasmaDiagonalComedor3 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 600)
 //cocina
 const fantasmaDiagonalCocina1 = new FantasmaDiagonal(position = game.at(5,3), velocidad = 800)
 const fantasmaDiagonalCocina2 = new FantasmaDiagonal(position = game.at(3,6), velocidad = 900)
@@ -162,7 +162,7 @@ const fantasmaDiagonalMusica2 = new FantasmaDiagonal(position = game.at(1,8), ve
 const fantasmaDiagonalMusica3 = new FantasmaDiagonalOpuesto(position = game.at(3,8), velocidad = 900)//OP
 //------------------------------------------------------------------------------------------------------------
 //primerPiso
-const fantasmaDiagonalPrimerPiso1 = new FantasmaDiagonal(position = game.at(7,7), velocidad = 700)
+const fantasmaDiagonalPrimerPiso1 = new FantasmaDiagonal(position = game.at(1,6), velocidad = 500)
 //terraza
 const fantasmaDiagonalTerraza1 = new FantasmaDiagonal(position = game.at(5,8), velocidad = 800)
 const fantasmaDiagonalTerraza2 = new FantasmaDiagonalOpuesto(position = game.at(4,6), velocidad = 900)//OP

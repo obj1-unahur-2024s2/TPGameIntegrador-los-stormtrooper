@@ -49,9 +49,9 @@ object dormitorio {
     habitacion.ubicarEnTablero(objPuertaSinUso, 1,6)
     habitacion.ubicarEnTablero(objCofreDormi, 5, 9)
 
-    //game.addVisual(fantasmaDiagonalDormi1)
-    //game.addVisual(fantasmaDiagonalDormi2)
-    //game.addVisual(fantasmaDiagonalDormi3)//op
+    game.addVisual(fantasmaDiagonalDormi1)
+    game.addVisual(fantasmaDiagonalDormi2)
+    game.addVisual(fantasmaDiagonalDormi3)//op
     
     //--personaje
     personaje.ubicacion("dormitorio")    

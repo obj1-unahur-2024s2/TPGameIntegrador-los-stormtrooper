@@ -49,7 +49,10 @@ object entradaPrimerPiso {
     //texto
     habitacion.ubicarEnTablero(objPlanta, 1, 7)
 
-    //game.addVisual(fantasmaDiagonalPrimerPiso1)
+    game.schedule(500, {=>
+      game.addVisual(fantasmaDiagonalPrimerPiso1)
+
+    })
   
     //--Ubicacion del personaje segun el lugar    
     if(personaje.ubicacion() =="entrada")// desde entrada

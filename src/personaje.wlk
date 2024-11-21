@@ -1,4 +1,3 @@
-import entrada.*
 import objetos.*
 import fantasma.*
 import gameOver.*
@@ -6,18 +5,19 @@ import wollok.game.*
 import musicaSonido.*
 
 /*--INDICE--
--atributos
--config teclas
--irA (method para uvicar al personaje)
--restar vida 
--morir (acciona gameover)
--animacion de sprite
-	estados
-	cambio de sprite
--damage (efecto por daño)
--barra de vida (actualiza y muestra la cantidad de corazones)
--sacar vida (resta corazones)
-*/
+	-atributos
+	-config teclas
+	-irA (method para uvicar al personaje)
+	-restar vida 
+	-morir (acciona gameover)
+	-animacion de sprite
+		estados
+		cambio de sprite
+	-damage (efecto por daño)
+	-barra de vida (actualiza y muestra la cantidad de corazones)
+	-sacar vida (resta corazones)
+	*/
+
 
 object personaje {
   	var property position = game.origin()
@@ -69,7 +69,6 @@ object personaje {
 //----------------------------------------------------------------------------VIDA
 	method restarVida() {
 	  personajeVida = personajeVida -1
-
 	}
 
 	method morir() {

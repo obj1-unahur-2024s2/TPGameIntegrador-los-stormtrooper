@@ -51,9 +51,9 @@ object musica {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    //game.addVisual(fantasmaDiagonalMusica1)
-    //game.addVisual(fantasmaDiagonalMusica2)
-    //game.addVisual(fantasmaDiagonalMusica3)
+    game.addVisual(fantasmaDiagonalMusica1)
+    game.addVisual(fantasmaDiagonalMusica2)
+    game.addVisual(fantasmaDiagonalMusica3)
 
     //--personaje
     habitacion.ubicarPersonaje(2, 4)

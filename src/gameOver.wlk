@@ -1,5 +1,4 @@
 import entrada.*
-import ritual.*
 import tituloJuego.*
 import barraItems.*
 import puertas.*
@@ -13,7 +12,7 @@ import fantasma.*
 import musicaSonido.*
 
 object gameOver {
-  const property image = "gameOver.png" 
+  const property image = "gameOverV2.png" 
   var property position = game.origin()
   var property activo = false //activa o desactiva los botones del menu
 
@@ -35,10 +34,12 @@ object gameOver {
 
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
-    //habitacion.borrarTodo(self)
     habitacion.borrarEscena()
     self.pararTodasLAsMusicas()
-    self.reproducirMusica()
+    game.schedule(1500, {=> 
+      self.reproducirMusica()
+    })
+    
     game.removeVisual(corazon1)// borra ultimo corazon
     game.addVisual(self)//muestra game over
     activo = true
@@ -62,6 +63,5 @@ object gameOver {
       game.stop()
       }})
   }
-
     
 }

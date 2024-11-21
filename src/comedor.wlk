@@ -53,9 +53,9 @@ object comedor {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    //game.addVisual(fantasmaDiagonalComedor1)
-    //game.addVisual(fantasmaDiagonalComedor2)
-    //game.addVisual(fantasmaDiagonalComedor3)
+    game.addVisual(fantasmaDiagonalComedor1)
+    game.addVisual(fantasmaDiagonalComedor2)
+    game.addVisual(fantasmaDiagonalComedor3)
     
     //--Ubicacion del personaje segun ekl lugar
     if(personaje.ubicacion() =="entrada")// desde la entrada

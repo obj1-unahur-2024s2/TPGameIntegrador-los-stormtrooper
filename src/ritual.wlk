@@ -1,10 +1,7 @@
-import entradaPrimerPiso.*
 import puertas.*
 import objetos.*
-import titulo.*
 import personaje.*
 import textos.*
-import entrada.*
 import wollok.game.*
 import tablero.*
 import barraItems.*
@@ -32,6 +29,7 @@ object ritual {
 
     //--personaje
     game.addVisual(dimension)
+    game.sound("xfxIntoDimension.mp3").play()
     game.addVisualCharacter(personaje)
     personaje.irA(game.at(5,1))    
     
@@ -154,6 +152,7 @@ object ritual {
   method aparecerPuerta() {
     if(contador >=5){
       estavencido = true
+      game.sound("xfxCurseDestroy.mp3").play()
       habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10) 
       self.borrarFantasmas()//
       game.removeVisual(agis)
@@ -305,6 +304,14 @@ object frase {
       ¡¡ENTREGAME TU ALMA!! 
       ¡YA NO PUEDES ESCAPÁR DE MI!"
 }
+object fraseP2 {
+  method position() = game.at(5,7)
+  method textColor() = "#ffffff"
+
+  method text() = "¡¡ENTREGAME TU ALMA!! 
+      ¡YA NO PUEDES ESCAPÁR DE MI!"
+}
+
 //-------------------------------------------------------------------------------Frase final
 object fraseDefeated {
   method position() = game.at(5,7)

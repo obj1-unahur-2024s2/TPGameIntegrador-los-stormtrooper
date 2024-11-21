@@ -45,8 +45,8 @@ object terraza {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    //game.addVisual(fantasmaDiagonalTerraza1)
-    //game.addVisual(fantasmaDiagonalTerraza2)
+    game.addVisual(fantasmaDiagonalTerraza1)
+    game.addVisual(fantasmaDiagonalTerraza2)
     
     //--personaje
     personaje.ubicacion("terraza")

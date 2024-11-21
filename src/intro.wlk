@@ -22,6 +22,7 @@ object intro {
     menuIntroActivo = true
     habitacion.borrarEscena()
     game.addVisual(self)
+    game.sound("titulo.mp3").play()
     //tituloM.sonar()//
     
     keyboard.num(1).onPressDo({

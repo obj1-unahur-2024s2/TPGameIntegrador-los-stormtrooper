@@ -53,9 +53,9 @@ object biblioteca {
     //--Items en Inventario
     barraItems.refreshListaDeItems()
 
-    //game.addVisual(fantasmaDiagonalBiblio1)
-    //game.addVisual(fantasmaDiagonalBiblio2)
-    //game.addVisual(fantasmaDiagonalBiblio3)//op
+    game.addVisual(fantasmaDiagonalBiblio1)
+    game.addVisual(fantasmaDiagonalBiblio2)
+    game.addVisual(fantasmaDiagonalBiblio3)//op
 
     //--Ubicacion del personaje segun ekl lugar
     if(personaje.ubicacion() =="primerPiso"){// desde el primer piso

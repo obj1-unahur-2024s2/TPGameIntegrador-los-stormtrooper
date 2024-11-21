@@ -10,17 +10,16 @@ import tablero.*
 import fantasma.*
 import entrada.*
 import musicaSonido.*
-import jardin.*
 import intro.*
 
-
 object tituloJuego {
-  const property image = "tituloJuegoV2.png" 
+  const property image = "tituloJuegoV3.png" 
   var property position = game.origin()
+  
   var property activarMenu = true //activa o desactiva los botones del menu
+  var property activarSubMenu = false
   
   method iniciar() {  
-    //tituloMusic.play()
     habitacion.borrarEscena()
     game.addVisual(self)
     
@@ -29,7 +28,12 @@ object tituloJuego {
     barraItems.ResetItemsDeInventario()
     activarMenu = true
     
-    keyboard.num(1).onPressDo({if(activarMenu){self.intro()}})
+    keyboard.num(1).onPressDo({if(activarMenu){
+      game.sound("xfxSelect.mp3").play()
+      activarMenu = false
+      activarSubMenu = true
+      self.intro()
+    }})
     keyboard.num(2).onPressDo({self.ModoDificil()})//modo dificil
     keyboard.num(3).onPressDo({if(activarMenu){game.stop()}})
   }
@@ -41,12 +45,9 @@ object tituloJuego {
   method intro() {
     habitacion.borrarEscena()
     game.addVisual(introImage)
-    //tituloM.sonar()//
-    keyboard.num(1).onPressDo({if(activarMenu){
-      //tituloM.stop()
+    keyboard.num(1).onPressDo({if(activarSubMenu){
       habitacion.borrarEscena()
-      activarMenu = false
-      
+      activarSubMenu = false
       entrada.iniciar()
       //jardin.iniciar()
       }})
@@ -54,43 +55,7 @@ object tituloJuego {
 }
 
 object introImage {
-  const property image = "introduccionV2.png"
+  const property image = "introduccionV3.png"
   const property position = game.origin() 
-/*
-  const musicaAmbiente = tituloM
+}
 
-  method reproducirMusica() {
-    musicaAmbiente.sonar()
-    musicaAmbiente.loop()
-  }
-  method stop() {
-    musicaAmbiente.stop()
-  }
-  method interaccion() {  }*/
-}
-object sonidoprueba {
-  const sonido = game.sound("titulo.mp3")
-  
-  method sonar() {
-    sonido.play()
-  }
-  method pausa() {
-    sonido.pause()
-  }
-  method loop() {
-    sonido.shouldLoop(true)
-  }
-  method stop() {
-    sonido.stop()
-  }
-    method reproducirMusica() {
-    self.sonar()
-    self.loop()
-  }
-}
-object tituloMusic {
-
-  method play(){
-    game.sound("titulo.mp3").play()
-  }
-}

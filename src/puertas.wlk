@@ -1,12 +1,9 @@
-import tablero.*
+//habitaciones
+import wollok.game.*
 import entradaPrimerPiso.*
 import musica.*
-import objetos.*
 import entrada.*
 import comedor.*
-import personaje.*
-import textos.*
-import wollok.game.*
 import cocina.*
 import terraza.*
 import biblioteca.*
@@ -15,7 +12,12 @@ import tunel.*
 import ritual.*
 import final.*
 import jardin.*
+
 import musicaSonido.*
+import tablero.*
+import objetos.*
+import personaje.*
+import textos.*
 
 /*--INDICE--
   -Clase Puerta
@@ -32,6 +34,7 @@ class Puertas {
   var property irHacia //comedor.iniciar()
   var property mensaje //puertaCerrada
   const musicaAmbiente
+
 
   //--Reubicacion
   method ubicarEn(unaUbicacion) {
@@ -53,9 +56,12 @@ class PuertasCerradas inherits Puertas  {
   var property item
   var property puertaAbierta 
   var property puertaCerrada
+  
+
 
   method interaccion() {
     if(item.enInventario()){
+        self.sonidoSiEstaCerrada()
         image = puertaAbierta//--al pasar por la puerta, esta queda abierta
         musicaAmbiente.stop()
         habitacion.cargarListaconPuertas(self)
@@ -64,10 +70,15 @@ class PuertasCerradas inherits Puertas  {
     else{
       game.addVisual(mensaje)//--muestra texto--
       game.schedule(2000, { => game.removeVisual(mensaje)})//--borra el texto
+      game.sound("xfxLock.mp3").play()
     }
   }
   method cerrarPuerta() {
     image = puertaCerrada
+  }
+  method sonidoSiEstaCerrada() {
+    if(image !=puertaAbierta)
+      game.sound("xfxUnlock.mp3").play()
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,10 +1,7 @@
-import entradaPrimerPiso.*
 import puertas.*
 import objetos.*
-import titulo.*
 import personaje.*
 import textos.*
-import entrada.*
 import wollok.game.*
 import tablero.*
 import barraItems.*
@@ -28,7 +25,7 @@ object final {
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
     //personaje.ubicacion(8)
- 
+    game.sound("xfxIntoDimension.mp3").play()
     //------------------------------------------------------ubicacion objetos
     //--puertas
     habitacion.ubicarEnTablero(puertaAJardin, 6, 9)

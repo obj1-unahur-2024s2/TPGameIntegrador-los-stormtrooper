@@ -67,8 +67,12 @@ object entrada {
     barraItems.refreshListaDeItems()
 
     //--fantasmas
-    game.addVisual(fantasmaDiagonaEntrada1)
-    //game.addVisual(fantasmaDiagonaEntrada2)
+    game.schedule(500, {=>
+      game.addVisual(fantasmaDiagonaEntrada1)
+      game.addVisual(fantasmaDiagonaEntrada2)
+    })
+    //game.addVisual(fantasmaDiagonaEntrada1)
+    
     //game.addVisual(fantasmaDiagonaEntrada3)
 
 
