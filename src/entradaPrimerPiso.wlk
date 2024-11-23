@@ -42,17 +42,16 @@ object entradaPrimerPiso {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
     
     //--Items
+    self.ubicacionDeLosItemsSegunElModo()  
 
-    //Items en Inventario
+    //--Items en Inventario
     barraItems.refreshListaDeItems()
 
     //texto
     habitacion.ubicarEnTablero(objPlanta, 1, 7)
 
-    game.schedule(500, {=>
-      game.addVisual(fantasmaDiagonalPrimerPiso1)
-
-    })
+    //--fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 600))
     self.enModoDificil()
   
     //--Ubicacion del personaje segun el lugar    
@@ -68,7 +67,12 @@ object entradaPrimerPiso {
   
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaPerseguidorPrimerPiso1)
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 1500))
+    }
+  }
+  method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==2){
+      habitacion.ubicarUnKeyItem(itemEncendedor, 10, 7)
     }
   }
 }

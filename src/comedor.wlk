@@ -41,8 +41,7 @@ object comedor {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
-    habitacion.ubicarUnKeyItem(itemLlaveTerraza, 6, 5)
-    habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
+    self.ubicacionDeLosItemsSegunElModo()
 
     //Textos
     habitacion.ubicarEnTablero(objComida, 4, 6)
@@ -53,9 +52,9 @@ object comedor {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalComedor1)
-    game.addVisual(fantasmaDiagonalComedor2)
-    game.addVisual(fantasmaDiagonalComedor3)
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
+    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
     self.enModoDificil()
     
     //--Ubicacion del personaje segun ekl lugar
@@ -69,10 +68,20 @@ object comedor {
 
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaDiagonalComedor4)
-      game.addVisual(fantasmaPerseguidorComedor1)
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
     }
   }
 
-
+  method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==1){
+      habitacion.ubicarUnKeyItem(itemLlaveTerraza, 6, 5)
+      habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
+    }
+    else{
+      habitacion.ubicarUnKeyItem(itemLlaveDormi, 5, 9)
+      habitacion.ubicarUnKeyItem(itemLlaveMusica, 1, 8)
+      habitacion.ubicarUnKeyItem(itemNota2, 2, 2)
+    }
+  }
 }

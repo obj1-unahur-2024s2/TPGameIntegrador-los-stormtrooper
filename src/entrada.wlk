@@ -63,26 +63,12 @@ object entrada {
     barraItems.refreshListaDeItems()
 
     //--Items
-    self.ubicacionDeLosItemsSegunElModo()
-    //habitacion.ubicarUnKeyItem(itemNota3P2, 3, 9)
-    
-    //--Texto especial de ayuda--
-    //if(itemNota3.enInventario())
-      //habitacion.ubicarEnTablero(objClavePolvo2, 3, 9)
-    
+    self.ubicacionDeLosItemsSegunElModo()  
 
     //--fantasmas
-    game.addVisual(fantasmaDiagonaEntrada1)
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
     self.enModoDificil()
-    
-    /*
-    game.schedule(500, {=>
-      game.addVisual(fantasmaDiagonaEntrada1)
-      game.addVisual(fantasmaDiagonaEntrada2)
-    })
-    */
-    //game.addVisual(fantasmaDiagonaEntrada3)
-    
+
     
     //--Ubicacion del personaje segun de donde viene--
 	  if(personaje.inicioDePartida())// ubicacion inicial
@@ -100,7 +86,7 @@ object entrada {
   method enModoDificil() {
     if(personaje.dificultad()==2){
       //game.addVisual(fantasmaPerseguidorEntrada1)
-      game.addVisual(fantasmaDiagonaEntrada2)
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
     }
   }
 
@@ -109,14 +95,13 @@ object entrada {
       habitacion.ubicarUnKeyItem(itemNota3P2, 3, 9)
       
       if(itemNota3.enInventario())
-        habitacion.ubicarEnTablero(objClavePolvo2, 3, 9)      
+        habitacion.ubicarEnTablero(objClavePolvo2, 3, 9) 
     }
     else{
-      habitacion.ubicarUnKeyItem(itemNota3P2, 8, 2)
+      habitacion.ubicarUnKeyItem(itemDisco, 9, 9)
       
-      if(itemNota3.enInventario())
-        habitacion.ubicarEnTablero(objClavePolvo2, 8, 2)  
+      if(itemLlaveCocina.enInventario())
+        habitacion.ubicarUnKeyItem(itemGema4, 3, 2) 
     }
   }
-
 }

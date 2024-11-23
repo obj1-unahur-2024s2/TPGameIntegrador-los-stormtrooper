@@ -169,6 +169,9 @@ Ya no puedes salir de este lugar...
 ¡¡ENTREGAME TU ALMA!! 
 ¡YA NO PUEDES ESCAPÁR DE MI!",color =color.blanco(), position = game.at(5,7))
 
+//textos gema
+const textoGema = new TextosInfo(texto ="¡¡Que es esto!!
+!!Encontraste una gema secreta!!",color =color.blanco(), position = game.at(6,0))//Encendedor
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------Info de ubicacion

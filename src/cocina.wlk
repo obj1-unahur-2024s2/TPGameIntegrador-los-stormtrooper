@@ -39,8 +39,7 @@ object cocina {
     habitacion.ubicarEnTablero(puertaATunel, 9, 7)
 
     //--Items
-    habitacion.ubicarUnKeyItem(itemNota2, 9, 2)
-    habitacion.ubicarUnKeyItem(itemPolvoEstrellas, 7, 8)
+    self.ubicacionDeLosItemsSegunElModo()
 
     //Items en Inventario
     barraItems.refreshListaDeItems()
@@ -50,9 +49,9 @@ object cocina {
     habitacion.ubicarEnTablero(objReloj, 8, 9)
     habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
-    game.addVisual(fantasmaDiagonalCocina1)
-    game.addVisual(fantasmaDiagonalCocina2)
-    game.addVisual(fantasmaDiagonalCocina3)
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
+    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
     self.enModoDificil()
     
     //--personaje
@@ -62,9 +61,22 @@ object cocina {
 
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaDiagonalCocina4)
-      game.addVisual(fantasmaPerseguidorCocina1)
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
     }
   }
 
+    method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==1){
+      habitacion.ubicarUnKeyItem(itemNota2, 9, 2)
+      habitacion.ubicarUnKeyItem(itemPolvoEstrellas, 7, 8)
+    }
+    else{
+      habitacion.ubicarUnKeyItem(itemNota3P2, 2, 8)
+
+      if(itemLlaveMusica.enInventario())
+        habitacion.ubicarUnKeyItem(itemGema2, 10, 7)
+
+    }
+  }
 }

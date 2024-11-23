@@ -39,9 +39,7 @@ object musica {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
-    habitacion.ubicarUnKeyItem(itemEmblema, 2, 9)
-    habitacion.ubicarUnKeyItem(itemNota1, 6, 2)
-    habitacion.ubicarUnKeyItem(itemNota3, 9, 10)
+    self.ubicacionDeLosItemsSegunElModo()
 
     //--textos
     habitacion.ubicarEnTablero(objPuertaSinUso, 4, 10)
@@ -51,9 +49,9 @@ object musica {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalMusica1)
-    game.addVisual(fantasmaDiagonalMusica2)
-    game.addVisual(fantasmaDiagonalMusica3)
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
+    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
     self.enModoDificil()
 
     //--personaje
@@ -62,9 +60,23 @@ object musica {
 
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaDiagonalMusica4)
-      game.addVisual(fantasmaPerseguidorMusica1)
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
     }
   }
+    method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==1){
+      habitacion.ubicarUnKeyItem(itemEmblema, 2, 9)
+      habitacion.ubicarUnKeyItem(itemNota1, 6, 2)
+      habitacion.ubicarUnKeyItem(itemNota3, 9, 10)
+    }
+    else{
+      habitacion.ubicarUnKeyItem(itemEmblema, 2, 9)
+      habitacion.ubicarUnKeyItem(itemNota1, 6, 2)
 
+      if(itemLlaveDormi.enInventario())
+        habitacion.ubicarUnKeyItem(itemGema3, 9, 2)
+
+    }
+  }
 }

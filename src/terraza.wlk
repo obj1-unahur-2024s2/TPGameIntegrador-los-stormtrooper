@@ -26,7 +26,6 @@ object terraza {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionTerraza)
     self.reproducirMusica()
-    //------------------------------------------------------estado del personaje
 
     //------------------------------------------------------ubicacion objetos
     //--puertas
@@ -39,25 +38,37 @@ object terraza {
     habitacion.ubicarEnTablero(topeIzq, 2, 0)//x min Izquierda
 
     //--Items
-    habitacion.ubicarUnKeyItem(itemDisco, 6, 7)
-    habitacion.ubicarUnKeyItem(itemLlaveCocina, 3, 6)
+    self.ubicacionDeLosItemsSegunElModo()  
     
-    //Items en Inventario
+    //--Items en Inventario
     barraItems.refreshListaDeItems()
 
-    game.addVisual(fantasmaDiagonalTerraza1)
-    game.addVisual(fantasmaDiagonalTerraza2)
+    //--fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
+    game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
     self.enModoDificil()
     
     //--personaje
     personaje.ubicacion("terraza")
     habitacion.ubicarPersonaje(9, 4) 
   }
-
+  //--modo dificil fantasmas
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaDiagonalTerraza3)
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
     }
   }  
-
+  
+  method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==1){
+      habitacion.ubicarUnKeyItem(itemDisco, 6, 7)
+      habitacion.ubicarUnKeyItem(itemLlaveCocina, 3, 6)
+    }
+    else{
+      habitacion.ubicarUnKeyItem(itemLlaveCocina, 3, 6)
+      
+      if(itemLlaveSotano.enInventario())
+        habitacion.ubicarUnKeyItem(itemGema5, 5, 3) 
+    }
+  }
 }

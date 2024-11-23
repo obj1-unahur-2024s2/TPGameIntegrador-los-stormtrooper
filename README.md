@@ -2,7 +2,7 @@
 
 ## Equipo de desarrollo
 
-- 
+- daniel
 - 
 - 
 

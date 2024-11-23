@@ -38,7 +38,7 @@ object dormitorio {
     habitacion.ubicarEnTablero(topeIzq, 0, 0)//x min Izquierda
 
     //--Items
-    habitacion.ubicarUnKeyItem(itemLlaveSotano, 8, 8)
+    self.ubicacionDeLosItemsSegunElModo() 
 
     //Items en Inventario
     barraItems.refreshListaDeItems()
@@ -47,11 +47,11 @@ object dormitorio {
     habitacion.ubicarEnTablero(objClaveEspejo, 3, 9)
     habitacion.ubicarEnTablero(objClaveReloj, 2, 9)
     habitacion.ubicarEnTablero(objPuertaSinUso, 1,6)
-    habitacion.ubicarEnTablero(objCofreDormi, 5, 9)
+    
 
-    game.addVisual(fantasmaDiagonalDormi1)
-    game.addVisual(fantasmaDiagonalDormi2)
-    game.addVisual(fantasmaDiagonalDormi3)//op
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
+    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))//op
     self.enModoDificil()
     
     //--personaje
@@ -62,9 +62,22 @@ object dormitorio {
 
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(fantasmaPerseguidorDormi1)
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
     }
   }
 
+  method ubicacionDeLosItemsSegunElModo() {
+    if(personaje.dificultad()==1){
+      habitacion.ubicarUnKeyItem(itemLlaveSotano, 8, 8)
+      habitacion.ubicarEnTablero(objCofreDormi, 5, 8)
+    }
+    else{
+      habitacion.ubicarUnKeyItem(itemLlaveSotano, 8, 8)
+      habitacion.ubicarUnKeyItem(itemNota3, 3, 4)
+      
+      if(itemLlaveTerraza.enInventario())
+        habitacion.ubicarUnKeyItem(itemGema1, 5, 8) 
+    }
+  }
 
 }
