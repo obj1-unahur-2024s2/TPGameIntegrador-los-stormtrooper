@@ -1,10 +1,10 @@
-# Nombre del juego (<- borrar y completar)
+# SIN RETORNO 
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+- 
+- 
+- 
 
 ## Capturas
 
