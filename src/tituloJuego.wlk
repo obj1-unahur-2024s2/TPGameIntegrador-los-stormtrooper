@@ -17,45 +17,73 @@ object tituloJuego {
   var property position = game.origin()
   
   var property activarMenu = true //activa o desactiva los botones del menu
-  var property activarSubMenu = false
+  //var property activarSubMenu = false
   
   method iniciar() {  
     habitacion.borrarEscena()
     game.addVisual(self)
     
-    personaje.personajeVida(3)
+    personaje.personajeVida(4)
     personaje.inicioDePartida(true)
     barraItems.ResetItemsDeInventario()
     activarMenu = true
     
+    //boton-1
     keyboard.num(1).onPressDo({if(activarMenu){
       game.sound("xfxSelect.mp3").play()
       activarMenu = false
-      activarSubMenu = true
-      self.intro()
+      //activarSubMenu = true
+      self.modoNormal()
+      //self.intro()
     }})
-    keyboard.num(2).onPressDo({self.ModoDificil()})//modo dificil
+    //boton-2
+    keyboard.num(2).onPressDo({if(activarMenu){
+      game.sound("xfxSelect.mp3").play()
+      activarMenu = false
+      //activarSubMenu = true
+      self.modoDificil()
+      //self.intro()
+    }})
+
+    //boton-3
     keyboard.num(3).onPressDo({if(activarMenu){game.stop()}})
   }
 
-  method interaccion() {  }
-  method modoNormal() {  }
-  method ModoDificil() {  }
+  method interaccion() {  }//nada
+  
+  //--modo normal
+  method modoNormal() { 
+    personaje.dificultad(1)
+    //game.schedule(1000, {=>self.intro()})
+    game.schedule(500, {=>intro.iniciar()})
+    //self.intro()
+   }
 
+  //--modo dificil
+  method modoDificil() {
+    personaje.dificultad(2)
+    game.schedule(500, {=>intro.iniciar()})
+    //game.schedule(1000, {=>self.intro()})
+    //self.intro()
+  }
+
+  /*
   method intro() {
     habitacion.borrarEscena()
     game.addVisual(introImage)
     keyboard.num(1).onPressDo({if(activarSubMenu){
       habitacion.borrarEscena()
       activarSubMenu = false
-      entrada.iniciar()
+      game.schedule(1000, {=>entrada.iniciar()})
+      //entrada.iniciar()
       //jardin.iniciar()
       }})
   }
+  */
 }
-
+/*
 object introImage {
   const property image = "introduccionV3.png"
   const property position = game.origin() 
-}
+}*/
 

@@ -122,7 +122,7 @@ object ritual {
     self.crearFantasmaSegunTiempo(40000,fantasmaDiagonaRitual7)
     self.crearFantasmaSegunTiempo(45000,fantasmaDiagonaRitual8)
     self.crearFantasmaSegunTiempo(50000,fantasmaDiagonaRitual9)
-    self.crearFantasmaSegunTiempo(55000,fantasmaDiagonaRitual10)
+    self.crearFantasmaSegunTiempo(55000,fantasmaPerseguidorRitual1)
   }
 
   method crearFantasmaSegunTiempo(unTiempo,unFantasma) {
@@ -137,16 +137,19 @@ object ritual {
 
 
   method borrarFantasmas() {
-      game.removeVisual(fantasmaDiagonaRitual1)
-      game.removeVisual(fantasmaDiagonaRitual2)
-      game.removeVisual(fantasmaDiagonaRitual3)
-      game.removeVisual(fantasmaDiagonaRitual4)
-      game.removeVisual(fantasmaDiagonaRitual5)
-      game.removeVisual(fantasmaDiagonaRitual6)
-      game.removeVisual(fantasmaDiagonaRitual7)
-      game.removeVisual(fantasmaDiagonaRitual8)
-      game.removeVisual(fantasmaDiagonaRitual9)
-      game.removeVisual(fantasmaDiagonaRitual10)
+      game.onTick(1000, "borrarFantasmasXSeg", {=>
+        game.removeVisual(fantasmaDiagonaRitual1)
+        game.removeVisual(fantasmaDiagonaRitual2)
+        game.removeVisual(fantasmaDiagonaRitual3)
+        game.removeVisual(fantasmaDiagonaRitual4)
+        game.removeVisual(fantasmaDiagonaRitual5)
+        game.removeVisual(fantasmaDiagonaRitual6)
+        game.removeVisual(fantasmaDiagonaRitual7)
+        game.removeVisual(fantasmaDiagonaRitual8)
+        game.removeVisual(fantasmaDiagonaRitual9)
+        game.removeVisual(fantasmaPerseguidorRitual1)
+      })
+      game.schedule(10000, {=> game.removeTickEvent("borrarFantasmasXSeg")})
   }
 
   method aparecerPuerta() {
@@ -172,11 +175,11 @@ const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), vel
 const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 350)
 const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 300)
 
-const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 200)
-const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 150)
-const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 150)
-const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 100)
-const fantasmaDiagonaRitual10 = new FantasmaDiagonal(position = game.at(10,2), velocidad = 100)
+const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 300)
+const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 250)
+const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 250)
+const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 200)
+const fantasmaPerseguidorRitual1 = new FantasmaPerseguidor(position = game.at(10,10), velocidad = 100)//Per
 //------------------------------------------------------------------------------------------------Clase Antrocha
 class Antorcha {
   var property image = "torch_1V2.png"
@@ -300,7 +303,9 @@ object frase {
       Veo que mi pequeño esclavo hizo su trabajo...
       No te enojes con el, solo tome posesión 
       de su ser para atraerte hasta aquí.
+      
       Ya no puedes salir de este lugar...
+
       ¡¡ENTREGAME TU ALMA!! 
       ¡YA NO PUEDES ESCAPÁR DE MI!"
 }

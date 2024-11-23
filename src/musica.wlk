@@ -54,9 +54,17 @@ object musica {
     game.addVisual(fantasmaDiagonalMusica1)
     game.addVisual(fantasmaDiagonalMusica2)
     game.addVisual(fantasmaDiagonalMusica3)
+    self.enModoDificil()
 
     //--personaje
     habitacion.ubicarPersonaje(2, 4)
+  }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaDiagonalMusica4)
+      game.addVisual(fantasmaPerseguidorMusica1)
+    }
   }
 
 }

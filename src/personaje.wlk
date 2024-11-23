@@ -25,8 +25,9 @@ object personaje {
   	var property inicioDePartida = true
   	var property ubicacion = "vacio"
   	var property estado = true
-	var property personajeVida = 3
+	var property personajeVida = 4
 	var orientacion = 1
+	var property dificultad = 0
 
 //------------------------------------------------------------------------Control del personaje
 	method configurarTeclas() {
@@ -118,7 +119,13 @@ object damage {
 //---------------------------actualiza los corazones cada vez que cambia de pantalla
 object barraDeVida {
   method mostrarVidas() {
-	if(personaje.personajeVida() ==3){
+	if(personaje.personajeVida() ==4){
+		game.addVisual(corazon1)
+		game.addVisual(corazon2)
+		game.addVisual(corazon3)
+		game.addVisual(corazon4)
+	}
+	else if(personaje.personajeVida() ==3){
 		game.addVisual(corazon1)
 		game.addVisual(corazon2)
 		game.addVisual(corazon3)
@@ -132,7 +139,10 @@ object barraDeVida {
   }
 //--------------------------------elimina los corazones a medida que pierde vida
   method sacarVidas() {
-	if(personaje.personajeVida() ==2){
+	if(personaje.personajeVida() ==3){
+		game.removeVisual(corazon4)
+	}
+	else if(personaje.personajeVida() ==2){
 		game.removeVisual(corazon3)
 	}
 	else{

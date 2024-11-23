@@ -56,6 +56,7 @@ object biblioteca {
     game.addVisual(fantasmaDiagonalBiblio1)
     game.addVisual(fantasmaDiagonalBiblio2)
     game.addVisual(fantasmaDiagonalBiblio3)//op
+    self.enModoDificil()
 
     //--Ubicacion del personaje segun ekl lugar
     if(personaje.ubicacion() =="primerPiso"){// desde el primer piso
@@ -67,4 +68,12 @@ object biblioteca {
     //identificador de ubicacion del personaje 
     personaje.ubicacion("biblioteca")
   }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaDiagonalBiblio4)
+      game.addVisual(fantasmaPerseguidorBiblio1)
+    }
+  }
+
 }

@@ -52,11 +52,19 @@ object dormitorio {
     game.addVisual(fantasmaDiagonalDormi1)
     game.addVisual(fantasmaDiagonalDormi2)
     game.addVisual(fantasmaDiagonalDormi3)//op
+    self.enModoDificil()
     
     //--personaje
     personaje.ubicacion("dormitorio")    
     habitacion.ubicarPersonaje(5, 3)
 
   }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaPerseguidorDormi1)
+    }
+  }
+
 
 }

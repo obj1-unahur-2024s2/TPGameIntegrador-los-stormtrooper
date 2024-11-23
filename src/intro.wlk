@@ -13,23 +13,23 @@ import musicaSonido.*
 import jardin.*
 
 object intro {
-  const property image = "introduccionV2.png"
+  const property image = "introduccionV4.png"
   const property position = game.origin() 
-  var property menuIntroActivo = false
+  var property activarSubMenu = false
 
 
   method iniciar() {
-    menuIntroActivo = true
+    activarSubMenu = true
     habitacion.borrarEscena()
     game.addVisual(self)
-    game.sound("titulo.mp3").play()
+    //game.sound("titulo.mp3").play()
     //tituloM.sonar()//
     
-    keyboard.num(1).onPressDo({
-        if(menuIntroActivo){
+    keyboard.space().onPressDo({
+        if(activarSubMenu){
             //tituloM.stop()
             habitacion.borrarEscena()
-            menuIntroActivo = false
+            activarSubMenu = false
             
             entrada.iniciar()
             //jardin.iniciar()

@@ -53,6 +53,7 @@ object entradaPrimerPiso {
       game.addVisual(fantasmaDiagonalPrimerPiso1)
 
     })
+    self.enModoDificil()
   
     //--Ubicacion del personaje segun el lugar    
     if(personaje.ubicacion() =="entrada")// desde entrada
@@ -63,5 +64,11 @@ object entradaPrimerPiso {
       habitacion.ubicarPersonaje(9, 5)
     //identificador de ubicacion del personaje 
     personaje.ubicacion("primerPiso")
+  }
+  
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaPerseguidorPrimerPiso1)
+    }
   }
 }

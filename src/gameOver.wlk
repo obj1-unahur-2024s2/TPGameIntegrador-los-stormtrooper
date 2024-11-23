@@ -12,7 +12,7 @@ import fantasma.*
 import musicaSonido.*
 
 object gameOver {
-  const property image = "gameOverV2.png" 
+  const property image = "gameOverV3.png" 
   var property position = game.origin()
   var property activo = false //activa o desactiva los botones del menu
 
@@ -46,19 +46,20 @@ object gameOver {
 
     habitacion.cerrarPuertasAbiertas()
     habitacion.borrarListaconPuertas()
-
-    personaje.personajeVida(3)
+    tituloJuego.activarMenu(false)
+    personaje.personajeVida(4)
     personaje.inicioDePartida(true)
     barraItems.ResetItemsDeInventario()
 
-    keyboard.num(1).onPressDo({if(activo){
+    keyboard.num(4).onPressDo({if(activo){
       musicaAmbiente.stop()
       activo = false
-      entrada.iniciar()
+      tituloJuego.iniciar()
       }})
     //keyboard.num(1).onPressDo({tituloJuego.iniciar()})
     //keyboard.num(2).onPressDo({self.ModoDificil()})//modo dificil
-    keyboard.num(2).onPressDo({if(activo){
+    keyboard.num(5).onPressDo({if(activo){
+      activo = false
       musicaAmbiente.stop()
       game.stop()
       }})

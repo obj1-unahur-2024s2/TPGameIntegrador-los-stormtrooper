@@ -28,27 +28,27 @@ object color {
 
 //----------------------------------------------------------OBJ textos
 //--Items
-const textoLlaveTerraza = new TextosInfo(texto ="Hay algo dentro del vaso...
+const textoLlaveTerraza       = new TextosInfo(texto ="Hay algo dentro del vaso...
 !!Encontraste la llave de la Terraza!!",color =color.blanco(), position = game.at(6,0))//Llave terraza
 
-const textoFaltaEncendedor   = new TextosInfo(texto ="Todavía hay leña para quemar",color =color.blanco(), position = game.at(5,0))
+const textoFaltaEncendedor    = new TextosInfo(texto ="Todavía hay leña para quemar",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaDisco        = new TextosInfo(texto ="Un tocadiscos antiguo.
+const textoFaltaDisco         = new TextosInfo(texto ="Un tocadiscos antiguo.
 Parece que aun funciona...",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaEmblema      = new TextosInfo(texto ="Hay una ranura para encastrar algo...
+const textoFaltaEmblema       = new TextosInfo(texto ="Hay una ranura para encastrar algo...
 Me parece conocida esta situación...",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaNota1Telescop= new TextosInfo(texto ="Un viejo telescopio. 
+const textoFaltaNota1Telescop = new TextosInfo(texto ="Un viejo telescopio. 
 No veo nada raro en el...",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaNota2Cama    = new TextosInfo(texto ="Una cama llena de polvo.
+const textoFaltaNota2Cama     = new TextosInfo(texto ="Una cama llena de polvo.
 Preferiría no tocarla...",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaNota3Polvo   = new TextosInfo(texto ="Hay una nota con algo escrito pero...
+const textoFaltaNota3Polvo    = new TextosInfo(texto ="Hay una nota con algo escrito pero...
 No tiene ningún sentido...",color =color.blanco(), position = game.at(5,0))
 
-const textoFaltaNota3PolvoP2   = new TextosInfo(texto ="Dentro del cajón hay frascos con distintos tipos de polvos. 
+const textoFaltaNota3PolvoP2  = new TextosInfo(texto ="Dentro del cajón hay frascos con distintos tipos de polvos. 
 No hay nada importante...",color =color.blanco(), position = game.at(5,0))
 
 

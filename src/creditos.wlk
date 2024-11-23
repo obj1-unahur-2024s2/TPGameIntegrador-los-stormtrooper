@@ -9,6 +9,6 @@ object creditos {
 
   method iniciar() {
     game.addVisual(self)
-    game.schedule(3000, {=> tituloJuego.iniciar()})
+    game.schedule(1000, {=> tituloJuego.iniciar()})
   }
 }

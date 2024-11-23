@@ -52,10 +52,8 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
   method interaccion() {
     game.sound("xfxFind.mp3").play()
     game.addVisual(textoInfo)//--muestra texto--
-    game.schedule(tiempo, { => self.eliminar()})//--despues de 2s elimina el texto--game.removeVisual(textoInfo)
-    //game.whenCollideDo(personaje, { txtNadaImportante => game.addVisual(txtNadaImportante)})
-    //if(!game.onSameCell(personaje.position(), self.position()))
-    //  game.removeVisual(TextosInfo)
+    game.schedule(tiempo, { => self.eliminar()})//--borra el texto
+
   }
 }
 //--Instanciaciones
@@ -80,7 +78,19 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const objCofreDormi      = new ObjInvSoloResponde (textoInfo = textoCofreDormi, tiempo =2000)
           const objArpa            = new ObjInvSoloResponde (textoInfo = textoArpa, tiempo =2000)
 
-          //textos para hacer
+
+  //--IMPORTANTES
+          const objClaveEspejo     = new ObjInvSoloResponde (textoInfo = textoClaveEspejo, tiempo =3000)
+          const objClaveReloj      = new ObjInvSoloResponde (textoInfo = textoClaveReloj, tiempo =3000)
+          const objKatyCursed      = new ObjInvSoloResponde (textoInfo = textoKatyCursed, tiempo =6000)
+          //const objKatyCursed2      = new ObjInvSoloResponde (textoInfo = textoKatyCursedP2, tiempo =3000)
+
+          const objBiblioInfo1     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo1, tiempo =3000)
+          const objBiblioInfo2     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo2, tiempo =3000)
+          const objBiblioInfo3     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo3, tiempo =3000)
+          const objBiblioInfo4     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo4, tiempo =3000)
+
+  //textos para hacer
           const txtLamparas        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
           const txtHeladera        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
           const txtCocina          = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
@@ -98,17 +108,6 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const txtSikus           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
           const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
           const txtMuebles2        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-
-  //--IMPORTANTES
-          const objClaveEspejo     = new ObjInvSoloResponde (textoInfo = textoClaveEspejo, tiempo =3000)
-          const objClaveReloj      = new ObjInvSoloResponde (textoInfo = textoClaveReloj, tiempo =3000)
-          const objKatyCursed      = new ObjInvSoloResponde (textoInfo = textoKatyCursed, tiempo =6000)
-          //const objKatyCursed2      = new ObjInvSoloResponde (textoInfo = textoKatyCursedP2, tiempo =3000)
-
-          const objBiblioInfo1     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo1, tiempo =3000)
-          const objBiblioInfo2     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo2, tiempo =3000)
-          const objBiblioInfo3     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo3, tiempo =3000)
-          const objBiblioInfo4     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo4, tiempo =3000)
 
 
 
@@ -157,6 +156,14 @@ class ItemInvisible {
         const itemEncendedor   = new ItemInvisible(textoExplicacion = textoEncendedor, iconDelItem = iconEncendedor, itemInventario = iconEncendedorInv)
         const itemNota2        = new ItemInvisible(textoExplicacion = textoNota2, iconDelItem = iconNota2, itemInventario = iconNota2Inv)
         const itemNota3        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        
+        //gemas +
+        const itemGema1        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        const itemGema2        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        const itemGema3        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        const itemGema4        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        const itemGema5        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
+        const itemGema6        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
 //
 
 //------------------------------------------------------------------------Clase que da un Item a cambio de otro
@@ -246,7 +253,7 @@ const itemPolvoEstrellas = new ItemQueSeRecibe(
   iconDelItem= iconPolvoEstrellas, 
   itemInventario= iconPolvoEstrellasInv,
   itemNecesario= itemNota3P2, 
-  textoNoSePuede= textoHayAlgoPero)
+  textoNoSePuede= textoFaltaNota3PolvoP2)
 
 //-------------------------------------------------------------------------------------------------------Clase Items VISIBLES (que se eliminan de pantalla)
 class ItemVisible {
@@ -294,20 +301,36 @@ class Iconos {
   const property image
   method position() = game.at(1,0)
 }
+        //primeros
         const iconLlaveTerraza   = new Iconos(image ="iconKey1.png")
-        const iconDisco          = new Iconos(image ="iconDisco.png")
         const iconLlaveMusica    = new Iconos(image ="iconKey3.png")
-        const iconEncendedor     = new Iconos(image ="iconEncendedorV2.png")
 
-        const iconEmblema        = new Iconos(image ="iconShield.png")
-        const iconNota1          = new Iconos(image ="iconNote1.png")
-        const iconLlaveD         = new Iconos(image ="iconKey7.png")
-        const iconLlaveC         = new Iconos(image ="iconKey6.png")
+        //encendedor/emblema/llavedormi
+        const iconEncendedor     = new Iconos(image ="iconEncendedorV2.png")
+        const iconEmblema        = new Iconos(image ="iconShield.png")//no mobible
+        const iconLlaveD         = new Iconos(image ="iconKey7.png")//no mobible
+        
+        //disco/telescopio/llavecocina
+        const iconDisco          = new Iconos(image ="iconDisco.png")
+        const iconNota1          = new Iconos(image ="iconNote1.png")//no mobible
+        const iconLlaveC         = new Iconos(image ="iconKey6.png")//no mobible
+        
+        //nota1/cama/llavesotano
         const iconNota2          = new Iconos(image ="iconNote2.png")
-        const iconLlaveSotano    = new Iconos(image ="iconKey5.png")
+        const iconLlaveSotano    = new Iconos(image ="iconKey5.png")//no mobible
+        
+        //polvo
         const iconNota3          = new Iconos(image ="iconNote3V1.png")
         const iconNota3P2        = new Iconos(image ="iconNote3.png")
         const iconPolvoEstrellas = new Iconos(image ="iconPolvo.png")
+
+        //gemas icon +
+        const iconGema1          = new Iconos(image ="iconNote3V1.png")
+        const iconGema2          = new Iconos(image ="iconNote3V1.png")
+        const iconGema3          = new Iconos(image ="iconNote3V1.png")
+        const iconGema4          = new Iconos(image ="iconNote3V1.png")
+        const iconGema5          = new Iconos(image ="iconNote3V1.png")
+        const iconGema6          = new Iconos(image ="iconNote3V1.png")
 
 //----------------------------------------------------------------------------------------Clase Iconos en el INVENTARIO
 class IconoDeInventario {
@@ -330,6 +353,14 @@ class IconoDeInventario {
         const iconNota3Inv          = new IconoDeInventario(image= "iconNote3V1.png", position= game.at(11,1))
         const iconNota3P2Inv        = new IconoDeInventario(image= "iconNote3.png", position= game.at(11,1))
         const iconPolvoEstrellasInv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(11,1))
+        
+        // gemas icon inventario +
+        const iconGema1Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,1))
+        const iconGema2Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,2))
+        const iconGema3Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,3))
+        const iconGema4Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,4))
+        const iconGema5Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,5))
+        const iconGema6Inv = new IconoDeInventario(image= "iconPolvo.png", position= game.at(0,6))
 
 //---------------------------------------------------------------------------Bordes del tablero
 class Tope {
@@ -359,5 +390,5 @@ object corazon3 {
 }
 object corazon4 {
   const property image = "life1Full.png"
-  const property position = game.at(0,8)
+  const property position = game.at(0,7)
 }

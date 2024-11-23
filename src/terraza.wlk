@@ -47,10 +47,17 @@ object terraza {
 
     game.addVisual(fantasmaDiagonalTerraza1)
     game.addVisual(fantasmaDiagonalTerraza2)
+    self.enModoDificil()
     
     //--personaje
     personaje.ubicacion("terraza")
     habitacion.ubicarPersonaje(9, 4) 
   }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaDiagonalTerraza3)
+    }
+  }  
 
 }

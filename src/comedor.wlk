@@ -56,6 +56,7 @@ object comedor {
     game.addVisual(fantasmaDiagonalComedor1)
     game.addVisual(fantasmaDiagonalComedor2)
     game.addVisual(fantasmaDiagonalComedor3)
+    self.enModoDificil()
     
     //--Ubicacion del personaje segun ekl lugar
     if(personaje.ubicacion() =="entrada")// desde la entrada
@@ -65,5 +66,13 @@ object comedor {
     //identificador de ubicacion del personaje 
     personaje.ubicacion("comedor")
   }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaDiagonalComedor4)
+      game.addVisual(fantasmaPerseguidorComedor1)
+    }
+  }
+
 
 }

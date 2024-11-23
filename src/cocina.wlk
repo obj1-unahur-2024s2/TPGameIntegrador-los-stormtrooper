@@ -53,10 +53,18 @@ object cocina {
     game.addVisual(fantasmaDiagonalCocina1)
     game.addVisual(fantasmaDiagonalCocina2)
     game.addVisual(fantasmaDiagonalCocina3)
+    self.enModoDificil()
     
     //--personaje
     personaje.ubicacion("cocina")
     habitacion.ubicarPersonaje(4, 2)
+  }
+
+  method enModoDificil() {
+    if(personaje.dificultad()==2){
+      game.addVisual(fantasmaDiagonalCocina4)
+      game.addVisual(fantasmaPerseguidorCocina1)
+    }
   }
 
 }
