@@ -7,13 +7,20 @@
 
 
 
-![captura1](./assets/CAPTURA1.png) ![captura1](./assets/ghostRV3-F1.png)![captura1](./assets/ghostRV3-F1.png)![captura1](./assets/ghostRV3-F1.png)![captura4](./assets/CAPTURA3.png)
+![captura1](./assets/tituloJuegoV3.png) ![captura1](./assets/ghostRV3-F1.png) ![captura1](./assets/CAPTURA1.png) ![captura1](./assets/ghostRV3-F1.png)![captura4](./assets/CAPTURA3.png) ![captura1](./assets/ghostRV3-F1.png)
 
 
-## ![katty](./assets/katyLado1.png) Katty, tu inquieta gata, se ha escapado y ha entrado en una misteriosa mansión abandonada. Al seguirla, la puerta se cierra tras de ti, dejándote atrapado en un lugar lleno de secretos y enigmas. Cada habitación de la mansión es un tablero único con desafíos diferentes. Tu misión será buscar mensajes ocultos, recolectar objetos, encontrar llaves y resolver rompecabezas para seguir avanzando. Pero cuidado: todo lo que encuentres tendrá un propósito, y necesitarás prestar mucha atención a las pistas. Al final de tu recorrido, te enfrentarás a un desafío crucial: resolverlo es la única manera de escapar y salvar a Katty.
-# ¡NO TE OLVIDES QUE ES UNA MANSIÓN ABANDONADA Y HAY FANTASMAS!
+## ![katty](./assets/katyLado1.png) Katy, tu inquieta gata, se ha escapado y ha entrado en una misteriosa mansión abandonada. Al seguirla, la puerta se cierra tras de ti, dejándote atrapado en un lugar lleno de enigmas y secretos. Tu objetivo será encontrar objetos, recolectar llaves, resolver rompecabezas y buscar mensajes ocultos para seguir avanzando. Pero cuidado: todo lo que encuentres tendrá un propósito, y necesitarás prestar mucha atención a las pistas. Al final de tu recorrido, tendrás que enfrentar al “culpable” en un desafío crucial: resolverlo será única manera de escapar y salvar a Katy. <br> <br> - Prepárate para un viaje el cual tal vez no tenga retorno - <br>
+
+# Reglas de juego:<br>  •	Debes desplazarte por cada habitación evitando tocar a los fantasmas y buscar elementos que te ayuden a desbloquear puertas para poder avanzar.<br>
+# Controles:
+# •	Utiliza las teclas “W A S D” para moverte por el tablero.
+# Características:<br>
+# •	Cada habitación de la mansión es un tablero único con secretos diferentes.
+# •	En el Modo Difícil hay mas fantasmas, algunos objetos cambian su ubicación y hay objetos secretos coleccionables. 
+# Versión de wollok: VSCode.
+# Consejos:<br>
+# •	Debes revisar cada rincón de la mansión varias veces de ser necesario. Es posible que encuentres algún objeto que antes hayas pasado por alto.
 
 
 - ![logoUnaHur](./assets/unahurlogo.png) Programación con Objetos I, UNAHUR
-- Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
