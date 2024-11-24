@@ -7,12 +7,10 @@ class Fantasma {
   var orientacion = self.orientacionInicial() //up
   var property velocidad
   var property contadorAnimacion = 1
+  var property velocidadDeAnimacion = 10
 
   method orientacionInicial() {
-    //const arriba = up
-    //const abajo = down
     var numeroAleatorio = 0.randomUpTo(2).truncate(0)
-    
     if(numeroAleatorio ==1)
       return up
     else 
@@ -21,12 +19,26 @@ class Fantasma {
 
   var property position //= game.origin()//posicion inicio
 
-  //method image() 
-  var property image = "fantasma" + orientacion.descripcion() + "V2.png" //descripcion: "U D R L" (U) "cohete" + orientacion.descripcion() + ".png"
+
+  var property image = self.nivelDeGraficos()
+
+  method nivelDeGraficos(){
+      if(personaje.graficosAltos())
+         return "fantasma" + orientacion.descripcion() + "V2.png"
+      else
+       return "fantasma3.png"
+  }
+
+  method animarGraficos() {
+      if(personaje.graficosAltos())
+          self.animar()
+  }
+
 
   method initialize() {
     game.onTick(velocidad,"fantasma",{self.desplazarse()})
-    self.animar()
+    self.animarGraficos()
+    //self.animar()
   }
 
   method desplazarse() {
@@ -76,7 +88,7 @@ class Fantasma {
 //--animaciones--------------------------------------------------------
   
   method animar() {
-      game.onTick(5,"fantasmaR",{self.animacion()})
+      game.onTick(velocidadDeAnimacion,"fantasmaR",{self.animacion()})
   }
 
   method animacion() {
@@ -93,7 +105,6 @@ class Fantasma {
     return game.at(2.randomUpTo(9).truncate(0), 2.randomUpTo(9).truncate(0))
   }
 }
-
 
 //-------------------------------------------------------------------------------------------------
 class FantasmaDiagonal inherits Fantasma{
@@ -147,10 +158,7 @@ class FantasmaDiagonalOpuesto inherits Fantasma{
   }
 }
 class FantasmaPerseguidor inherits Fantasma{
-  override method avanzar() {
-    //super()//position = orientacion.adelante(position)
-    //position = orientacion.siguiente().adelante(position)//cambia a la siguiente orientacion y luego avanza
-  }
+  override method avanzar() {}
   override method llego() = super() /* orientacion.enElBorde(position) */or orientacion.siguiente().enElBorde(position)// o el borde de la sig posicion
   override method girar() {
     super()//orientacion = orientacion.siguiente()
@@ -160,9 +168,15 @@ class FantasmaPerseguidor inherits Fantasma{
     }
   }
 
+  override  method nivelDeGraficos(){
+    if(personaje.graficosAltos())
+      return "ghostPerseguidorV3-F"+contadorAnimacion+".png"
+    else
+      return "ghostPerseguidorV3-F1.png"
+  }
+
   //override method image() = "fantasma3.png"
   override method desplazarse() {
-    //self.position(self.position().down(1))
     self.perseguirA(personaje)
   }
 
@@ -179,7 +193,7 @@ class FantasmaPerseguidor inherits Fantasma{
   }
 
   override method animar() {
-      game.onTick(5,"fantasmaR",{self.animacion()})
+      game.onTick(velocidadDeAnimacion,"fantasmaR",{self.animacion()})
   }
 
   override method animacion() {

@@ -28,6 +28,7 @@ object personaje {
 	var property personajeVida = 4
 	var orientacion = 1
 	var property dificultad = 0
+	var property graficosAltos = true
 
 //------------------------------------------------------------------------Control del personaje
 	method configurarTeclas() {

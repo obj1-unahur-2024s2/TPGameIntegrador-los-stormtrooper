@@ -13,7 +13,7 @@ import musicaSonido.*
 import intro.*
 
 object tituloJuego {
-  const property image = "tituloJuegoV3.png" 
+  const property image = "tituloJuegoV4.png" 
   var property position = game.origin()
   
   var property activarMenu = true //activa o desactiva los botones del menu
@@ -28,7 +28,7 @@ object tituloJuego {
     barraItems.ResetItemsDeInventario()
     activarMenu = true
     
-    //boton-1
+    //boton-1 --> Modo Normal
     keyboard.num(1).onPressDo({if(activarMenu){
       game.sound("xfxSelect.mp3").play()
       activarMenu = false
@@ -36,7 +36,7 @@ object tituloJuego {
       self.modoNormal()
       //self.intro()
     }})
-    //boton-2
+    //boton-2 --> Modo Dificil
     keyboard.num(2).onPressDo({if(activarMenu){
       game.sound("xfxSelect.mp3").play()
       activarMenu = false
@@ -45,8 +45,21 @@ object tituloJuego {
       //self.intro()
     }})
 
-    //boton-3
+    //boton-3 -->Salir
     keyboard.num(3).onPressDo({if(activarMenu){game.stop()}})
+
+    //boton 6 -->graficos Altos
+    keyboard.num(6).onPressDo({if(activarMenu){
+      personaje.graficosAltos(true)
+      game.addVisual(graficosAltos)
+      game.schedule(2000, {=> game.removeVisual(graficosAltos)})
+    }})
+    //boton 7 -->graficos Bajos
+    keyboard.num(7).onPressDo({if(activarMenu){
+      personaje.graficosAltos(false)
+      game.addVisual(graficosBajos)
+      game.schedule(2000, {=> game.removeVisual(graficosBajos)})
+    }})
   }
 
   method interaccion() {  }//nada
@@ -66,24 +79,16 @@ object tituloJuego {
     //game.schedule(1000, {=>self.intro()})
     //self.intro()
   }
-
-  /*
-  method intro() {
-    habitacion.borrarEscena()
-    game.addVisual(introImage)
-    keyboard.num(1).onPressDo({if(activarSubMenu){
-      habitacion.borrarEscena()
-      activarSubMenu = false
-      game.schedule(1000, {=>entrada.iniciar()})
-      //entrada.iniciar()
-      //jardin.iniciar()
-      }})
-  }
-  */
 }
-/*
-object introImage {
-  const property image = "introduccionV3.png"
-  const property position = game.origin() 
-}*/
+//------------------------------------------------------------texto graficos
+object graficosAltos {
+  method text() = "Graficos Altos"
+  const property position = game.at(9,0)
+  method textColor() = "#ffffff"
+}
 
+object graficosBajos {
+  method text() = "Graficos Bajos"
+  const property position = game.at(9,0)
+  method textColor() = "#ffffff"
+}
