@@ -29,10 +29,10 @@
     git clone https://github.com/obj1-unahur-2024s2/TPGameIntegrador-los-stormtrooper.git
 ```
 ## Iniciar Sin Retorno
-```bash
-    Dentro del IDE de tu preferencia, iniciar juego desde ´Run Game´ en /src/titulo.wpgm.
-    Esto generara una URL de localhost, hacer click izquierdo + Ctrl sobre el mismo
-```
+
+###    Dentro del IDE de tu preferencia, iniciar juego desde ´Run Game´ en /src/titulo.wpgm.
+###    Esto generara una URL de localhost, hacer click izquierdo + Ctrl sobre el mismo
+
 
 
 - ![logoUnaHur](./assets/unahurlogo.png) Programación con Objetos I, UNAHUR
