@@ -1,7 +1,6 @@
 import tituloJuego.*
-
-import pruebas.*
-import tunel.*
+//import pruebas.*
+//import tunel.*
 
 object creditos {
   const property image = "creditos.png"     
@@ -9,6 +8,6 @@ object creditos {
 
   method iniciar() {
     game.addVisual(self)
-    game.schedule(1000, {=> tituloJuego.iniciar()})
+    game.schedule(4000, {=> tituloJuego.iniciar()})
   }
 }

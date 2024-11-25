@@ -1,7 +1,7 @@
 import barraItems.*
 import personaje.*
 import textos.*
-import wollok.game.*
+//import wollok.game.*
 
 /*--INDICE--
   -Clase Obj Invisibles

@@ -5,7 +5,7 @@ import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
-import wollok.game.*
+//import wollok.game.*
 import tablero.*
 import fantasma.*
 import entrada.*

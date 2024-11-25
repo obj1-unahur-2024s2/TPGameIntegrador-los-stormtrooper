@@ -2,7 +2,7 @@ import puertas.*
 import objetos.*
 import personaje.*
 import textos.*
-import wollok.game.*
+//import wollok.game.*
 import tablero.*
 import barraItems.*
 import musicaSonido.*

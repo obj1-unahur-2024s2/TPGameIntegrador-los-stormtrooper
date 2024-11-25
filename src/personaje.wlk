@@ -1,7 +1,7 @@
 import objetos.*
 import fantasma.*
 import gameOver.*
-import wollok.game.*
+//import wollok.game.*
 import musicaSonido.*
 
 /*--INDICE--

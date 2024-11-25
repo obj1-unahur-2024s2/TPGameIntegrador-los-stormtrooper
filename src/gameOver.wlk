@@ -1,4 +1,4 @@
-import entrada.*
+//import entrada.*
 import tituloJuego.*
 import barraItems.*
 import puertas.*

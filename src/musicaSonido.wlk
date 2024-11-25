@@ -18,7 +18,7 @@ object ambiente1 {
   }
 }
 object ambiente2 {
-  const sonido = game.sound("ambiente2.mp3")
+  const sonido = game.sound("ambiente4.mp3")
   
   method sonar() {
     sonido.play()

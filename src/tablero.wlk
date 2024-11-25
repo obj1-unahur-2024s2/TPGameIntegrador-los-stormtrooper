@@ -4,9 +4,9 @@ import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
-import wollok.game.*
+//import wollok.game.*
 import fantasma.*
-import ritual.*
+//import ritual.*
 
 /*--INDICE--Habitacion
   -siEstaEnInventario(unItem) muestra el item en la zona de inventario

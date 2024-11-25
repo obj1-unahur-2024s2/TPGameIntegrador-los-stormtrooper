@@ -1,10 +1,10 @@
-import entradaPrimerPiso.*
+//import entradaPrimerPiso.*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
-import entrada.*
+//import entrada.*
 import wollok.game.*
 import tablero.*
 import musicaSonido.*

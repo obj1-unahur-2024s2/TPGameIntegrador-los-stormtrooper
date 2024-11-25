@@ -6,7 +6,6 @@ import creditos.*
 
 program SinRetorno {
     //--definicion del tablero--
-    
     game.title("SinRetorno -Wollok Version-")
 	game.height(12)
 	game.width(12)
@@ -22,4 +21,3 @@ program SinRetorno {
     
     game.start()
 }
-
