@@ -1,10 +1,10 @@
+import wollok.game.*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
 import entrada.*
-//import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
@@ -14,11 +14,11 @@ object musica {
   var property image = "fondoMusicaV5.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente1
+  const musicaAmbiente = ambiente1
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }
 
   method iniciar() {
@@ -49,9 +49,10 @@ object musica {
     //Items en Inventario
     barraItems.refreshListaDeItems()
 
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
-    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
+    //fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
+    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
     self.enModoDificil()
 
     //--personaje
@@ -76,7 +77,6 @@ object musica {
 
       if(itemLlaveDormi.enInventario())
         habitacion.ubicarUnKeyItem(itemGema3, 9, 2)
-
     }
   }
 }

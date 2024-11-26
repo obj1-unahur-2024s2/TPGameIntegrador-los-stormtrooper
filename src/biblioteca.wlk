@@ -1,10 +1,10 @@
+import wollok.game.*
 import puertas.*
 import objetos.*
 //import titulo.*
 import personaje.*
 import textos.*
 import entrada.*
-//import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
@@ -14,15 +14,15 @@ object biblioteca {
   var property image = "fondoBibliotecaV3.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente2
+  const musicaAmbiente = ambiente2
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }
 
   method iniciar() {
-    //--propiedades de tablero
+    //------------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionBiblioteca)
     self.reproducirMusica()
     //------------------------------------------------------------------Ubicaciones
@@ -51,9 +51,10 @@ object biblioteca {
 
     //--Items en Inventario
     barraItems.refreshListaDeItems()
-
+    
+    //--fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
     //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))//op
     self.enModoDificil()
 

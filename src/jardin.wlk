@@ -8,6 +8,7 @@ import textos.*
 import wollok.game.*
 import tablero.*
 import musicaSonido.*
+import barraItems.*
 
 object jardin {
   var property image = "fondoJardinV5.png" 
@@ -35,6 +36,9 @@ object jardin {
     //--puertas
 
     //--Items
+    
+    //Items en Inventario
+    barraItems.refreshListaDeItems()
 
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 7)//y max Arriba
@@ -72,7 +76,7 @@ object katyLast {
       game.removeVisual(fraseFinal)
       game.addVisual(fraseEnd)
       })
-    game.schedule(12000, {=>game.stop()})
+    game.schedule(14000, {=>game.stop()})
   }
 }
 
@@ -93,4 +97,13 @@ object fraseEnd {
 
   method text() =           "FIN
         ¡¡Muchas Gracias por Jugar!!"
+}
+object fraseGemas {
+  method position() = game.at(5,4)
+  method textColor() = "#ffffff"
+
+  method text() =           "Felicitaciones!!
+  No solo escapaste con vida 
+  sino que tambien sos millonario!!
+  Buen trabajo!!"
 }

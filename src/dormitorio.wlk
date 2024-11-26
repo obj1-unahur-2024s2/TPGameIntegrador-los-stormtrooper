@@ -1,11 +1,11 @@
 //import entradaPrimerPiso.*
+import wollok.game.*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
 //import entrada.*
-//import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
@@ -15,11 +15,11 @@ object dormitorio {
   var property image = "fondoDormitorioV5.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente2
+  const musicaAmbiente = ambiente2
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }
 
   method iniciar() {
@@ -48,9 +48,9 @@ object dormitorio {
     habitacion.ubicarEnTablero(objClaveReloj, 2, 9)
     habitacion.ubicarEnTablero(objPuertaSinUso, 1,6)
     
-
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
+    //fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
     //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))//op
     self.enModoDificil()
     

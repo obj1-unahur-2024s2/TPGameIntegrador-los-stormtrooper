@@ -36,7 +36,6 @@ object personaje {
 		keyboard.a().onPressDo({ 
 			if(topeIzq.position().x()+1 < self.position().x() )//puertaAComedor.position().x()+1  //&& 1 < self.position().x()
 				self.position(self.position().left(1))
-				//flip = false
 				image = "personajeL.png"
 				orientacion = 4
 			})
@@ -44,7 +43,6 @@ object personaje {
 		keyboard.d().onPressDo({
 			if(topeDer.position().x()-1 > self.position().x()) //no se //game.width()-2 > self.position().x()  && 
 			 	self.position(self.position().right(1))
-				//flip = true
 				image = "personajeR.png"
 				orientacion = 2
 			 })
@@ -149,6 +147,5 @@ object barraDeVida {
 	else{
 		game.removeVisual(corazon2)
 	}
-
   }
 }

@@ -51,7 +51,6 @@ No tiene ningún sentido...",color =color.blanco(), position = game.at(5,0))
 const textoFaltaNota3PolvoP2  = new TextosInfo(texto ="Dentro del cajón hay frascos con distintos tipos de polvos. 
 No hay nada importante...",color =color.blanco(), position = game.at(5,0))
 
-
 const textoDisco = new TextosInfo(texto ="Una bolsa de basura. Espera, que es esto!
 !!Encontraste un Disco de vinilo!!",color =color.blanco(), position = game.at(6,0))//Gema1
 
@@ -90,8 +89,6 @@ const textoPolvoEstrellas = new TextosInfo(texto ="Este frasco contiene un polvo
 
 const textoNadaImportante = new TextosInfo(texto ="No hay nada interesante aquí...",color =color.blanco(), position = game.at(5,0))
 const textoHayAlgoPero    = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
-//const textoYaNoHayNada    = new TextosInfo(texto ="Ya no hay nada importante aqui",color =color.blanco(), position = game.at(5,0))
-//const textoEstaVacio      = new TextosInfo(texto ="Está vacío...",color =color.blanco(), position = game.at(5,0))
 const textoClavePolvo1    = new TextosInfo(texto ="El P..vo de Estr...as te ay...ra a des..cer la m..d..íon.",color =color.blanco(), position = game.at(5,10))
 const textoClavePolvo2    = new TextosInfo(texto ="Úsalo en las 5 a.t..chas en un ..den",color =color.blanco(), position = game.at(5,10))
 
@@ -107,7 +104,6 @@ const textoCuadro           = new TextosInfo(texto ="Siento que la figura del cu
 const textoPlanta           = new TextosInfo(texto ="Esta planta no la riegan hace años...",color =color.blanco(), position = game.at(5,0))
 const textoPlanta2          = new TextosInfo(texto ="Esta planta esta casi marchita....",color =color.blanco(), position = game.at(5,0))
 const textoReloj            = new TextosInfo(texto ="Este reloj esta yendo hacia atrás?!...",color =color.blanco(), position = game.at(5,0))
-
 
 const textoClaveEspejo = new TextosInfo(texto ="Hay algo escrito aqui: 12, 9, 3, 7, 5. Sigue esa orden. 
 Mi compañero que aun esta vivo será tu guía...¿?", color= color.blanco(),position=game.at(5, 0))
@@ -132,9 +128,6 @@ const textoKatyCursed = new TextosInfo(texto ="Katy!?
 Como llegaste hasta aquí? Estas extraña... 
 Por qué quieres ir hacia esa puerta? 
 Parece que no queda otra opcion que avanzar...",color =color.blanco(), position = game.at(5,1)) 
-
-//const textoKatyCursedP2 = new TextosInfo(texto ="Por qué quieres ir hacia esa puerta? 
-//Parece que no queda otra opcion que avanzar...",color =color.blanco(), position = game.at(5,1)) 
 
 const textoBiblioInfo1 = new TextosInfo(texto ="Un estante lleno de libros sobre un demonio que 
 aprisiona a sus victimas para obtener sus almas...",color =color.blanco(), position = game.at(5,0))

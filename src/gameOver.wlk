@@ -10,6 +10,7 @@ import wollok.game.*
 import tablero.*
 import fantasma.*
 import musicaSonido.*
+import ritual.*
 
 object gameOver {
   const property image = "gameOverV3.png" 
@@ -35,6 +36,7 @@ object gameOver {
   method iniciar() {    
     //----------------------------------------------------------------propiedades de tablero
     habitacion.borrarEscena()
+    //ritual.borrarFantasmas()
     self.pararTodasLAsMusicas()
     game.schedule(1500, {=> 
       self.reproducirMusica()
@@ -47,22 +49,23 @@ object gameOver {
     habitacion.cerrarPuertasAbiertas()
     habitacion.borrarListaconPuertas()
     tituloJuego.activarMenu(false)
-    personaje.personajeVida(4)
+    
+    ritual.estavencido(true)//detiene a los fantasmas. no encontre otra forma de acherlo...
+    
     personaje.inicioDePartida(true)
     barraItems.ResetItemsDeInventario()
 
+    //--boton-4-->reinicio
     keyboard.num(4).onPressDo({if(activo){
       musicaAmbiente.stop()
       activo = false
       tituloJuego.iniciar()
       }})
-    //keyboard.num(1).onPressDo({tituloJuego.iniciar()})
-    //keyboard.num(2).onPressDo({self.ModoDificil()})//modo dificil
+    //--boton-5-->salir
     keyboard.num(5).onPressDo({if(activo){
       activo = false
       musicaAmbiente.stop()
       game.stop()
       }})
   }
-    
 }

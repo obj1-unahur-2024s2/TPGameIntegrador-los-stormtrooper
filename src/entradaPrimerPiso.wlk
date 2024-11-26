@@ -15,11 +15,11 @@ object entradaPrimerPiso {
   var property image = "fondoEntrada1PV8.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente2
+  const musicaAmbiente = ambiente2
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }  
 
   method iniciar() {
@@ -51,7 +51,7 @@ object entradaPrimerPiso {
     habitacion.ubicarEnTablero(objPlanta, 1, 7)
 
     //--fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 600))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 400))
     self.enModoDificil()
   
     //--Ubicacion del personaje segun el lugar    

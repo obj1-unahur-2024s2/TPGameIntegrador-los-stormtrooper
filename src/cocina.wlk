@@ -1,10 +1,10 @@
+import wollok.game.*
 import puertas.*
 import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
 import entrada.*
-//import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
@@ -14,11 +14,11 @@ object cocina {
   var property image = "fondoCocinaV3.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente1
+  const musicaAmbiente = ambiente1
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }
 
   method iniciar() {
@@ -28,7 +28,7 @@ object cocina {
 
     //------------------------------------------------------ubicacion objetos
 
-    //Limites Tablero
+    //--Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 10)//y max Arriba
     habitacion.ubicarEnTablero(topeAbajo, 0, 0)//y min Abajo
     habitacion.ubicarEnTablero(topeDer, 11, 0)//x max Derecha
@@ -41,17 +41,18 @@ object cocina {
     //--Items
     self.ubicacionDeLosItemsSegunElModo()
 
-    //Items en Inventario
+    //--Items en Inventario
     barraItems.refreshListaDeItems()
   
-    //Textos
+    //--Textos
     habitacion.ubicarEnTablero(objComida, 5, 6)
     habitacion.ubicarEnTablero(objReloj, 8, 9)
     habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
-    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
+    //--fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
+    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
     self.enModoDificil()
     
     //--personaje
@@ -66,7 +67,7 @@ object cocina {
     }
   }
 
-    method ubicacionDeLosItemsSegunElModo() {
+  method ubicacionDeLosItemsSegunElModo() {
     if(personaje.dificultad()==1){
       habitacion.ubicarUnKeyItem(itemNota2, 9, 2)
       habitacion.ubicarUnKeyItem(itemPolvoEstrellas, 7, 8)

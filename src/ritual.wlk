@@ -1,8 +1,8 @@
+import wollok.game.*
 import puertas.*
 import objetos.*
 import personaje.*
 import textos.*
-//import wollok.game.*
 import tablero.*
 import barraItems.*
 import musicaSonido.*
@@ -13,6 +13,7 @@ object ritual {
   var property position = game.origin()
   var property contador = 0
   var property estavencido = false
+  //var property elPerosnajeMurio = false
 
   const musicaAmviente = salaRitual
 
@@ -25,20 +26,18 @@ object ritual {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionRitual)
     
-    game.schedule(1000, {=>self.reproducirMusica()})
+    //--secuencia intro
 
-    //--personaje
-    game.addVisual(dimension)
-    game.sound("xfxIntoDimension.mp3").play()
-    game.addVisualCharacter(personaje)
-    personaje.irA(game.at(5,1))    
+    game.addVisual(dimension)//alparece el agujero
+    game.sound("xfxIntoDimension.mp3").play()//se ejecuta sonido
+    game.addVisual(personajeEstatico)//imagen personaje estatico 
     
     game.schedule(1000, {=>
-      game.removeVisual(dimension)
-      game.addVisual(oscuridad)
-      game.removeVisual(personaje)
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(5,1))  
+      self.reproducirMusica()
+      game.removeVisual(dimension)//se elimina visual agujero
+      game.addVisual(oscuridad)//se agrega la visual oscuridad
+      game.removeVisual(personajeEstatico)
+      game.addVisual(personajeEstatico)//imagen personaje estatico
     })
 
     game.schedule(2700, {=>game.addVisual(frase)})
@@ -46,18 +45,14 @@ object ritual {
     game.schedule(4500, {=>
       game.removeVisual(oscuridad)
       game.addVisual(estrellas)
-      game.removeVisual(personaje)
-      game.addVisualCharacter(personaje)
-      personaje.irA(game.at(5,1)) 
+      game.removeVisual(personajeEstatico)
+      game.addVisual(personajeEstatico)//imagen personaje estatico 
+      
       game.removeVisual(frase)
-      game.addVisualCharacter(frase)
+      game.addVisual(frase)
     })
 
     game.schedule(6350, {=>game.removeVisual(estrellas)})
-
-    //------------------------------------------------------estado del personaje
-  
-    //------------------------------------------------------ubicacion objetos
 
     game.schedule(12000, {=>
       game.removeVisual(frase)
@@ -68,15 +63,13 @@ object ritual {
       game.removeVisual(damage)
       game.addVisual(agis)
       agis.animar()
+      game.removeVisual(personajeEstatico)
+      habitacion.ubicarPersonaje(5, 1)
     })
-        
+    //------------------------------------------------------ubicacion objetos   
+    
     //--Antorchas
     self.agregarAntorchas()
-    antorcha1.animar()
-    antorcha2.animar()
-    antorcha3.animar()
-    antorcha4.animar()
-    antorcha5.animar()
 
     //--Items
 
@@ -91,15 +84,29 @@ object ritual {
     
     //fantasmas
     self.agregarFantasmas()
-
   }
 
   method agregarAntorchas() {
-    game.schedule(9000, {=>habitacion.ubicarEnTablero(antorcha1, 6, 10)})
-    game.schedule(9500, {=>habitacion.ubicarEnTablero(antorcha3, 10, 7)})
-    game.schedule(10000, {=>habitacion.ubicarEnTablero(antorcha5, 8, 2)})
-    game.schedule(10500, {=>habitacion.ubicarEnTablero(antorcha4, 3, 2)})
-    game.schedule(11000, {=>habitacion.ubicarEnTablero(antorcha2, 1, 7)})
+    game.schedule(9000, {=>
+      habitacion.ubicarEnTablero(antorcha1, 6, 10)
+      antorcha1.animar()
+    })
+    game.schedule(9500, {=>
+      habitacion.ubicarEnTablero(antorcha3, 10, 7)
+      antorcha3.animar()
+    })
+    game.schedule(10000, {=>
+      habitacion.ubicarEnTablero(antorcha5, 8, 2)
+      antorcha5.animar()
+    })
+    game.schedule(10500, {=>
+      habitacion.ubicarEnTablero(antorcha4, 3, 2)
+      antorcha4.animar()
+    })
+    game.schedule(11000, {=>
+      habitacion.ubicarEnTablero(antorcha2, 1, 7)
+      antorcha2.animar()
+    })
   }
 
   method sumar() {
@@ -129,12 +136,13 @@ object ritual {
     game.schedule(unTiempo, {=>
       if(self.sePuedeSeguirCreandoFantasmas())
         game.addVisual(unFantasma)
+      else
+        game.removeVisual(unFantasma)
     })  
   }
   method sePuedeSeguirCreandoFantasmas() {
-    return !estavencido || (personaje.personajeVida()!=0 &&  !estavencido)
+    return !estavencido /*|| !personaje.personajeVida == 0*/ //no funciona...
   }
-
 
   method borrarFantasmas() {
       game.onTick(1000, "borrarFantasmasXSeg", {=>
@@ -338,5 +346,10 @@ object oscuridad {
 object estrellas {
   const property image = "fondoRitual.png"
   var property position = game.origin()
+}
+object personajeEstatico {
+  const property image = "personajeU1.png"
+  var property position = game.at(5,1)
+  method interaccion() {  }
 }
 

@@ -11,6 +11,7 @@ import fantasma.*
 import entrada.*
 import musicaSonido.*
 //import jardin.*
+import tunel.*
 
 object intro {
   const property image = "introduccionV4.png"
@@ -32,7 +33,8 @@ object intro {
             activarSubMenu = false
             
             entrada.iniciar()
-            //jardin.iniciar()
+            //tunel.iniciar() pruebas
+            //jardin.iniciar() pruebas
         }})
   }
 }

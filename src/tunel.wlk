@@ -9,6 +9,7 @@ import textos.*
 import tablero.*
 import barraItems.*
 import musicaSonido.*
+import ritual.*
 
 object tunel {
   var property image = "fondoTunelV2.png" 
@@ -27,7 +28,7 @@ object tunel {
     self.reproducirMusica()
     //------------------------------------------------------estado del personaje
 
-    
+    ritual.estavencido(false)//desactiva el flag
     game.addVisual(katyCurse)
     katyCurse.animar()
 

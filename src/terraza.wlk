@@ -1,3 +1,4 @@
+import wollok.game.*
 import entradaPrimerPiso.*
 import puertas.*
 import objetos.*
@@ -5,7 +6,6 @@ import titulo.*
 import personaje.*
 import textos.*
 //import entrada.*
-//import wollok.game.*
 import barraItems.*
 import tablero.*
 import musicaSonido.*
@@ -15,11 +15,11 @@ object terraza {
   var property image = "fondoTerrazaV5.png" 
   var property position = game.origin()
 
-  const musicaAmviente = ambiente2
+  const musicaAmbiente = ambiente2
 
   method reproducirMusica() {
-    musicaAmviente.sonar()
-    musicaAmviente.loop()
+    musicaAmbiente.sonar()
+    musicaAmbiente.loop()
   }
 
   method iniciar() {
@@ -44,8 +44,8 @@ object terraza {
     barraItems.refreshListaDeItems()
 
     //--fantasmas
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 400))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
-    game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
     self.enModoDificil()
     
     //--personaje

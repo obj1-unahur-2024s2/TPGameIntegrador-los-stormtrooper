@@ -11,6 +11,7 @@ import fantasma.*
 import entrada.*
 import musicaSonido.*
 import intro.*
+import ritual.*
 
 object tituloJuego {
   const property image = "tituloJuegoV4.png" 
@@ -22,6 +23,7 @@ object tituloJuego {
   method iniciar() {  
     habitacion.borrarEscena()
     game.addVisual(self)
+    //ritual.estavencido(false)///////////
     
     personaje.personajeVida(4)
     personaje.inicioDePartida(true)

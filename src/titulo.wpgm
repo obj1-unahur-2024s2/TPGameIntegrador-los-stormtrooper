@@ -1,6 +1,6 @@
 import wollok.game.*
 import personaje.*
-import objetos.*
+//import objetos.*
 import tituloJuego.*
 import creditos.*
 

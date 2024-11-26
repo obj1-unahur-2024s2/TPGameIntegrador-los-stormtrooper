@@ -5,6 +5,8 @@ import musicaSonido.*
 
 class Fantasma {
   var orientacion = self.orientacionInicial() //up
+  var property position //= game.origin()//posicion inicio
+  
   var property velocidad
   var property contadorAnimacion = 1
   var property velocidadDeAnimacion = 10
@@ -16,9 +18,6 @@ class Fantasma {
     else 
       return down
   }
-
-  var property position //= game.origin()//posicion inicio
-
 
   var property image = self.nivelDeGraficos()
 
@@ -34,11 +33,9 @@ class Fantasma {
           self.animar()
   }
 
-
   method initialize() {
     game.onTick(velocidad,"fantasma",{self.desplazarse()})
     self.animarGraficos()
-    //self.animar()
   }
 
   method desplazarse() {
@@ -49,30 +46,12 @@ class Fantasma {
 
   method avanzar() {
     position = orientacion.adelante(position)// adelante: dir de avance (up)
-   /* if (orientacion == "U")
-      position = position.up(1)
-    if (orientacion == "D")
-      position = position.down(1)
-    if (orientacion == "R")
-      position = position.right(1)
-    if (orientacion == "L")
-      position = position.left(1)*/
   }
   method llego() =
       orientacion.enElBorde(position) //enElBorde: cual es el borde -- le doy mi posicion actual
-
-    //  (position.y() == game.height()-1 and orientacion == "U") or
-    //  (position.x() == game.width()-1 and orientacion == "R")
-    // falta bajo y izq
   
   method girar() {
     orientacion = orientacion.siguiente()// siguiente: siguiente movimiento "U D R L"
-  /*  if (orientacion == "U")
-      orientacion = "R"
-    else 
-      if (orientacion == "R")
-        orientacion = "D"
-      */
   }
  
   method interaccion() {
@@ -85,7 +64,7 @@ class Fantasma {
     personaje.morir()//--va a la pantalla de gameover
   }
 
-//--animaciones--------------------------------------------------------
+  //--animaciones--------------------------------------------------------
   
   method animar() {
       game.onTick(velocidadDeAnimacion,"fantasmaR",{self.animacion()})
@@ -101,6 +80,8 @@ class Fantasma {
       image = "ghost"+ orientacion.descripcion() +"V3-F"+contadorAnimacion+".png"
     }
   }
+
+  //ubicacion al aparecer
   method ubicacionRandom() {
     return game.at(2.randomUpTo(9).truncate(0), 2.randomUpTo(9).truncate(0))
   }
@@ -123,22 +104,6 @@ class FantasmaDiagonal inherits Fantasma{
       super()//orientacion = orientacion.siguiente()
     }
   }
-  /*
-  override method animar() {
-      game.onTick(5,"fantasmaR",{self.animacion()})
-  }
-
-  method animacion() {
-    if(contadorAnimacion !=4){
-      contadorAnimacion += 1
-      image = "ghost"+ orientacion.descripcion() +"V3-F"+contadorAnimacion+".png"
-    }
-    else{
-      contadorAnimacion =1
-      image = "ghost"+ orientacion.descripcion() +"V3-F"+contadorAnimacion+".png"
-    }
-  }
-  */
 }
 class FantasmaDiagonalOpuesto inherits Fantasma{
 
@@ -207,7 +172,7 @@ class FantasmaPerseguidor inherits Fantasma{
     }
   }
 }
-//const fantasmaPerseguidorEntrada1 = new FantasmaPerseguidor(position = game.at(10,10), velocidad = 2000)//Per
+
 //-----------------------------------------------------------------------------------------------
 
 object limitesFantasmas {
@@ -247,65 +212,66 @@ object left{
   method adelante(position) = position.left(1)
   method enElBorde(position) = position.x() <= topeIzq.position().x()+1
 }
-//entrada
-//const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(11,6), velocidad = 700)
-//---------modoDificil
-//const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(11,2), velocidad = 500)
-//-----------------------------------------------------------------------------------------------------------
+//instanciacion
+  //entrada
+  //const fantasmaDiagonaEntrada1 = new FantasmaDiagonal(position = game.at(11,6), velocidad = 700)
+  //---------modoDificil
+  //const fantasmaDiagonaEntrada2 = new FantasmaDiagonal(position = game.at(11,2), velocidad = 500)
+  //-----------------------------------------------------------------------------------------------------------
 
-//comedor
-//const fantasmaDiagonalComedor1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
-//const fantasmaDiagonalComedor2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
-//const fantasmaDiagonalComedor3 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
-//---------modoDificil
-//const fantasmaDiagonalComedor4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
-//const fantasmaPerseguidorComedor1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
-//-----------------------------------------------------------------------------------------------------------
+  //comedor
+  //const fantasmaDiagonalComedor1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
+  //const fantasmaDiagonalComedor2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
+  //const fantasmaDiagonalComedor3 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
+  //---------modoDificil
+  //const fantasmaDiagonalComedor4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
+  //const fantasmaPerseguidorComedor1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
+  //-----------------------------------------------------------------------------------------------------------
 
-//cocina
-//const fantasmaDiagonalCocina1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
-//const fantasmaDiagonalCocina2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
-//const fantasmaDiagonalCocina3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)//OP
-//---------modoDificil
-//const fantasmaDiagonalCocina4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
-//const fantasmaPerseguidorCocina1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
-//-----------------------------------------------------------------------------------------------------------
+  //cocina
+  //const fantasmaDiagonalCocina1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
+  //const fantasmaDiagonalCocina2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
+  //const fantasmaDiagonalCocina3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)//OP
+  //---------modoDificil
+  //const fantasmaDiagonalCocina4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
+  //const fantasmaPerseguidorCocina1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
+  //-----------------------------------------------------------------------------------------------------------
 
-//musica
-//const fantasmaDiagonalMusica1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
-//const fantasmaDiagonalMusica2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
-//const fantasmaDiagonalMusica3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
-//---------modoDificil
-//const fantasmaDiagonalMusica4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
-//const fantasmaPerseguidorMusica1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
-//----------------------------------------------------------------------------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------------------------------------------------------------------------
-//primerPiso
-//const fantasmaDiagonalPrimerPiso1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 600)
-//---------modoDificil
-//const fantasmaPerseguidorPrimerPiso1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 1500)//Per
-//-----------------------------------------------------------------------------------------------------------
+  //musica
+  //const fantasmaDiagonalMusica1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
+  //const fantasmaDiagonalMusica2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
+  //const fantasmaDiagonalMusica3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
+  //---------modoDificil
+  //const fantasmaDiagonalMusica4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
+  //const fantasmaPerseguidorMusica1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
+  //----------------------------------------------------------------------------------------------------------------------------------------------------------
+  //----------------------------------------------------------------------------------------------------------------------------------------------------------
+  //primerPiso
+  //const fantasmaDiagonalPrimerPiso1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 600)
+  //---------modoDificil
+  //const fantasmaPerseguidorPrimerPiso1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 1500)//Per
+  //-----------------------------------------------------------------------------------------------------------
 
-//terraza
-//const fantasmaDiagonalTerraza1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700)
-//const fantasmaDiagonalTerraza2 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
-//---------modoDificil
-//const fantasmaDiagonalTerraza3 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500)
-//-----------------------------------------------------------------------------------------------------------
+  //terraza
+  //const fantasmaDiagonalTerraza1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700)
+  //const fantasmaDiagonalTerraza2 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
+  //---------modoDificil
+  //const fantasmaDiagonalTerraza3 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500)
+  //-----------------------------------------------------------------------------------------------------------
 
-//bilbioteca
-//const fantasmaDiagonalBiblio1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
-//const fantasmaDiagonalBiblio2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
-//const fantasmaDiagonalBiblio3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
-//---------modoDificil
-//const fantasmaDiagonalBiblio4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
-//const fantasmaPerseguidorBiblio1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
-//-----------------------------------------------------------------------------------------------------------
+  //bilbioteca
+  //const fantasmaDiagonalBiblio1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
+  //const fantasmaDiagonalBiblio2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)
+  //const fantasmaDiagonalBiblio3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)//OP
+  //---------modoDificil
+  //const fantasmaDiagonalBiblio4 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)
+  //const fantasmaPerseguidorBiblio1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
+  //-----------------------------------------------------------------------------------------------------------
 
-//dormitorio
-//const fantasmaDiagonalDormi1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
-//const fantasmaDiagonalDormi2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
-//const fantasmaDiagonalDormi3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)//OP
-//---------modoDificil
-//const fantasmaPerseguidorDormi1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
+  //dormitorio
+  //const fantasmaDiagonalDormi1 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800)
+  //const fantasmaDiagonalDormi2 = new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000)
+  //const fantasmaDiagonalDormi3 = new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 900)//OP
+  //---------modoDificil
+  //const fantasmaPerseguidorDormi1 = new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000)//Per
 //-----------------------------------------------------------------------------------------------------------

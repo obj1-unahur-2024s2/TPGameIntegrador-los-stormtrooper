@@ -76,12 +76,10 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const objPuertaSinUso    = new ObjInvSoloResponde (textoInfo = textoPuertaSinUso, tiempo =2000)
           const objCofreDormi      = new ObjInvSoloResponde (textoInfo = textoCofreDormi, tiempo =2000)
           const objArpa            = new ObjInvSoloResponde (textoInfo = textoArpa, tiempo =2000)
-
   //--IMPORTANTES
           const objClaveEspejo     = new ObjInvSoloResponde (textoInfo = textoClaveEspejo, tiempo =3000)
           const objClaveReloj      = new ObjInvSoloResponde (textoInfo = textoClaveReloj, tiempo =3000)
           const objKatyCursed      = new ObjInvSoloResponde (textoInfo = textoKatyCursed, tiempo =6000)
-
           const objBiblioInfo1     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo1, tiempo =3000)
           const objBiblioInfo2     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo2, tiempo =3000)
           const objBiblioInfo3     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo3, tiempo =3000)
@@ -154,7 +152,6 @@ class ItemInvisible {
         const itemEncendedor   = new ItemInvisible(textoExplicacion = textoEncendedor, iconDelItem = iconEncendedor, itemInventario = iconEncendedorInv)
         const itemNota2        = new ItemInvisible(textoExplicacion = textoNota2, iconDelItem = iconNota2, itemInventario = iconNota2Inv)
         const itemNota3        = new ItemInvisible(textoExplicacion = textoNota3, iconDelItem = iconNota3, itemInventario = iconNota3Inv)
-        
         //gemas +
         const itemGema1        = new ItemInvisible(textoExplicacion = textoGema, iconDelItem = iconGema1, itemInventario = iconGema1Inv)
         const itemGema2        = new ItemInvisible(textoExplicacion = textoGema, iconDelItem = iconGema2, itemInventario = iconGema2Inv)
@@ -204,49 +201,56 @@ class ItemQueSeRecibe {
   }
 }
 
-const itemEmblema        = new ItemQueSeRecibe(
+const itemEmblema = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoEmblema, 
   iconDelItem= iconEmblema, 
   itemInventario= iconEmblemaInv,
   itemNecesario= itemEncendedor, 
   textoNoSePuede= textoFaltaEncendedor)
 
-const itemNota1          = new ItemQueSeRecibe(
+const itemNota1 = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoNota1, 
   iconDelItem= iconNota1, 
   itemInventario= iconNota1Inv,
   itemNecesario= itemDisco, 
   textoNoSePuede= textoFaltaDisco)
 
-const itemLlaveDormi     = new ItemQueSeRecibe(
+const itemLlaveDormi = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoLlaveD, 
   iconDelItem= iconLlaveD, 
   itemInventario= iconLlaveDInv,
   itemNecesario= itemEmblema, 
   textoNoSePuede= textoFaltaEmblema)
 
-const itemLlaveCocina    = new ItemQueSeRecibe(
+const itemLlaveCocina = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoLlaveC, 
   iconDelItem= iconLlaveC, 
   itemInventario= iconLlaveCInv,
   itemNecesario= itemNota1, 
   textoNoSePuede= textoFaltaNota1Telescop)
 
-const itemLlaveSotano    = new ItemQueSeRecibe(
+const itemLlaveSotano = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoLlaveSotano, 
   iconDelItem= iconLlaveSotano, 
   itemInventario= iconLlaveSotanoInv,
   itemNecesario= itemNota2, 
   textoNoSePuede= textoFaltaNota2Cama)
 
-const itemNota3P2        = new ItemQueSeRecibe(
+const itemNota3P2 = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoNota3P2, 
   iconDelItem= iconNota3P2, 
   itemInventario= iconNota3P2Inv,
   itemNecesario= itemNota3, 
   textoNoSePuede= textoFaltaNota3Polvo)
 
-const itemPolvoEstrellas = new ItemQueSeRecibe(
+const itemPolvoEstrellas = 
+  new ItemQueSeRecibe(
   textoExplicacion= textoPolvoEstrellas, 
   iconDelItem= iconPolvoEstrellas, 
   itemInventario= iconPolvoEstrellasInv,
@@ -337,11 +341,9 @@ class IconoDeInventario {
   var property loTengo = false
 }
         const iconLlaveTerrazaInv   = new IconoDeInventario(image= "iconKey2.png", position= game.at(11,10))
-        //const iconGema1Inv = new IconoDeInventario(image= "iconGem1.png", position= game.at(11,9))
         const iconDiscoInv          = new IconoDeInventario(image= "iconDisco.png", position= game.at(11,9))
         const iconLlaveMInv         = new IconoDeInventario(image= "iconKey3.png", position= game.at(11,8))
         const iconEncendedorInv     = new IconoDeInventario(image= "iconEncendedorV2.png", position= game.at(11,7))
-
         const iconEmblemaInv        = new IconoDeInventario(image= "iconShield.png", position= game.at(11,6))
         const iconNota1Inv          = new IconoDeInventario(image= "iconNote1.png", position= game.at(11,5))
         const iconLlaveDInv         = new IconoDeInventario(image= "iconKey7.png", position= game.at(11,4))

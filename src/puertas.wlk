@@ -77,8 +77,11 @@ class PuertasCerradas inherits Puertas  {
     image = puertaCerrada
   }
   method sonidoSiEstaCerrada() {
-    if(image !=puertaAbierta)
+    if(self.abrirLaPuerta())
       game.sound("xfxUnlock.mp3").play()
+  }
+  method abrirLaPuerta() {
+    return image !=puertaAbierta
   }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

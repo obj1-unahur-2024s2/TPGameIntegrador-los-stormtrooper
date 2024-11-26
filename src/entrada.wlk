@@ -1,3 +1,4 @@
+import wollok.game.*
 import tituloJuego.*
 import barraItems.*
 import puertas.*
@@ -5,7 +6,6 @@ import objetos.*
 import titulo.*
 import personaje.*
 import textos.*
-//import wollok.game.*
 import tablero.*
 import fantasma.*
 //import ritual.*
@@ -66,7 +66,7 @@ object entrada {
     self.ubicacionDeLosItemsSegunElModo()  
 
     //--fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
     self.enModoDificil()
 
     
