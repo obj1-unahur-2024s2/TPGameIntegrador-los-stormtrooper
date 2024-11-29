@@ -24,7 +24,10 @@ object cocina {
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionCocina)
-    self.reproducirMusica()    
+    self.reproducirMusica() 
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
 
     //------------------------------------------------------ubicacion objetos
 
@@ -50,9 +53,9 @@ object cocina {
     habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
     //--fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
-    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
     self.enModoDificil()
     
     //--personaje

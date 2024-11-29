@@ -26,6 +26,9 @@ object dormitorio {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionDormitorio)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
 
     //------------------------------------------------------ubicacion objetos    
     //--puertas
@@ -51,7 +54,7 @@ object dormitorio {
     //fantasmas
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))
-    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 900))//op
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1200))//op
     self.enModoDificil()
     
     //--personaje

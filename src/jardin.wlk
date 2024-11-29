@@ -75,8 +75,18 @@ object katyLast {
     game.schedule(11000, {=>
       game.removeVisual(fraseFinal)
       game.addVisual(fraseEnd)
+      self.eresMillonario()
       })
     game.schedule(14000, {=>game.stop()})
+  }
+
+  method eresMillonario() {
+    if(self.tengoTodasLasGemas())
+      game.addVisual(fraseGemas)
+  }
+
+  method tengoTodasLasGemas() {
+    return itemGema1.enInventario() && itemGema2.enInventario() && itemGema3.enInventario() && itemGema4.enInventario() && itemGema5.enInventario() && itemGema6.enInventario()
   }
 }
 
@@ -99,11 +109,11 @@ object fraseEnd {
         ¡¡Muchas Gracias por Jugar!!"
 }
 object fraseGemas {
-  method position() = game.at(5,4)
+  method position() = game.at(5,3)
   method textColor() = "#ffffff"
 
   method text() =           "Felicitaciones!!
   No solo escapaste con vida 
-  sino que tambien sos millonario!!
+  sino que ahora eres millonario!!
   Buen trabajo!!"
 }

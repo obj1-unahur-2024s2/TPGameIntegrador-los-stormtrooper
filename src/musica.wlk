@@ -25,6 +25,9 @@ object musica {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionMusica)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
     //------------------------------------------------------estado del personaje
     personaje.ubicacion("musica")
 
@@ -50,9 +53,9 @@ object musica {
     barraItems.refreshListaDeItems()
 
     //fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
-    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 750))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1400))
     self.enModoDificil()
 
     //--personaje

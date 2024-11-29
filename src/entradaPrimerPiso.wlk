@@ -26,6 +26,9 @@ object entradaPrimerPiso {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionPrimerPiso)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
 

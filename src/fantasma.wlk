@@ -9,7 +9,7 @@ class Fantasma {
   
   var property velocidad
   var property contadorAnimacion = 1
-  var property velocidadDeAnimacion = 10
+  var property velocidadDeAnimacion = 25
 
   method orientacionInicial() {
     var numeroAleatorio = 0.randomUpTo(2).truncate(0)

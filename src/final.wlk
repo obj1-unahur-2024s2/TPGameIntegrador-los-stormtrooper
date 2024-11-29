@@ -22,6 +22,9 @@ object final {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionTunelSalida)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+    
     //------------------------------------------------------estado del personaje
     personaje.inicioDePartida(false)
     //personaje.ubicacion(8)

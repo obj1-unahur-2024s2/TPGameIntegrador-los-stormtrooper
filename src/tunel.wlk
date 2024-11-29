@@ -26,6 +26,9 @@ object tunel {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionTunel)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+    
     //------------------------------------------------------estado del personaje
 
     ritual.estavencido(false)//desactiva el flag

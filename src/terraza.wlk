@@ -26,6 +26,9 @@ object terraza {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionTerraza)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
 
     //------------------------------------------------------ubicacion objetos
     //--puertas
@@ -44,8 +47,8 @@ object terraza {
     barraItems.refreshListaDeItems()
 
     //--fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 400))
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 750))
     self.enModoDificil()
     
     //--personaje
@@ -55,7 +58,7 @@ object terraza {
   //--modo dificil fantasmas
   method enModoDificil() {
     if(personaje.dificultad()==2){
-      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
+      game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
     }
   }  
   

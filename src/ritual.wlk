@@ -25,6 +25,9 @@ object ritual {
   method iniciar() {
     //------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionRitual)
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+    
     
     //--secuencia intro
 
@@ -63,6 +66,7 @@ object ritual {
       game.removeVisual(damage)
       game.addVisual(agis)
       agis.animar()
+      barraItems.refreshListaDeItems()
       game.removeVisual(personajeEstatico)
       habitacion.ubicarPersonaje(5, 1)
     })
@@ -74,7 +78,7 @@ object ritual {
     //--Items
 
     //Items en Inventario
-    barraItems.refreshListaDeItems()
+    //barraItems.refreshListaDeItems()
 
     //Limites Tablero
     habitacion.ubicarEnTablero(topeArriba, 0, 11)//y max Arriba
@@ -119,17 +123,17 @@ object ritual {
 
   method agregarFantasmas() {
     //primeros 5
-    self.crearFantasmaSegunTiempo(15000,fantasmaDiagonaRitual1)
-    self.crearFantasmaSegunTiempo(18000,fantasmaDiagonaRitual2)
-    self.crearFantasmaSegunTiempo(21000,fantasmaDiagonaRitual3)
-    self.crearFantasmaSegunTiempo(24000,fantasmaDiagonaRitual4)
-    self.crearFantasmaSegunTiempo(27000,fantasmaDiagonaRitual5)
+    self.crearFantasmaSegunTiempo(15000,new FantasmaDiagonal(position = game.at(2,7), velocidad = 400))
+    self.crearFantasmaSegunTiempo(18000,new FantasmaDiagonal(position = game.at(9,2), velocidad = 400))
+    self.crearFantasmaSegunTiempo(21000,new FantasmaDiagonal(position = game.at(3,2), velocidad = 350))
+    self.crearFantasmaSegunTiempo(24000,new FantasmaDiagonal(position = game.at(2,5), velocidad = 350))
+    self.crearFantasmaSegunTiempo(27000,new FantasmaDiagonal(position = game.at(9,8), velocidad = 300))
     //segunada tanda
-    self.crearFantasmaSegunTiempo(35000,fantasmaDiagonaRitual6)
-    self.crearFantasmaSegunTiempo(40000,fantasmaDiagonaRitual7)
-    self.crearFantasmaSegunTiempo(45000,fantasmaDiagonaRitual8)
-    self.crearFantasmaSegunTiempo(50000,fantasmaDiagonaRitual9)
-    self.crearFantasmaSegunTiempo(55000,fantasmaPerseguidorRitual1)
+    self.crearFantasmaSegunTiempo(35000,new FantasmaDiagonal(position = game.at(6,1), velocidad = 300))
+    self.crearFantasmaSegunTiempo(40000,new FantasmaDiagonal(position = game.at(7,1), velocidad = 250))
+    self.crearFantasmaSegunTiempo(45000,new FantasmaDiagonal(position = game.at(8,1), velocidad = 250))
+    self.crearFantasmaSegunTiempo(50000,new FantasmaDiagonal(position = game.at(9,1), velocidad = 200))
+    self.crearFantasmaSegunTiempo(55000,new FantasmaPerseguidor(position = game.at(10,10), velocidad = 100))
   }
 
   method crearFantasmaSegunTiempo(unTiempo,unFantasma) {
@@ -143,7 +147,7 @@ object ritual {
   method sePuedeSeguirCreandoFantasmas() {
     return !estavencido /*|| !personaje.personajeVida == 0*/ //no funciona...
   }
-
+  /*
   method borrarFantasmas() {
       game.onTick(1000, "borrarFantasmasXSeg", {=>
         game.removeVisual(fantasmaDiagonaRitual1)
@@ -158,14 +162,18 @@ object ritual {
         game.removeVisual(fantasmaPerseguidorRitual1)
       })
       game.schedule(10000, {=> game.removeTickEvent("borrarFantasmasXSeg")})
-  }
+  }*/
 
   method aparecerPuerta() {
     if(contador >=5){
       estavencido = true
       game.sound("xfxCurseDestroy.mp3").play()
       habitacion.ubicarEnTablero(puertaATunelSalida, 4, 10) 
-      self.borrarFantasmas()//
+      //self.borrarFantasmas()//
+
+      game.removeTickEvent("fantasma")   
+      game.removeTickEvent("fantasmaR") 
+
       game.removeVisual(agis)
       game.addVisual(agisDefeated)
       agisDefeated.animar()
@@ -177,17 +185,18 @@ object ritual {
 }//fin de metodo iniciar
 
 //instancias fantasma
-const fantasmaDiagonaRitual1 = new FantasmaDiagonal(position = game.at(1,2), velocidad = 400)
-const fantasmaDiagonaRitual2 = new FantasmaDiagonal(position = game.at(2,1), velocidad = 400)
-const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), velocidad = 350)
-const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 350)
-const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 300)
+  //const fantasmaDiagonaRitual1 = new FantasmaDiagonal(position = game.at(1,2), velocidad = 400)
+  //const fantasmaDiagonaRitual2 = new FantasmaDiagonal(position = game.at(2,1), velocidad = 400)
+  //const fantasmaDiagonaRitual3 = new FantasmaDiagonal(position = game.at(3,1), velocidad = 350)
+  //const fantasmaDiagonaRitual4 = new FantasmaDiagonal(position = game.at(4,1), velocidad = 350)
+  //const fantasmaDiagonaRitual5 = new FantasmaDiagonal(position = game.at(5,1), velocidad = 300)
 
-const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 300)
-const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 250)
-const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 250)
-const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 200)
-const fantasmaPerseguidorRitual1 = new FantasmaPerseguidor(position = game.at(10,10), velocidad = 100)//Per
+  //const fantasmaDiagonaRitual6 = new FantasmaDiagonal(position = game.at(6,1), velocidad = 300)
+  //const fantasmaDiagonaRitual7 = new FantasmaDiagonal(position = game.at(7,1), velocidad = 250)
+  //const fantasmaDiagonaRitual8 = new FantasmaDiagonal(position = game.at(8,1), velocidad = 250)
+  //const fantasmaDiagonaRitual9 = new FantasmaDiagonal(position = game.at(9,1), velocidad = 200)
+  //const fantasmaPerseguidorRitual1 = new FantasmaPerseguidor(position = game.at(10,10), velocidad = 100)//Per
+
 //------------------------------------------------------------------------------------------------Clase Antrocha
 class Antorcha {
   var property image = "torch_1V2.png"

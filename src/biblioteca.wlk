@@ -25,6 +25,8 @@ object biblioteca {
     //------------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionBiblioteca)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
     //------------------------------------------------------------------Ubicaciones
     //--puertas
     habitacion.ubicarEnTablero(puertaAPrimerPiso, 1, 5)
@@ -53,9 +55,9 @@ object biblioteca {
     barraItems.refreshListaDeItems()
     
     //--fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
-    //game.addVisual(new FantasmaDiagonalOpuesto(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))//op
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))//op
     self.enModoDificil()
 
     //--Ubicacion del personaje segun ekl lugar
@@ -72,7 +74,7 @@ object biblioteca {
   method enModoDificil() {
     if(personaje.dificultad()==2){
       game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
-      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 2000))
+      game.addVisual(new FantasmaPerseguidor(position = limitesFantasmas.ubicacionRandom(), velocidad = 1500))
     }
   }
 

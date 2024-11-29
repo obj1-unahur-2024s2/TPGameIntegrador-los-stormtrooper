@@ -39,6 +39,9 @@ object entrada {
     //----------------------------------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionEntrada)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+ 
     //----------------------------------------------------------------Ubicaciones
 
     //--Puertas

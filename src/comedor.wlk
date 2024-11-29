@@ -25,6 +25,9 @@ object comedor {
     //-------------------------------------propiedades de tablero
     habitacion.iniciarHabitacion(self,ubicacionComedor)
     self.reproducirMusica()
+    game.removeTickEvent("fantasma")   
+    game.removeTickEvent("fantasmaR") 
+
     //-------------------------------------estado del personaje
     personaje.inicioDePartida(false)//
 
@@ -52,9 +55,9 @@ object comedor {
     barraItems.refreshListaDeItems()
 
     //fantasmas
-    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 300))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
-    //game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 700))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))
+    game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 1000))
     self.enModoDificil()
     
     //--Ubicacion del personaje segun ekl lugar

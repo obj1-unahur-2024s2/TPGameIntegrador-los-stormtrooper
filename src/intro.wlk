@@ -33,8 +33,8 @@ object intro {
             activarSubMenu = false
             
             entrada.iniciar()
-            //tunel.iniciar() pruebas
-            //jardin.iniciar() pruebas
+            //tunel.iniciar() //pruebas
+            //jardin.iniciar() //pruebas
         }})
   }
 }
