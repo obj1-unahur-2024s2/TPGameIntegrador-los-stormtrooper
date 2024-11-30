@@ -52,6 +52,10 @@ object entradaPrimerPiso {
 
     //texto
     habitacion.ubicarEnTablero(objPlanta, 1, 7)
+    
+    habitacion.ubicarEnTablero(txtPolvoPiso, 4, 4)
+    habitacion.ubicarEnTablero(txtCuadro2, 5, 7)
+
 
     //--fantasmas
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 400))

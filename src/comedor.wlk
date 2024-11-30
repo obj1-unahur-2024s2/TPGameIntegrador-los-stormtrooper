@@ -51,6 +51,11 @@ object comedor {
     habitacion.ubicarEnTablero(objCuadro, 1, 10)
     habitacion.ubicarEnTablero(objPlanta, 2, 9)
 
+    habitacion.ubicarEnTablero(txtLamparas, 10, 1)
+    habitacion.ubicarEnTablero(txtTv, 1, 5)
+    habitacion.ubicarEnTablero(txtRadio, 1, 2)
+    habitacion.ubicarEnTablero(txtSofa, 8, 9)    
+
     //Items en Inventario
     barraItems.refreshListaDeItems()
 

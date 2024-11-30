@@ -51,6 +51,9 @@ object biblioteca {
     habitacion.ubicarEnTablero(objBiblioInfo4, 7, 3)
     habitacion.ubicarEnTablero(objComentariosDeMas, 8, 10)
 
+    habitacion.ubicarEnTablero(txtLamparas, 8, 1)
+    habitacion.ubicarEnTablero(txtMesitas, 6, 4)
+
     //--Items en Inventario
     barraItems.refreshListaDeItems()
     

@@ -42,6 +42,11 @@ object terraza {
 
     //--Items
     self.ubicacionDeLosItemsSegunElModo()  
+
+    //--textos
+    habitacion.ubicarEnTablero(txtMesitas, 9, 6)
+    habitacion.ubicarEnTablero(objPlanta, 9, 2)
+    habitacion.ubicarEnTablero(objSillaRota, 5, 4)
     
     //--Items en Inventario
     barraItems.refreshListaDeItems()

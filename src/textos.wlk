@@ -2,11 +2,11 @@ import objetos.*
 import wollok.game.*
 
 /*--INDICE--
--Clase Texto
--Obj Color
+  -Clase Texto
+  -Obj Color
 
--Instanciacion
-*/
+  -Instanciacion
+  */
 
 //----------------------------------------------------------Clase texto
 class TextosInfo {
@@ -78,24 +78,26 @@ const textoNota2 = new TextosInfo(texto ="Hay una NOTA dentro de la botella...
 const textoLlaveSotano = new TextosInfo(texto ="Dentro de la almohada hay algo pesado...
 !!Encontraste la llave del sotano!!",color =color.blanco(), position = game.at(6,0))//Encendedor
 
-const textoNota3 = new TextosInfo(texto ="Hay una NOTA escrita aqui. -El P..vo 
- de Estr...as te ay...r. a des..cer la m..d..íon.-",color =color.blanco(), position = game.at(6,0))//Encendedor
+const textoNota3 = new TextosInfo(texto ="Hay una NOTA escrita aqui. -El P.lvo  
+de Estr.l.as te ay.d.ra a des.cer la m..di.íon.-",color =color.blanco(), position = game.at(6,0))//Encendedor
 
 const textoNota3P2 = new TextosInfo(texto ="La NOTA ahora tiene mas sentido. 
--Úsal. en las 5 ..chas en .n ..den-",color =color.blanco(), position = game.at(6,0))//Encendedor
+-Úsal. en l.s 5 a.t..chas en el o.den cor..cto-",color =color.blanco(), position = game.at(6,0))//Encendedor
 
 const textoPolvoEstrellas = new TextosInfo(texto ="Este frasco contiene un polvo que brilla. 
 !!Encontraste el Polvo de Estrellas!!",color =color.amarillo(), position = game.at(6,0))//Encendedor
 
 const textoNadaImportante = new TextosInfo(texto ="No hay nada interesante aquí...",color =color.blanco(), position = game.at(5,0))
 const textoHayAlgoPero    = new TextosInfo(texto ="Hay algo aqui pero...",color =color.blanco(), position = game.at(5,0))
-const textoClavePolvo1    = new TextosInfo(texto ="El P..vo de Estr...as te ay...ra a des..cer la m..d..íon.",color =color.blanco(), position = game.at(5,10))
-const textoClavePolvo2    = new TextosInfo(texto ="Úsalo en las 5 a.t..chas en un ..den",color =color.blanco(), position = game.at(5,10))
+const textoClavePolvo1    = new TextosInfo(texto ="El P.lvo de Estr.l.as te ay.d.ra a des.cer la m..di.íon.",color =color.blanco(), position = game.at(5,10))
+const textoClavePolvo2    = new TextosInfo(texto ="Úsal. en l.s 5 a.t..chas en el o.den cor..cto",color =color.blanco(), position = game.at(5,10))
 
 const textoNadaImportanteSilla = new TextosInfo(texto ="No me gusta esta silla, 
 No es de mi estilo...",color =color.blanco(), position = game.at(5,0))
-const textoEspejo              = new TextosInfo(texto ="En este espejo veo una persona 
+
+const textoEspejo           = new TextosInfo(texto ="En este espejo veo una persona 
 detrás de mi...",color =color.blanco(), position = game.at(5,0))
+
 const textoJarron           = new TextosInfo(texto ="Este jarrón está lleno de polvo...",color =color.blanco(), position = game.at(5,0))
 const textoSillaRota        = new TextosInfo(texto ="Todas las sillas están por romperse...",color =color.blanco(), position = game.at(5,0))
 const textoComida           = new TextosInfo(texto ="Esta comida no tiene buena pinta...",color =color.blanco(), position = game.at(5,0))
@@ -147,9 +149,7 @@ const textoPuertaSinUso = new TextosInfo(texto = "Esta puerta no se puede abrir.
 const textoCofreDormi = new TextosInfo(texto ="Un cofre!! Pero ya no hay nada adentro...",color =color.blanco(), position = game.at(5,0))
 
 const textoArpa = new TextosInfo(texto ="cuando tenga plata, me compro un arpa",color =color.blanco(), position = game.at(5,0))
-const textoPiano = new TextosInfo(texto ="Siempre quise aprender a tocar el piano.",color =color.blanco(), position = game.at(5,0))
-const textoOcarina = new TextosInfo(texto ="Una Ocarina! Como la de Link!!",color =color.blanco(), position = game.at(5,0))
-const textoViolin = new TextosInfo(texto ="Ya no tiene cuerdas...",color =color.blanco(), position = game.at(5,0))
+
 
 //----------------------------------------------------------Info de Items
 const textoPuertaCerrada = new TextosInfo(texto ="La puerta está Cerrada. 
@@ -165,6 +165,32 @@ Ya no puedes salir de este lugar...
 //textos gema
 const textoGema = new TextosInfo(texto ="¡¡Que es esto!!
 !!Encontraste una gema secreta!!",color =color.blanco(), position = game.at(6,0))//Encendedor
+
+//ultimos textos
+const textoLampara  = new TextosInfo(texto ="Una vieja lámpara.",color =color.blanco(), position = game.at(5,0))
+const textoHeladera = new TextosInfo(texto ="Gracias al cielo esta vacia...",color =color.blanco(), position = game.at(5,0))
+const textoCocina   = new TextosInfo(texto ="Una cocina sin gas.",color =color.blanco(), position = game.at(5,0))
+const textoEstantes = new TextosInfo(texto ="No hay nada de valor aquí....",color =color.blanco(), position = game.at(5,0))//
+const textoMesitas  = new TextosInfo(texto ="No hay nada útil en la mesa...",color =color.blanco(), position = game.at(5,0))
+
+const textoTv       = new TextosInfo(texto ="Una vieja TV. Se puede ver un reflejo extraño en el...",color =color.blanco(), position = game.at(5,0))
+const textoRadio    = new TextosInfo(texto ="Una vieja radio. Se puede escuchar una 
+interferencia como si fuera ruido de lluvia…",color =color.blanco(), position = game.at(5,0))
+const textoSofa     = new TextosInfo(texto ="Un sofá lleno de polvo.",color =color.blanco(), position = game.at(5,0))
+const textoAlfombra = new TextosInfo(texto ="Una linda alfombra. No hay nada debajo de ella…",color =color.blanco(), position = game.at(5,0))
+const textoPiano    = new TextosInfo(texto ="Siempre quise aprender a tocar el piano.",color =color.blanco(), position = game.at(5,0))
+
+const textoOcarina  = new TextosInfo(texto ="Una Ocarina! Como la de Link!!",color =color.blanco(), position = game.at(5,0))
+const textoViolin   = new TextosInfo(texto ="Ya no tiene cuerdas...",color =color.blanco(), position = game.at(5,0))
+//const textoRadioMusic=new TextosInfo(texto ="Ya no tiene cuerdas...",color =color.blanco(), position = game.at(5,0))
+const textoCuadro2  = new TextosInfo(texto ="Siento que alguien me observa...",color =color.blanco(), position = game.at(5,0))
+const textoSikus    = new TextosInfo(texto ="Un Sikus… Cuando era chico tenia uno…",color =color.blanco(), position = game.at(5,0))
+
+const textoPolvoPiso= new TextosInfo(texto ="Hay manchas de sangre aqui...creo...",color =color.blanco(), position = game.at(5,0))
+const textoMuebles2 = new TextosInfo(texto ="Está lleno de ropa vieja.",color =color.blanco(), position = game.at(5,0))
+const textoDerrumbe = new TextosInfo(texto ="Atrás se puede escuchar que 
+la habitación se derrumba.",color =color.blanco(), position = game.at(5,0))
+
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------Info de ubicacion

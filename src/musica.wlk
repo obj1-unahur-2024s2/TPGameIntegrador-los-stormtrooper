@@ -49,6 +49,11 @@ object musica {
     habitacion.ubicarEnTablero(objClavePolvo1, 9, 10)
     habitacion.ubicarEnTablero(objArpa, 9,8)
 
+    habitacion.ubicarEnTablero(txtPiano, 5, 5)
+    habitacion.ubicarEnTablero(txtViolin, 6, 8)
+    habitacion.ubicarEnTablero(txtOcarina, 9,5)
+    habitacion.ubicarEnTablero(txtSikus, 4,2)
+
     //Items en Inventario
     barraItems.refreshListaDeItems()
 

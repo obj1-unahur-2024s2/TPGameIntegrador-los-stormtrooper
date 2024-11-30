@@ -50,6 +50,11 @@ object dormitorio {
     habitacion.ubicarEnTablero(objClaveEspejo, 3, 9)
     habitacion.ubicarEnTablero(objClaveReloj, 2, 9)
     habitacion.ubicarEnTablero(objPuertaSinUso, 1,6)
+
+    habitacion.ubicarEnTablero(txtAlfombra, 4,5)
+    habitacion.ubicarEnTablero(txtSofa, 1,4)
+    habitacion.ubicarEnTablero(txtMesitas, 8,2)
+    //habitacion.ubicarEnTablero(textoHayAlgoPero, 7,5)
     
     //fantasmas
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))

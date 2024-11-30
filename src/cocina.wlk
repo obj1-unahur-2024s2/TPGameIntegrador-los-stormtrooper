@@ -52,6 +52,10 @@ object cocina {
     habitacion.ubicarEnTablero(objReloj, 8, 9)
     habitacion.ubicarEnTablero(objSillaRota, 5, 3)
 
+    habitacion.ubicarEnTablero(txtHeladera, 3, 8)
+    habitacion.ubicarEnTablero(txtCocina, 5, 8)
+    habitacion.ubicarEnTablero(txtPolvoPiso, 7, 3)
+
     //--fantasmas
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 500))
     game.addVisual(new FantasmaDiagonal(position = limitesFantasmas.ubicacionRandom(), velocidad = 800))

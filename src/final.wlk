@@ -35,6 +35,9 @@ object final {
 
     //--Items
 
+    //--textos
+    habitacion.ubicarEnTablero(txtDerrumbe, 5, 5)
+
     //Items en Inventario
     barraItems.refreshListaDeItems()
     

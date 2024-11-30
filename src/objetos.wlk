@@ -86,26 +86,29 @@ class  ObjInvSoloResponde inherits ObjetosInvisibles {//solo muetra mensaje
           const objBiblioInfo4     = new ObjInvSoloResponde (textoInfo = textoBiblioInfo4, tiempo =3000)
 
   //textos para hacer
-          /*
-          const txtLamparas        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtHeladera        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtCocina          = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtEstantes        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtMesitas         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtTv              = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtRadio           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtSofa            = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtAlfombra        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtPiano           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtViolin          = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtOcarina         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtRadioMusic      = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtCuadro2         = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtSikus           = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          const txtMuebles2        = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
-          */
+          const txtLamparas        = new ObjInvSoloResponde (textoInfo = textoLampara, tiempo =1500)
+          const txtHeladera        = new ObjInvSoloResponde (textoInfo = textoHeladera, tiempo =1500)
+          const txtCocina          = new ObjInvSoloResponde (textoInfo = textoCocina, tiempo =1500)
+          const txtEstantes        = new ObjInvSoloResponde (textoInfo = textoEstantes, tiempo =1500)
+          const txtMesitas         = new ObjInvSoloResponde (textoInfo = textoMesitas, tiempo =1500)
+          
+          const txtTv              = new ObjInvSoloResponde (textoInfo = textoTv, tiempo =1500)
+          const txtRadio           = new ObjInvSoloResponde (textoInfo = textoRadio, tiempo =1500)
+          const txtSofa            = new ObjInvSoloResponde (textoInfo = textoSofa, tiempo =1500)
+          const txtAlfombra        = new ObjInvSoloResponde (textoInfo = textoAlfombra, tiempo =1500)
+          const txtPiano           = new ObjInvSoloResponde (textoInfo = textoPiano, tiempo =1500)
+          
+          const txtViolin          = new ObjInvSoloResponde (textoInfo = textoViolin, tiempo =1500)
+          const txtOcarina         = new ObjInvSoloResponde (textoInfo = textoOcarina, tiempo =1500)
+          //const txtRadioMusic      = new ObjInvSoloResponde (textoInfo = textoNadaImportante, tiempo =1500)
+          const txtCuadro2         = new ObjInvSoloResponde (textoInfo = textoCuadro2, tiempo =1500)
+          const txtSikus           = new ObjInvSoloResponde (textoInfo = textoSikus, tiempo =1500)
+          
+          const txtPolvoPiso       = new ObjInvSoloResponde (textoInfo = textoPolvoPiso, tiempo =1500)
+          const txtMuebles2        = new ObjInvSoloResponde (textoInfo = textoMuebles2, tiempo =1500)
 
+          const txtDerrumbe        = new ObjInvSoloResponde (textoInfo = textoDerrumbe, tiempo =1500)
+          
 
 
 //---------------------------------------------------------------------------------------------------------Clase Obj VISIBLES que solo responden
